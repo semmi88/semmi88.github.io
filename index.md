@@ -1,6 +1,32 @@
 ## Welcome to GitHub Pages
 
-[another page](./another.html)
+* [another page](./another.html)
+* [Github Markdown page](https://guides.github.com/features/mastering-markdown/)
+* [Minimal Theme example page](https://pages-themes.github.io/minimal/)
+
+<details>
+  <summary>Click to expand!</summary>
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
+
+# A collapsible section containing code
+<details>
+  <summary>Click to expand!</summary>
+  
+  ```javascript
+    function whatIsLove() {
+      console.log('Baby Don't hurt me. Don't hurt me');
+      return 'No more';
+    }
+  ```
+</details>
+
+
 
 You can use the [editor on GitHub](https://github.com/semmi88/semmi88.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
