@@ -1,4 +1,5 @@
 title: Adventure Code
 description: Exploring coding, machine learning and other interesing topics
+show_downloads: true
 theme: jekyll-theme-minimal
-markdown: CommonMarkGhPages
+markdown: CommonMarkGhPages # Needed for collapsable markdown
