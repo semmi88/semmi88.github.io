@@ -1,18 +1,10 @@
 
 ### Blog Posts
 
-
-| Title        | Publish Date (last update date) | Category, hashtags |
-|:-------------|:--------------------------------|:-------------------|
-| Book review - Barabási Albert László - Villanások (Bursts) - 2010 | *2020-May-02* | Book Review, HU  |
-| Python: the language of machine learning | *2020-May-02* | nice  |
-|  How to blog?          | *2020-May-02* | hmm   |
-| Why to blog?           | *2020-May-02* | yumm  |
-
-* Why to blog? 
-* How to blog?
-* Python: the language of machine learning
-* Book review - Barabási Albert László - Villanások (Bursts) - 2010
+* Why to blog? - 2020-May-02
+* How to blog? - 2020-May-03
+* Python: the language of machine learning - 2020-May-04
+* Book review - Barabási Albert László - Villanások (Bursts) - Hungarian, 2020-May-05
 
 
 ### Code and ML
