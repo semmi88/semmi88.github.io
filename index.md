@@ -2,8 +2,8 @@
 ### Blog Posts
 
 
-| Title        | Publish Date (last update date) | Category, hashtags|
-|:-------------|:------------------|:------------------|
+| Title        | Publish Date (last update date) | Category, hashtags |
+|:-------------|:--------------------------------|:-------------------|
 | Book review - Barabási Albert László - Villanások (Bursts) - 2010 | *2020-May-02* | Book Review, HU  |
 | Python: the language of machine learning | *2020-May-02* | nice  |
 |  How to blog?          | *2020-May-02* | hmm   |
