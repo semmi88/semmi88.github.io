@@ -2,6 +2,8 @@
 Book review
 ## The Willpower Instinct - by Kelly McGonigal, 2019
 
+![alt text](the_willpower_instinct.jpg "Cover")
+
 ### The main problem posed by the book:
 * we are too tired to act against our worse impulses
 * how to support the exhausted versions of ourselves?
