@@ -1,3 +1,5 @@
+Exploring coding, machine learning and other interesing topics
+
 What are you looking for
 * ### [Book reviews](book_reviews/index.md)
 
