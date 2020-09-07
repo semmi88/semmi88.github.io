@@ -1,7 +1,7 @@
 
-&leftarrow; [Back to Homepage](../index.md)
+&leftarrow; [Back to Book Reviews](index.md)
 
-## The Willpower Instinct - by Kelly McGonigal, 2019
+**The Willpower Instinct - by Kelly McGonigal, 2019**
 
 ![alt text](the_willpower_instinct.jpg "Cover")
 
