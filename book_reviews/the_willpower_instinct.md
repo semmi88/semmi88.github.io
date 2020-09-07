@@ -1,5 +1,5 @@
 
-&leftarrow; [back to Book Reviews](index.md)
+&leftarrow; [back to Book reviews](index.md)
 
 **The Willpower Instinct - by Kelly McGonigal, 2019**
 
