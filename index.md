@@ -1,8 +1,9 @@
-### [Book reviews](book_reviews/the_willpower_instinct.md)
+What are you looking for
+* ### [Book reviews](book_reviews/index.md)
 
 ***
 
-*Under construction*
+*Under construction - markdown help an examples*
 ### Blog Posts
 
 * Why to blog? - 2020-May-02
