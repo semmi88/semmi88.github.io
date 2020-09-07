@@ -1,5 +1,5 @@
 What are you looking for
-* ### [Book reviews](book_reviews/main.md)
+* ### [Book reviews](main.md)
 
 ***
 
