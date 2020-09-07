@@ -1,6 +1,6 @@
 &leftarrow; [back to Book reviews](index.md)
 
-**Villanások (Bursts) - by Barabási Albert László, 2019**
+**Villanások (Bursts) - by Barabási Albert László, 2010**
 
 ![alt text](villanasok.jpg "Cover")
 
