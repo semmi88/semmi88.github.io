@@ -10,43 +10,6 @@ The chapter do not present a story, rather ideas structured around mathematics, 
 
 ### Ideas that struck me the most:
 
-Human flaws, that we are not aware of:
-* not understanding exponential scales, even though it is build into our perceptions (vision, hearing)
- * maybe it is built into our brain/thinking as well, resulting in our incapability to understand exponentials rationally?
-* humans are terrible at assesing risks
- * large numbers confuse us (lotto)
- * psychological factors like fear, drama, no control - fear of flights
- * loss aversion, omission preferred - if there was a magic drug that saves 95% of sick people, but has side effect of killing 5%, we would never approve it
-  * it's better/preferred to do nothing, that to do any harm
-  
-Science is weird:
- * we can predict when a lunar ecplipse will occure precisly, but cannot predict that the sky will be cloudy and there is no point of going to the top of the hill to see it
- * only repeatable phenomena can be measured and predicted (in a hypotetical universe, where the laws are changing, we would not be successful in understanding the universe as we are now)
- * prediction as in foretelling the future in not the goal, nor the forte of science. Predictions are used as guideposts along the way to deeper understanding
-
-Scale is weird:
- * pint-size objects barely feel gravity, on that scale the electrical forces that hold molecules together are stronger
-  * flies have no problem walking on the ceiling, the molecular forces at their feet are stronger than gravity pulling down their puny weight
-  * put your hands in suger, they stick to your hand. put your hand in sugarcubes, and the cubes don't stick
- * in large scale matters, gravity takes over, everything larger than an asteroid is roundish shape - result of gravity pulling matter together
-  * "No uch thing as a teacup the diameter of Jupiter is poissible in our world" - its handle and sides would be pulled into the center
- 
- Voting systems are flawed:
-* there is no perfect voting system, all systems favor some type of candidates - works of Arrow
-
-Envy free divison of goods - Adjusted Winner strategy
-
-Chance events have a duality:
-* unpredictable on a small scale
-* yet very regular and predictable on a large scale
-
-Disorder has higher probability than order.
-* things teng to go toards disorder
-
-IQ vs Race:
-* there is larger ifferences within a group than between (people living in a capital vs people living in rural areas)
-* instead we shoul compare the IQ of people who care about racial IQ to the people who don't
-
 Truth is weird:
  * logical truth - used in mathematics and reasoning, which should be clear and exact - except there the Godel's Incompletenes theorem
  * probabilistic truth
@@ -57,7 +20,7 @@ Truth is weird:
  * truth by consensus:
    * jury, law and order does not have time for peer reviews and long revisions, needs decisions quickly
 
-Symmetry:
+Symmetry suggest importance:
  * symmetry means invarince, indistinguishable - and usually leads to understanding nature better
   * all water molecules are indistinguishable - this symmetry suggests something about the nature of molecules
   * sphere - invariant to all rotation, is more symmetrical than a square
@@ -74,3 +37,40 @@ Biological mistery:
    * this leads to speculations about the origin of life
     * if life came into existence at many locations at once, than those early moleculs would be equally lleft and righ handed
     * but if life originated in a single rare event, that that molecule would have passed down its right handiness as a legacy to all living things to come
+
+Science is weird:
+ * we can predict when a lunar ecplipse will occure precisly, but cannot predict that the sky will be cloudy and there is no point of going to the top of the hill to see it
+ * only repeatable phenomena can be measured and predicted (in a hypotetical universe, where the laws are changing, we would not be successful in understanding the universe as we are now)
+ * prediction as in foretelling the future in not the goal, nor the forte of science. Predictions are used as guideposts along the way to deeper understanding
+
+Scale is weird:
+ * pint-size objects barely feel gravity, on that scale the electrical forces that hold molecules together are stronger
+  * flies have no problem walking on the ceiling, the molecular forces at their feet are stronger than gravity pulling down their puny weight
+  * put your hands in suger, they stick to your hand. put your hand in sugarcubes, and the cubes don't stick
+ * in large scale matters, gravity takes over, everything larger than an asteroid is roundish shape - result of gravity pulling matter together
+  * "No uch thing as a teacup the diameter of Jupiter is poissible in our world" - its handle and sides would be pulled into the center
+
+Human flaws, that we are not aware of:
+* not understanding exponential scales, even though it is build into our perceptions (vision, hearing)
+ * maybe it is built into our brain/thinking as well, resulting in our incapability to understand exponentials rationally?
+* humans are terrible at assesing risks
+ * large numbers confuse us (lotto)
+ * psychological factors like fear, drama, no control - fear of flights
+ * loss aversion, omission preferred - if there was a magic drug that saves 95% of sick people, but has side effect of killing 5%, we would never approve it
+  * it's better/preferred to do nothing, that to do any harm
+
+Voting systems are flawed:
+* there is no perfect voting system, all systems favor some type of candidates - works of Arrow
+
+Envy free divison of goods - Adjusted Winner strategy
+
+Chance events have a duality:
+* unpredictable on a small scale
+* yet very regular and predictable on a large scale
+
+Disorder has higher probability than order.
+* things teng to go toards disorder
+
+IQ vs Race:
+* there is larger ifferences within a group than between (people living in a capital vs people living in rural areas)
+* instead we shoul compare the IQ of people who care about racial IQ to the people who don't
