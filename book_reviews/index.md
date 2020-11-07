@@ -1,6 +1,6 @@
 &leftarrow; [back to Homepage](../index.md)
 
-**[Peak - by Anders Ericsson, Robert Pool, 2016](peak.md)****
+**[Peak - by Anders Ericsson, Robert Pool, 2016](peak.md)**
 
 [![alt text](peak.jpg "Cover")](peak.html)
 
