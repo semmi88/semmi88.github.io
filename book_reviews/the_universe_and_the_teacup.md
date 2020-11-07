@@ -11,14 +11,14 @@ The chapter do not present a story, rather ideas structured around mathematics, 
 ### Ideas that struck me the most:
 
 Truth is weird:
- * logical truth - used in mathematics and reasoning, which should be clear and exact - except there the Godel's Incompletenes theorem
- * probabilistic truth
-  * in science, falsifyable theories are proposed and then with experiment their probable truthiness increases, but we can never be absolutely sure
-  * but you can be absolutely wrong, and that's easy to prove with an experiment, counter example
-  * use a high standard, to accept something as truth - what is the probability that this is only a chance event?
-    * upsilon particle "discovery",  1 in 50 - turned out to be a change event, "Ooops, Leon"
- * truth by consensus:
-   * jury, law and order does not have time for peer reviews and long revisions, needs decisions quickly
+ - logical truth - used in mathematics and reasoning, which should be clear and exact - except there the Godel's Incompletenes theorem
+ - probabilistic truth
+   - in science, falsifyable theories are proposed and then with experiment their probable truthiness increases, but we can never be absolutely sure
+   - but you can be absolutely wrong, and that's easy to prove with an experiment, counter example
+   - use a high standard, to accept something as truth - what is the probability that this is only a chance event?
+     - upsilon particle "discovery",  1 in 50 - turned out to be a change event, "Ooops, Leon"
+ - truth by consensus:
+    - jury, law and order does not have time for peer reviews and long revisions, needs decisions quickly
 
 Symmetry suggest importance:
  * symmetry means invarince, indistinguishable - and usually leads to understanding nature better
@@ -69,8 +69,8 @@ Chance events have a duality:
 * yet very regular and predictable on a large scale
 
 Disorder has higher probability than order.
-* things teng to go toards disorder
+* things teng to go towards disorder
 
 IQ vs Race:
-* there is larger ifferences within a group than between (people living in a capital vs people living in rural areas)
-* instead we shoul compare the IQ of people who care about racial IQ to the people who don't
+* there is larger differences within a group than between groups (people living in a capital vs people living in rural areas)
+* instead we should compare the IQ of people who care about racial IQ to the people who don't
