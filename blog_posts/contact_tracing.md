@@ -12,7 +12,7 @@ The goal of this blog post is to describe how these contact tracing systems are 
 * [scoping](#Scoping)
 * [high-level design](#High-Level-Design)
 * [design trade-offs](#Design-Trade-Offs)
-* [ENS - the basic building block](#ENS)
+* [ENS - the basic building block](#ens---the-basic-building-block)
 
 ## Scoping
 
@@ -132,7 +132,7 @@ One disadvantage that comes with this solution, is the increase inthe amount of 
 
 While trying to protect privacy as best as we can, we should note that no matter the design and algorithms choosen, perfect privacy cannot be guaranteed. As an example let's imagine a monk, who lives alone in a mountain top, only meeting one delivery person every two weeks, who supplies the monk with the necessary food and other things he might need. Now imagine that both the monk and the delivery guy uses the Virus Radar app, both have their bluetooth activated, and after a few days of meeting the delivery guy, the monk receives the exposure notification on his phone. He will know for sure, that he got exposed to the virus through meeting the delivery guy, who has been confirmed to be infected. In this case, because of the circumstances of use, the app cannot protect the delivery guys privacy. Some could argue that users like the monk, who only met one person in the previous 14 days, the app should not reviel the possible exposure and protect the privacy of the delivery guy. However, what if the monk is planning to go next week to the annual monk meetup, and if he had not been notified of the possible exposure, he would spread the disease amongst all the monks in the country. Or what if the monk interacts with other people, who don't use the contact tracing app, and so should be notified to protect the non app users as well.
 
-## [ENS - the basic building block][ENS]
+## ENS - the basic building block
 
 Of course building all this from scratch would require a lot of effort. Fortunately, we could build upon a basic component called ENS. Google and Apple joined forces and together developed the Exposure Notification System (ENS), which is now available as part of the platform for the latest Android and iOS. The Exposure Notification System was created with the specific puspose to enable the creation of privacy respecting contact tracing apps on these platform. Almost all critical parts are taken care of automatically by ENS: 
 - it manages the creation and rotation of cryptogaphally random keys and derived Blutooth identifiers
