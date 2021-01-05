@@ -140,7 +140,7 @@ While trying to protect privacy as best as we can, we should note that no matter
 
 ## ENS - the basic building block
 
-Of course building all this from scratch would require a lot of effort. Fortunately, we could build upon a basic component called ENS. Google and Apple joined forces and together developed the Exposure Notification System ([ENS](https://www.google.com/covid19/exposurenotifications/)), which is now available as part of the platform for the latest Android and iOS. The Exposure Notification System was created with the specific purpose to enable the creation of privacy respecting contact tracing apps on these platforms. Almost all critical parts are taken care of automatically by ENS: 
+Of course building all this from scratch would require a lot of effort. Fortunately, we could build upon a basic component called ENS. Google and Apple joined forces and together developed the [Exposure Notification System (ENS)](https://www.google.com/covid19/exposurenotifications/)), which is now available as part of the platform for the latest Android and iOS. The Exposure Notification System was created with the specific purpose to enable the creation of privacy respecting contact tracing apps on these platforms. Almost all critical parts are taken care of automatically by ENS: 
 - it manages the creation and rotation of cryptographically random keys and derived Bluetooth identifiers
 - it manages the Bluetooth and data transmission, Bluetooth Beacons, rotating MAC addresses and scanning for nearby devices
 - it protects privacy, by not allowing direct access for the apps to scanned identifiers (more on this later)
