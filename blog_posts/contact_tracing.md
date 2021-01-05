@@ -122,7 +122,7 @@ Given these numbers we can see that the there will be an asymetric traffic patte
 
 To be able to serve these types of read-heavy request patterns, the database has to be read scalable. This is usually done by replicating the database, setting up several read replicas. There will be a primary node, which will accept read and write requests, and several secondary nodes which will only accept read request. Every write request to the primary node will be replicated to all secondary nodes. These secondary nodes or read replicas can also serve as failover nodes, in case the primary node fails. The replication can be done syncronously, if write request to the primary node only return successfully after at least some secondary nodes are updated as well. This results in an active-active architecture, where failover can happen immediately. Replication can also be asynchronous, if the writes to the primary node are decoupled from the updates happening to secondaries. This is called active-passive or primary-standby architecture, which offer lower latency writes in exchange for slower failovers.
 
--- diagram --
+![alt text](ReadScalableDB.svg "Read Scalable DB")
 
 The ability to serve the read request also depends on our exact query and the data model. Fortunately, for our use case we can have a simple data model and a simple query. We store confirmed positive UUIDs with a registration timestamp and an infectious time period. The data can be sorted based on the registration timestamp. Queries for newly registered UUIDs would just return all records with a registration timestamp greater than a given input timestamp.
 
