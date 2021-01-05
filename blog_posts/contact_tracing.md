@@ -1,3 +1,5 @@
+&leftarrow; [back to Homepage](../index.md)
+
 # Contact Tracing - a System Design Exercise
 
 Contact tracing is one of the possible ways to control the spread of an infectious disease, by notifying the people who have been in contact with a confirmed positive case, and asking them to self-quarantine. Governments and health authorities are conducting contact tracing using various methods, some involving manual processes others using an automated system based on smartphone apps. How would you design such an automated contact tracing system? 
@@ -7,10 +9,10 @@ This is not purely a teoretical exercise, these systems already exists and are i
 Based on the latest data (27 December 2020) in Spain the app was downloaded by 6 million people (12% of the population), with around 25.000 positive cases declared through the app. This 25.000 only equals about 1.5% of the total positive cases reported since the initial release of the app 9th of September 2020 ([1.4 million cases](https://ourworldindata.org/coronavirus-data-explorer?zoomToSelection=true&time=2020-09-09..latest&country=~ESP&region=World&casesMetric=true&interval=total&hideControls=true&smoothing=0&pickerMetric=location&pickerSort=asc)).
 
 The goal of this blog post is to describe how these contact tracing systems are built and how they work, applying some simplifications to favor understandability. The approach taken is to present this as a systems design exercise, divided into the following parts:
-* scoping
-* high-level design
-* design trade-offs
-* ESN - the basic building block
+* [scoping](#Scoping)
+* [high-level design](#High-Level-Design)
+* [design trade-offs](#Design-Trade-Offs)
+* [ESN - the basic building block](#ENS-the-basic-building-block)
 
 ## Scoping
 
