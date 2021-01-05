@@ -64,7 +64,7 @@ Mobile devices can act as a Bluetooth Beacons to periodically broadcast informat
 
 So as a first approach, we could create a mobile app, let's call it Virus Radar. This app would generate a random, universally unique ID (UUID) associated with the device (and the owner/user of the device), and start broadcasting that ID (with some metadata to specify that this should be used for contact tracing for a specific disease). The app would also scan and collect UUIDs from nearby devices and store them together with a timestamp and a reciever signal strenght (for later calculation of exposure time and distance approximations). This takes care of the first requirement group.
 
---diagram--
+![alt text](BLEBeacons.svg "BLE Beacons")
 
 The seconds requirement group, the handling of positive diagnostic cases, should be managed/updated centrally. This would avoid inconsistencies in the data and serve as a single source of truth. We could add a central service, which would accept requests to register a new positive diagnostic case. We could call this component the Postive Diagnosis Server. To simplify, we will assume that the registration of new positive cases is done voluntarilty and is based on self-declaration of users after a confirmed test. (In the real implementations of the system, there is a Verification Server component, which can validate a test results using associated QR codes given out by the Health Authorities). 
 
