@@ -29,23 +29,19 @@ Other assumptions about the diseas that we can make:
 This first assumption one is an important piece of information, as all data and events registered by the system can be deleted after 14 days, as they are no longer relevant. This puts limits on the storage space, network data transfer and computations needed and allows the system to scale nicely, as we don't need to keep infinite history. The following assumption will help us when doing the calculations for close contact events and exposure detection.
 
 
-Next, let's roughly define the main use cases, and agree on the functional requirements of the system. These could be grouped in three separate categories.
+Next, let's roughly define the main use cases, and agree on the requirements of the system. These could be grouped in four separate categories.
 
 **User proximity/close contact**
 - detection
 - storage (for a limited time period) in order to check for exposure
-
 **Positive diagnostic cases**
 - reporting - newly confirmed positive diagnosis of users can be added to the system
 - storage of all previously reported positiv cases (for a limited time period) in order to warn of exposure
-
 **Exposure detection**
 - check for user close contacts with a confirmed positive case in a given time period and calculate risk score
 - based on risk score notify user of possible exposure to the disease and clear medical instructions
-
-
-Lastly, we also have a strong constraint regarding privacy:
-- preserve privacy - inidivual identity or location of app users cannot be extracted from the system
+**Privacy**
+- inidivual identity or location of app users cannot be extracted from the system
 
 So based on all the scoping above let's try to come up with a simple design for such a system. 
 
@@ -79,9 +75,11 @@ With this we are almost done, there are only a few details left to sort out. But
 
 ## Design Trade-Offs
 
-#### How often should the app broadcast its UUID? And how often should the app scan for nearby UUIDs?
+#### How often should the app broadcast its UUID?
 
 Broadcasting, being a 1-way data transmission, is cheap from a resource perspective, so we should do it often. More so, because scanning devices need to detect the broadcasted signal during their scan. If we broadcast once every minute, scanning devices need to keep scanning for a whole minute to guarantee that they will detect a nearby signal. That would be really wastful on the scanning side. The current recommended broadcasting interval for exposure notifications is around 200 milliseconds (https://blog.google/documents/70/Exposure_Notification_-_Bluetooth_Specification_v1.2.2.pdf).
+
+#### How often should the app scan for nearby UUIDs?
 
 For scanning we face the trade-off between high frequency/precision and resource usage. Scanning can consume significant resources, since in a public place there could potentially be hundreds of broadcasters to detect and register. So we should do it rarely, based on our close contact definition of longer than 15 minutes, depending on the error we allow ... we could get away with scanning every 7.5 minutes. The current recommended strategy for exposure notifications is opportunistic scanning (leveraging existing wakes and scan windows) and with minimum periodic sampling every 5 minutes (https://blog.google/documents/70/Exposure_Notification_-_Bluetooth_Specification_v1.2.2.pdf). Also, we should scan for an interval of at least 200ms to guarantee broadcast detection.
 
