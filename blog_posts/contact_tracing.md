@@ -34,12 +34,15 @@ Next, let's roughly define the main use cases, and agree on the requirements of 
 **User proximity/close contact**
 - detection
 - storage (for a limited time period) in order to check for exposure
+
 **Positive diagnostic cases**
 - reporting - newly confirmed positive diagnosis of users can be added to the system
 - storage of all previously reported positiv cases (for a limited time period) in order to warn of exposure
+
 **Exposure detection**
 - check for user close contacts with a confirmed positive case in a given time period and calculate risk score
 - based on risk score notify user of possible exposure to the disease and clear medical instructions
+
 **Privacy**
 - inidivual identity or location of app users cannot be extracted from the system
 
