@@ -89,8 +89,7 @@ Broadcasting, being a 1-way data transmission, is cheap from a resource perspect
 
 For scanning we face the trade-off between high frequency/precision and resource usage. Scanning can consume significant resources, since in a public place there could potentially be hundreds of broadcasters to detect and register. So we should do it rarely, based on our close contact definition of longer than 15 minutes, depending on the error we allow ... we could get away with scanning every 7.5 minutes. The current recommended strategy for exposure notifications is opportunistic scanning (leveraging existing wakes and scan windows) and with minimum periodic sampling every 5 minutes ([Exposure Notification - Bluetooth Specification](https://blog.google/documents/70/Exposure_Notification_-_Bluetooth_Specification_v1.2.2.pdf)). Also, we should scan for an interval of at least 200ms to guarantee broadcast detection.
 
-
---diagram--
+![alt text](BluetoothBroadcastScan.svg "Bluetooth Broadcast Scan")
 
 #### How long should the UUIDs be? How many bits?
 
@@ -116,7 +115,7 @@ So given all this, should we decrease the number of bits used for IDs, and settl
 
 This question has to be answered taking into account two perspectives. From the mobile apps point of view, querying too often would not be an efficient use of networking resources. From the server perspective serving too many clients too often might overload the service.
 
-We also need some additional data. First we should have an estimate of potential users of the app, to be able to account for the server load when serving data to all the users. Let's go here with the previously prosposed 10 million users here as well. Second we should have an estimate of how often and how many new positive cases are detected. So let's consider the country of Spain and a roughly one month period, when there was a surge in the number of cases, between October 15th - November 19th, 2020. In this period the confirmed cases of COIVD-19 increased by more than half million, 620.000. In these 35 days, there were on average 17.000 new cases daily - which is equivalent to 1 new case every 10 seconds on average. (OurWorldInData - https://ourworldindata.org/grapher/covid-19-total-confirmed-cases-vs-total-tests-conducted). 
+We also need some additional data. First we should have an estimate of potential users of the app, to be able to account for the server load when serving data to all the users. Let's go here with the previously prosposed 10 million users here as well. Second we should have an estimate of how often and how many new positive cases are detected. So let's consider the country of Spain and a roughly one month period, when there was a surge in the number of cases, between October 15th - November 19th, 2020. In this period the confirmed cases of COIVD-19 increased by more than half million, 620.000. In these 35 days, there were on average 17.000 new cases daily - which is equivalent to 1 new case every 10 seconds on average. ([OurWorldInData](https://ourworldindata.org/grapher/covid-19-total-confirmed-cases-vs-total-tests-conducted?tab=chart&stackMode=absolute&time=2020-10-15..2020-11-19&country=~ESP&region=World)). 
 
 Given these numbers we can see that the there will be an asymetric traffic pattern, heavily skewed towards reads. If the app only queries the server once a day, then we have 10 million reads versus the daily maximum number of new cases added, which we can approximate as 20.000 writes. Also we might want to query more frequently than once a day, let's say roughly once every hour with randomized time intervals to spread the load. This would equal on average to 2800 read requests/second versus less than 1 write request/second.
 
