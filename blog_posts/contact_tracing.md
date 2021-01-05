@@ -23,24 +23,25 @@ First, let's talk about some facts that are given and some assumptions the we pr
 - with time, enough people will use the app to make a difference or at least help out the authorities with contact tracing
 
 Other assumptions about the diseas that we can make: 
-- infectious period of the disease is known or at least can be closely approximated - we can use 14 days in case of COVID-19 (as defined in the Privacy Policy of a real app - https://radarcovid.gob.es/politica-de-privacidad)
-- for the disease to spread, individuals have to be in close physical contact - for which we can use the definition of less than 2 meters for more than 15 minutes (as in the Privacy Policy of a real app - https://radarcovid.gob.es/politica-de-privacidad)
+- infectious period of the disease is known or at least can be closely approximated - we can use 14 days in case of COVID-19 (as defined in the [Privacy Policy of a real app](https://radarcovid.gob.es/politica-de-privacidad))
+- for the disease to spread, individuals have to be in close physical contact - for which we can use the definition of less than 2 meters for more than 15 minutes (as in the [Privacy Policy of a real app](https://radarcovid.gob.es/politica-de-privacidad))
 
 This first assumption one is an important piece of information, as all data and events registered by the system can be deleted after 14 days, as they are no longer relevant. This puts limits on the storage space, network data transfer and computations needed and allows the system to scale nicely, as we don't need to keep infinite history. The following assumption will help us when doing the calculations for close contact events and exposure detection.
 
 
-Next, let's roughly define the main use cases, and agree on the functional requirements of the system. These could be grouped in three categories:
-- user proximity/close contact
-  - detection
-  - storage (for a limited time period) in order to check for exposure
+Next, let's roughly define the main use cases, and agree on the functional requirements of the system. These could be grouped in three separate categories.
 
-- positive diagnostic cases
-  - reporting - newly confirmed positive diagnosis of users can be added to the system
-  - storage of all previously reported positiv cases (for a limited time period) in order to warn of exposure
+**User proximity/close contact**
+- detection
+- storage (for a limited time period) in order to check for exposure
 
-- exposure detection
-  - check for user close contacts with a confirmed positive case in a given time period
-  - notify user of possible exposure to the disease (based on contact proximity, duration and/or other factors)
+**Positive diagnostic cases**
+- reporting - newly confirmed positive diagnosis of users can be added to the system
+- storage of all previously reported positiv cases (for a limited time period) in order to warn of exposure
+
+**Exposure detection**
+- check for user close contacts with a confirmed positive case in a given time period and calculate risk score
+- based on risk score notify user of possible exposure to the disease and clear medical instructions
 
 
 Lastly, we also have a strong constraint regarding privacy:
@@ -53,9 +54,9 @@ So based on all the scoping above let's try to come up with a simple design for 
 
 There are some key technologies that we should be familiar with and make use of to build such a distribuited system. 
 
-Firstly, for detecting proximity of mobile devices we should use a wireless data transfer technology. The natural choice is Bluetooth Low Energy (BLE), which is a short distance, low power consumption technology, ideal for small data transfers between devices. The reduced power consumption is important for mobile devices, and our requirements do not require the transfer of large amounts of data. Other technologies are less suitable for our use case; NFC has insuficient range (only about 10cm, while the airborne infectious disease can spread further than 1 meter), while WiFi is aimed more towards high data throughput and has higher power consumptions.
+Firstly, for detecting proximity of mobile devices we should use a wireless data transfer technology. The natural choice is **Bluetooth Low Energy (BLE)**, which is a short distance, low power consumption technology, ideal for small data transfers between devices. The reduced power consumption is important for mobile devices, and our requirements do not require the transfer of large amounts of data. Other technologies are less suitable for our use case; NFC has insuficient range (only about 10cm, while the airborne infectious disease can spread further than 1 meter), while WiFi is aimed more towards high data throughput and has higher power consumptions.
 
-Based on Bluetooth Low Energy, we need to choose some form of location-based technology. Here a good choice would be to use Bluetooth Beacon technology, which was specifically designed to broadcast information to other, nearby Bluetooth-enabled devices. This is used (by placing small harware transmitters) in specific points of interest to distribuite messages, like traffic information at a bus stop or marketing messages in stores. This kind of broadcasting only allows for 1-way data transmission, the emitter Beacon does not expect nor accept any response from the receivers, and so a Beacon cannot be used to track users against their will. 
+Based on Bluetooth Low Energy, we need to choose some form of location-based technology. Here a good choice would be to use **Bluetooth Beacon technology**, which was specifically designed to broadcast information to other, nearby Bluetooth-enabled devices. This is used (by placing small harware transmitters) in specific points of interest to distribuite messages, like traffic information at a bus stop or marketing messages in stores. This kind of broadcasting only allows for 1-way data transmission, the emitter Beacon does not expect nor accept any response from the receivers, and so a Beacon cannot be used to track users against their will. 
 
 Mobile devices can act as a Bluetooth Beacons to periodically broadcast information, and can also also periodically scan their surroundings to detect other Bluetooth Beacons broadcasting. The typical data packages broadcasted are a unique Beacon ID and other associated metadata like a web url. 
 
@@ -78,7 +79,7 @@ With this we are almost done, there are only a few details left to sort out. But
 
 ## Design Trade-Offs
 
-How often should the app broadcast its UUID? And how often should the app scan for nearby UUIDs?
+#### How often should the app broadcast its UUID? And how often should the app scan for nearby UUIDs?
 
 Broadcasting, being a 1-way data transmission, is cheap from a resource perspective, so we should do it often. More so, because scanning devices need to detect the broadcasted signal during their scan. If we broadcast once every minute, scanning devices need to keep scanning for a whole minute to guarantee that they will detect a nearby signal. That would be really wastful on the scanning side. The current recommended broadcasting interval for exposure notifications is around 200 milliseconds (https://blog.google/documents/70/Exposure_Notification_-_Bluetooth_Specification_v1.2.2.pdf).
 
@@ -87,7 +88,7 @@ For scanning we face the trade-off between high frequency/precision and resource
 
 --diagram--
 
-How long should the UUIDs be? How many bits?
+#### How long should the UUIDs be? How many bits?
 
 Longer IDs have a smaller chance of collision, but take up more storage space and would require more network data transfer. In computer science using 128 bits for UUID is considered good enough (without any central coordination system the chance of ID collision/duplication is negligible). And in fact these 128 bit ids are used in real applications (https://blog.google/documents/69/Exposure_Notification_-_Cryptography_Specification_v1.2.1.pdf).
 
@@ -105,9 +106,7 @@ If we accept a higher probabilty, 25% chance for collisions (p=0.25), we get a h
 
 So given all this, should we decrease the number of bits used for IDs, and settle on a higher acceptable level of collisions, that could lead to false positives for our contact tracing system? Probably not, and we should stick with using 128bit IDs, unless we can really trust our estimations and the ID size turns out to be a bottleneck for the system.
 
-
-
-How often should the app query the Postive Diagnosis Server for new cases? What would be a scalable approach?
+#### How often should the app query the Postive Diagnosis Server for new cases? What would be a scalable approach?
 
 This question has to be answered taking into account two perspectives. From the mobile apps point of view, querying too often would not be an efficient use of networking resources. From the server perspective serving too many clients too often might overload the service.
 
@@ -121,8 +120,7 @@ The ability to serve the read request also depends on our exact query and the da
 
 We can also estimate the size of the data needed to be transferred. If we assume 1000 new cases registered per hour (~20.000 cases per day), then every hour we need to download 1000 records containing the UUID and the timestamp. The size of one data record would be a 128 bit (UUID) plus a 64 bit (timestamp), equalling to 192/8 = 24 bytes. So a raw, uncompressed data payload of 1000 records would be around 24 KB, which seems small enough to not be a bottleneck.
 
-
-How does the system protect privacy?
+#### How does the system protect privacy?
 
 As previously mentioned Bluetooth Beacon technology is a 1-way transmission, so a beacon cannot track the receivers of its signal. However, in the case of the contact tracing app, each device acts not only as beacon (data emitter), but also as a data receiver. And whenever we are doing a scan with the app, we receive the BeaconID and this makes it possible to track specific beacons.
 
@@ -158,3 +156,9 @@ Now I have to be honest, I don't really understand a reason for key derivation s
 The important thing to note here is that the generated BeaconIDs (RPIs) never have to leave the Exposure Notification System. The mobile apps cannot access them, and they are not sent to the Diagnosis Server either. The only thing that is accessed by the app and sent to the Diagnosis Server are the the original Temporary Exposure Key (TEK) and their creation timestamp (corresponing to a 10 minute interval number). These keys (TEKs) and their timestamp provide enough information to the Exposure Notification System to derive BeaconIDs, decrypt information and do the calculation to detect possible exposure. 
 
 Let's examine the decryption flow in more details. Once the Diagnosis Server is queried, we recieve a set of Temporary Exposure Key (TEK) and corresponding timestamps. Using the key derivation function (HKDF) we can re-derive the Rolling Proximity Indentified Keys (RPIK) and Associated Encrypted Metadata Keys (AEMKs). Then for each of the PRIKs we re-create the 144 Rolling Proximity Identifiers (RPI), knowing that their broadcast time is every 10 minute interval of the day (and the day is known from the Temporary Exposure Keys timestamp). Now these recreated RPIs can be compared to the ones that were scanned and stored in the last 14 days. If there is a match of IDs with an overlap of scan time and broadcast time (using a tolerance window) we have detected a possible exposure. For each match we can calculate the exposure duration based on timestamps. Using the corresponding AEMK we can also decrypt the metadata and access the original transmit power data. This can be compared to the stored receiver signal strenght to give estimations for the proximity of the contact. Based on the duration and proximity of the exposure a risk score can be caluclated. The Exposoure Notificaion System can provide daily summary of precalculated risk score, or surface the exposure data to the app to allow for flexible risk score calculations. Based on the risk score the users can be notified with clear medical instructions.
+
+#### References
+
+* https://github.com/RadarCOVID
+* https://ourworldindata.org/coronavirus-data-explorer
+* https://radarcovid.gob.es/politica-de-privacidad
