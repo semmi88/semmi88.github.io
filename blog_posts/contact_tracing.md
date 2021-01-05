@@ -151,7 +151,7 @@ On Android the Exposure Notification System is accessed through Google Play Serv
 
 ![alt text](ContactTracingHighLevel2.svg "Contact Tracing High-Level diagram")
 
-One intersting thing to examine is how the ID generation work. This is documented in the Cryptographic specification, however it is worth going into the details a bit here and separating the encyrption and decryption flows. 
+One intersting thing to examine is how the ID generation work. This is documented in the [Cryptographic specification](https://blog.google/documents/69/Exposure_Notification_-_Cryptography_Specification_v1.2.1.pdf), however it is worth going into the details a bit here and separating the encyrption and decryption flows. 
 
 The basic idea is generating a random key every day, then using that key to derive (through several steps) a new BeaconsIDs and bluetooth payload every 10 minutes. These BeaconIDs are used for close contact detection (trasmitted and scanned). However when reporting a positive diagnostic case, we don't send the BeaconIDs, instead we send the original random generated keys to the server. These random keys can then later be used to re-derive the BeaconIDs and detect close contant events.
 
