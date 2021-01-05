@@ -169,7 +169,7 @@ The important thing to note here is that the generated BeaconIDs (RPIs) never ha
 
 Let's examine the decryption flow in more details. Once the Diagnosis Server is queried, we receive a set of Temporary Exposure Key (TEK) and corresponding timestamps. Using the key derivation function (HKDF) we can re-derive the Rolling Proximity Identifier Keys (RPIK) and Associated Encrypted Metadata Keys (AEMKs). Then for each of the PRIKs we re-create the 144 Rolling Proximity Identifiers (RPI), knowing that their broadcast time is every 10 minute interval of the day (and the day is known from the Temporary Exposure Keys timestamp). Now these recreated RPIs can be compared to the ones that were scanned and stored in the last 14 days. If there is a match of IDs with an overlap of scan time and broadcast time (using a tolerance window) we have detected a possible exposure. For each match we can calculate the exposure duration based on timestamps. Using the corresponding AEMK we can also decrypt the metadata and access the original transmit power data. This can be compared to the stored receiver signal strength to give estimations for the proximity of the contact. Based on the duration and proximity of the exposure a risk score can be calculated. The Exposure Notification System can provide daily summary of pre-calculated risk score, or surface the exposure data to the app to allow for flexible risk score calculations. Based on the risk score the users can be notified with clear medical instructions.
 
-And that is how ENS provides all the basic building block to be able to create contact tracing system.
+And that is how ENS provides all the basic building blocks to be able to create a contact tracing system.
 
 #### References
 
