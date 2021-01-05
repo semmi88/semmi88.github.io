@@ -6,12 +6,15 @@ Contact tracing is one of the possible ways to control the spread of an infectio
 
 This is not purely a teoretical exercise, these systems already exists and are in production in some countries. At the time of writing this in January 2021, there are 8 countries from the European Union that use an official contact tracing apps, inter-operating with each other, functioning beyong borders (Croatia, Denmark, Germany, Italy, Netherlands, Ireland, Latvia, Poland and Spain). Some of these system even have open source implementations, for example the [Spanish RadarCovid](https://github.com/RadarCOVID).
 
+
+[![alt text](RadarCovid.png "Radar Covid App Icon")](https://github.com/RadarCOVID)
+
 Based on the latest data (27 December 2020) in Spain the app was downloaded by 6 million people (12% of the population), with around 25.000 positive cases declared through the app. This 25.000 only equals about 1.5% of the total positive cases reported since the initial release of the app 9th of September 2020 ([1.4 million cases](https://ourworldindata.org/coronavirus-data-explorer?zoomToSelection=true&time=2020-09-09..latest&country=~ESP&region=World&casesMetric=true&interval=total&hideControls=true&smoothing=0&pickerMetric=location&pickerSort=asc)).
 
 The goal of this blog post is to describe how these contact tracing systems are built and how they work, applying some simplifications to favor understandability. The approach taken is to present this as a systems design exercise, divided into the following parts:
-* [Scoping](#Scoping)
-* [High-level design](#High-Level-Design)
-* [Design trade-offs](#Design-Trade-Offs)
+* [Scoping](#scoping)
+* [High-level design](#high-level-design)
+* [Design trade-offs](#design-trade-offs)
 * [ENS - the basic building block](#ens---the-basic-building-block)
 
 ## Scoping
