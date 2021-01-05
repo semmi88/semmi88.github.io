@@ -6,7 +6,7 @@ Contact tracing is one of the possible ways to control the spread of an infectio
 
 ![alt text](ContactTracingHighLevel1.svg "Contact Tracing High-Level diagram")
 
-Also note that this is not purely a teoretical exercise, these systems already exist and are in production in some countries. At the time of writing this in January 2021, there are 8 countries from the European Union that use an official contact tracing apps, inter-operating with each other, functioning beyong borders (Croatia, Denmark, Germany, Italy, Netherlands, Ireland, Latvia, Poland and Spain). Some of these system even have open source implementations, for example the [Spanish RadarCovid](https://github.com/RadarCOVID).
+Also note that this is not purely a theoretical exercise, these systems already exist and are in production in some countries. At the time of writing this in January 2021, there are 8 countries from the European Union that use an official contact tracing app, inter-operating with each other, functioning beyond borders (Croatia, Denmark, Germany, Italy, Netherlands, Ireland, Latvia, Poland and Spain). Some of these systems even have open source implementations, for example the [Spanish RadarCovid](https://github.com/RadarCOVID).
 
 Based on the latest data (27 December 2020) in Spain the app was downloaded by 6 million people (12% of the population), with around 25.000 positive cases declared through the app. This 25.000 only equals about 1.5% of the total positive cases reported since the initial release of the app 9th of September 2020 ([1.4 million cases](https://ourworldindata.org/coronavirus-data-explorer?zoomToSelection=true&time=2020-09-09..latest&country=~ESP&region=World&casesMetric=true&interval=total&hideControls=true&smoothing=0&pickerMetric=location&pickerSort=asc)).
 
@@ -20,13 +20,13 @@ The goal of this blog post is to describe how these contact tracing systems are 
 
 ## Scoping
 
-First, let's talk about some facts that are given and some assumptions the we presume. To be able to detect contact between users we need a distribuited system where each user carries a device, which is part of the system. Given the following assumptions it is possible and worthwhile to build such a system:
-- enough people carry smarthpones to build a contact tracing system using smarthpone apps
+First, let's talk about some facts that are given and some assumptions that we presume. To be able to detect contact between users we need a distributed system where each user carries a device, which is part of the system. Given the following assumptions it is possible and worthwhile to build such a system:
+- enough people carry smartphones to build a contact tracing system using smartphone apps
 - close contact of smartphones is a good approximation of close contact of people
-- smartphones are not shared between different individual generally (or only in a negligable percentage of cases)
+- smartphones are not shared between different individual generally (or only in a negligible percentage of cases)
 - with time, enough people will use the app to make a difference or at least help out the authorities with contact tracing
 
-Other assumptions about the diseas that we can make: 
+Other assumptions about the disease that we can make: 
 - infectious period of the disease is known or at least can be closely approximated - we can use 14 days in case of COVID-19 (as defined in the [Privacy Policy of a real app](https://radarcovid.gob.es/politica-de-privacidad))
 - for the disease to spread, individuals have to be in close physical contact - for which we can use the definition of less than 2 meters for more than 15 minutes (as in the [Privacy Policy of a real app](https://radarcovid.gob.es/politica-de-privacidad))
 
@@ -41,39 +41,39 @@ Next, let's roughly define the main use cases, and agree on the requirements of 
 
 **Positive diagnostic cases**
 - reporting - newly confirmed positive diagnosis of users can be added to the system
-- storage of all previously reported positiv cases (for a limited time period) in order to warn of exposure
+- storage of all previously reported positive cases (for a limited time period) in order to warn of exposure
 
 **Exposure detection**
 - check for user close contacts with a confirmed positive case in a given time period and calculate risk score
 - based on risk score notify user of possible exposure to the disease and clear medical instructions
 
 **Privacy**
-- inidivual identity or location of app users cannot be extracted from the system
+- individual identity or location of app users cannot be extracted from the system
 
 So based on all the scoping above let's try to come up with a simple design for such a system. 
 
 
 ## High-Level Design
 
-There are some key technologies that we should be familiar with and make use of to build such a distribuited system. 
+There are some key technologies that we should be familiar with and make use of to build such a distributed system. 
 
-Firstly, for detecting proximity of mobile devices we should use a wireless data transfer technology. The natural choice is **Bluetooth Low Energy (BLE)**, which is a short distance, low power consumption technology, ideal for small data transfers between devices. The reduced power consumption is important for mobile devices, and our requirements do not require the transfer of large amounts of data. Other technologies are less suitable for our use case; NFC has insuficient range (only about 10cm, while the airborne infectious disease can spread further than 1 meter), while WiFi is aimed more towards high data throughput and has higher power consumptions.
+Firstly, for detecting proximity of mobile devices we should use a wireless data transfer technology. The natural choice is **Bluetooth Low Energy (BLE)**, which is a short distance, low power consumption technology, ideal for small data transfers between devices. The reduced power consumption is important for mobile devices, and our requirements do not require the transfer of large amounts of data. Other technologies are less suitable for our use case; NFC has insufficient range (only about 10cm, while the airborne infectious disease can spread further than 1 meter), while WiFi is aimed more towards high data throughput and has higher power consumptions.
 
-Based on Bluetooth Low Energy, we need to choose some form of location-based technology. Here a good choice would be to use **Bluetooth Beacon technology**, which was specifically designed to broadcast information to other, nearby Bluetooth-enabled devices. This is used (by placing small harware transmitters) in specific points of interest to distribuite messages, like traffic information at a bus stop or marketing messages in stores. This kind of broadcasting only allows for 1-way data transmission, the emitter Beacon does not expect nor accept any response from the receivers, and so a Beacon cannot be used to track users against their will. 
+Based on Bluetooth Low Energy, we need to choose some form of location-based technology. Here a good choice would be to use **Bluetooth Beacon technology**, which was specifically designed to broadcast information to other, nearby Bluetooth-enabled devices. This is used (by placing small hardware transmitters) in specific points of interest to distribute messages, like traffic information at a bus stop or marketing messages in stores. This kind of broadcasting only allows for 1-way data transmission, the emitter Beacon does not expect nor accept any response from the receivers, and so a Beacon cannot be used to track users against their will. 
 
-Mobile devices can act as a Bluetooth Beacons to periodically broadcast information, and can also also periodically scan their surroundings to detect other Bluetooth Beacons broadcasting. The typical data packages broadcasted are a unique Beacon ID and other associated metadata like a web url. 
+Mobile devices can act as a Bluetooth Beacons to periodically broadcast information, and can also periodically scan their surroundings to detect other Bluetooth Beacons broadcasting. The typical data packages broadcasted are a unique Beacon ID and other associated metadata like a web url. 
 
-So as a first approach, we could create a mobile app, let's call it Virus Radar. This app would generate a random, universally unique ID (UUID) associated with the device (and the owner/user of the device), and start broadcasting that ID (with some metadata to specify that this should be used for contact tracing for a specific disease). The app would also scan and collect UUIDs from nearby devices and store them together with a timestamp and a reciever signal strenght (for later calculation of exposure time and distance approximations). This takes care of the first requirement group.
+So as a first approach, we could create a mobile app, let's call it Virus Radar. This app would generate a random, universally unique ID (UUID) associated with the device (and the owner/user of the device), and start broadcasting that ID (with some metadata to specify that this should be used for contact tracing for a specific disease). The app would also scan and collect UUIDs from nearby devices and store them together with a timestamp and a receiver signal strength (for later calculation of exposure time and distance approximations). This takes care of the first requirement group.
 
 ![alt text](BLEBeacons.svg "BLE Beacons")
 
-The seconds requirement group, the handling of positive diagnostic cases, should be managed/updated centrally. This would avoid inconsistencies in the data and serve as a single source of truth. We could add a central service, which would accept requests to register a new positive diagnostic case. We could call this component the Postive Diagnosis Server or just Diagnosis Server. To simplify, we will assume that the registration of new positive cases is done voluntarilty and is based on self-declaration of users after a confirmed test. (In the real implementations of the system, there is a Verification Server component, which can validate a test results using associated QR codes given out by the Health Authorities). 
+The seconds requirement group, the handling of positive diagnostic cases, should be managed/updated centrally. This would avoid inconsistencies in the data and serve as a single source of truth. We could add a central service, which would accept requests to register a new positive diagnostic case. We could call this component the Positive Diagnosis Server or just Diagnosis Server. To simplify, we will assume that the registration of new positive cases is done voluntarily and is based on self-declaration of users after a confirmed test. (In the real implementations of the system, there is a Verification Server component, which can validate test results using associated QR codes given out by the Health Authorities). 
 
-So whenever a user is confirmed positive for the virus, there will be an option in the app to register this with the Diagnosis Server. During registration we would store the UUID that corresponds to the user/device and the registration timestamp. We could also store a timeinterval, during which we consider that UUID infectious. If we are overly cautious, we could use a large 28 day time-window, considering 14 days before and after the registration.
+So whenever a user is confirmed positive for the virus, there will be an option in the app to register this with the Diagnosis Server. During registration we would store the UUID that corresponds to the user/device and the registration timestamp. We could also store a time interval, during which we consider that UUID infectious. If we are overly cautious, we could use a large 28 day time-window, considering 14 days before and after the registration.
 
-The Postive Diagnosis Server could be queried by the mobile application periodically for all newly registered positive cases in a given time period (for example in the last day). These confirmed positive UUIDs than could be downloaded to the app for exposure detection.
+The Positive Diagnosis Server could be queried by the mobile application periodically for all newly registered positive cases in a given time period (for example in the last day). These confirmed positive UUIDs than could be downloaded to the app for exposure detection.
 
-Once we have access to both sets of information (close contacts and positive diagnostic cases in a given time period), exposure detection calculation becomes trivial, we just need to look for matching UUIDs in both sets, during the same interval. Once a match is found, given the timestamps and the recieved signal strenght, the app can calculate a risk score, based on which a warning can be show to the user with clear medical instructions to follow).
+Once we have access to both sets of information (close contacts and positive diagnostic cases in a given time period), exposure detection calculation becomes trivial, we just need to look for matching UUIDs in both sets, during the same interval. Once a match is found, given the timestamps and the received signal strength, the app can calculate a risk score, based on which a warning can be shown to the user with clear medical instructions to follow).
 
 ![alt text](DiagnosisServer.svg "Diagnosis Server")
 
