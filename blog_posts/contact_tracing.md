@@ -66,17 +66,17 @@ So as a first approach, we could create a mobile app, let's call it Virus Radar.
 
 ![alt text](BLEBeacons.svg "BLE Beacons")
 
-The seconds requirement group, the handling of positive diagnostic cases, should be managed/updated centrally. This would avoid inconsistencies in the data and serve as a single source of truth. We could add a central service, which would accept requests to register a new positive diagnostic case. We could call this component the Postive Diagnosis Server. To simplify, we will assume that the registration of new positive cases is done voluntarilty and is based on self-declaration of users after a confirmed test. (In the real implementations of the system, there is a Verification Server component, which can validate a test results using associated QR codes given out by the Health Authorities). 
+The seconds requirement group, the handling of positive diagnostic cases, should be managed/updated centrally. This would avoid inconsistencies in the data and serve as a single source of truth. We could add a central service, which would accept requests to register a new positive diagnostic case. We could call this component the Postive Diagnosis Server or just Diagnosis Server. To simplify, we will assume that the registration of new positive cases is done voluntarilty and is based on self-declaration of users after a confirmed test. (In the real implementations of the system, there is a Verification Server component, which can validate a test results using associated QR codes given out by the Health Authorities). 
 
-So whenever a user is confirmed positive for the vires, there will be an option in the app to register this with the Postive Diagnosis Server. During registration we would store the UUID that corresponds to the user/device and the registration timestamp. We could also store a timeinterval, during which we consider that UUID infectious. If we are overly cautious, we could use a large 28 day time-window, considering 14 days before and after the registration.
+So whenever a user is confirmed positive for the virus, there will be an option in the app to register this with the Diagnosis Server. During registration we would store the UUID that corresponds to the user/device and the registration timestamp. We could also store a timeinterval, during which we consider that UUID infectious. If we are overly cautious, we could use a large 28 day time-window, considering 14 days before and after the registration.
 
 The Postive Diagnosis Server could be queried by the mobile application periodically for all newly registered positive cases in a given time period (for example in the last day). These confirmed positive UUIDs than could be downloaded to the app for exposure detection.
 
-Once we have access to both sets of information (close contacts and positive diagnostic cases in a given time period), exposure detection calculation becomes trivial, we just need to look for mathing UUIDs in both sets, during the same interval. Once a match is found, given the timestamps and the recieved signal strenght, the app can calculate if the contact was long enough and close enough to solicit a warning to the user (with clear medical instructions to follow).
+Once we have access to both sets of information (close contacts and positive diagnostic cases in a given time period), exposure detection calculation becomes trivial, we just need to look for matching UUIDs in both sets, during the same interval. Once a match is found, given the timestamps and the recieved signal strenght, the app can calculate a risk score, based on which a warning can be show to the user with clear medical instructions to follow).
 
---diagram--
+![alt text](DiagnosisServer.svg "Diagnosis Server")
 
-With this we are almost done, there are only a few details left to sort out. But we will explore them in a follow-up post.
+With this we have the big picture of how to build a contact tracing system. Now all that is left is to sort out the details.
 
 
 ## Design Trade-Offs
@@ -110,7 +110,7 @@ If we accept a higher probabilty, 25% chance for collisions (p=0.25), we get a h
 
 So given all this, should we decrease the number of bits used for IDs, and settle on a higher acceptable level of collisions, that could lead to false positives for our contact tracing system? Probably not, and we should stick with using 128bit IDs, unless we can really trust our estimations and the ID size turns out to be a bottleneck for the system.
 
-#### How often should the app query the Postive Diagnosis Server for new cases? What would be a scalable approach?
+#### How often should the app query the Diagnosis Server? Would this scale?
 
 This question has to be answered taking into account two perspectives. From the mobile apps point of view, querying too often would not be an efficient use of networking resources. From the server perspective serving too many clients too often might overload the service.
 
