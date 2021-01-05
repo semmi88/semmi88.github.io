@@ -83,26 +83,28 @@ With this we have the big picture of how to build a contact tracing system. Now 
 
 #### How often should the app broadcast its UUID?
 
-Broadcasting, being a 1-way data transmission, is cheap from a resource perspective, so we should do it often. More so, because scanning devices need to detect the broadcasted signal during their scan. If we broadcast once every minute, scanning devices need to keep scanning for a whole minute to guarantee that they will detect a nearby signal. That would be really wastful on the scanning side. The current recommended broadcasting interval for exposure notifications is around 200 milliseconds (https://blog.google/documents/70/Exposure_Notification_-_Bluetooth_Specification_v1.2.2.pdf).
+Broadcasting, being a 1-way data transmission, is cheap from a resource perspective, so we should do it often. More so, because scanning devices need to detect the broadcasted signal during their scan. If we broadcast once every minute, scanning devices need to keep scanning for a whole minute to guarantee that they will detect a nearby signal. That would be really wastful on the scanning side. The current recommended broadcasting interval for exposure notifications is around 200 milliseconds ([Exposure Notification - Bluetooth Specification](https://blog.google/documents/70/Exposure_Notification_-_Bluetooth_Specification_v1.2.2.pdf)).
 
 #### How often should the app scan for nearby UUIDs?
 
-For scanning we face the trade-off between high frequency/precision and resource usage. Scanning can consume significant resources, since in a public place there could potentially be hundreds of broadcasters to detect and register. So we should do it rarely, based on our close contact definition of longer than 15 minutes, depending on the error we allow ... we could get away with scanning every 7.5 minutes. The current recommended strategy for exposure notifications is opportunistic scanning (leveraging existing wakes and scan windows) and with minimum periodic sampling every 5 minutes (https://blog.google/documents/70/Exposure_Notification_-_Bluetooth_Specification_v1.2.2.pdf). Also, we should scan for an interval of at least 200ms to guarantee broadcast detection.
+For scanning we face the trade-off between high frequency/precision and resource usage. Scanning can consume significant resources, since in a public place there could potentially be hundreds of broadcasters to detect and register. So we should do it rarely, based on our close contact definition of longer than 15 minutes, depending on the error we allow ... we could get away with scanning every 7.5 minutes. The current recommended strategy for exposure notifications is opportunistic scanning (leveraging existing wakes and scan windows) and with minimum periodic sampling every 5 minutes ([Exposure Notification - Bluetooth Specification](https://blog.google/documents/70/Exposure_Notification_-_Bluetooth_Specification_v1.2.2.pdf)). Also, we should scan for an interval of at least 200ms to guarantee broadcast detection.
 
 
 --diagram--
 
 #### How long should the UUIDs be? How many bits?
 
-Longer IDs have a smaller chance of collision, but take up more storage space and would require more network data transfer. In computer science using 128 bits for UUID is considered good enough (without any central coordination system the chance of ID collision/duplication is negligible). And in fact these 128 bit ids are used in real applications (https://blog.google/documents/69/Exposure_Notification_-_Cryptography_Specification_v1.2.1.pdf).
+Longer IDs have a smaller chance of collision, but take up more storage space and would require more network data transfer. In computer science using 128 bits for UUID is considered good enough (without any central coordination system the chance of ID collision/duplication is negligible). And in fact these 128 bit ids are used in real applications ([Exposure Notification - Cryptography Specification](https://blog.google/documents/69/Exposure_Notification_-_Cryptography_Specification_v1.2.1.pdf)).
 
 However, it is interesting to do a though experiment and try to argue for decreasing then number of bits used, assuming that some probability of collision is acceptable. 
 
 To help with our calculations, we should estimate also the number of potential users of our system. In we consider the country of Spain and assume that 20% of the population would use the application, then we would expect to have about 10 million users. That means that we need to generate at least 10 million UUIDs.
 
-To estimate the collision probability, we can use the generalized form of the birthday problem. The original birthday problem is concerned with calculating how many people are needed to have a 50% probability that at least two of them are born on the same day? The surprising answer is only 23. The generalized birthday problem, stated as a collision problem, is the follwoing: how many integers (n) can we select from an uniformly distribuited interval [1,d], with a probability (p) of at least one collision. There are two formulas to estimate the value mentioned on wikipedia. (https://en.wikipedia.org/wiki/Birthday_problem#Cast_as_a_collision_problem)
+To estimate the collision probability, we can use the generalized form of the birthday problem. The original birthday problem is concerned with calculating how many people are needed to have a 50% probability that at least two of them are born on the same day? The surprising answer is only 23. The generalized birthday problem, stated as a collision problem, is the follwoing: how many integers (n) can we select from an uniformly distribuited interval [1,d], with a probability (p) of at least one collision. There are two methods to estimate the value mentioned on[wikipedia](https://en.wikipedia.org/wiki/Birthday_problem#Cast_as_a_collision_problem).
 
-The first formula says that the expected number of N-bit hashes that can be generated before getting a collision is 2^(N/2). So to make our calculations easier, let's say we want to generate 16 million UUIDs (~ 16*1024*1024 = 2^24), before getting a collision. For that we would need the double of 24, which is 48 bits. Compared to the original 128 bits, this would result in 62% (1-(48/128)) reduction in ID sizes, but comes with an increased probability of collisions. The other formula helps us estimate this probabilty. 
+The first one is more like a ballpark estimation, that says that the expected number of N-bit hashes that can be generated before getting a collision is 2^(N/2). So to make our calculations easier, let's say we want to generate 16 million UUIDs (~ 16*1024*1024 = 2^24), before getting a collision. For that we would need the double of 24, which is 48 bits. Compared to the original 128 bits, this would result in 62% (1-(48/128)) reduction in ID sizes, but comes with an increased probability of collisions. The other method list a formula that helps us estimate this probabilty.
+
+![alt text](HashCollisionFormula.png "Hash Collision Formula")
 
 Let use the above derived values of a 48 bit ID, and say that our interval is from 1 to 2^48 (= 2^8 * 2^40 ~ 256 * 10^12 = d). Now if we accept a probability of 1% for collision (p=0.01) and put these values into the formula we get the resulting number of 2.2 million. This means that we can select/generate 2 million IDs, using 48 bits, with a 1% chance of collision. 
 
@@ -166,3 +168,6 @@ Let's examine the decryption flow in more details. Once the Diagnosis Server is 
 * https://github.com/RadarCOVID
 * https://ourworldindata.org/coronavirus-data-explorer
 * https://radarcovid.gob.es/politica-de-privacidad
+* https://blog.google/documents/70/Exposure_Notification_-_Bluetooth_Specification_v1.2.2.pdf
+* https://blog.google/documents/69/Exposure_Notification_-_Cryptography_Specification_v1.2.1.pdf
+* https://en.wikipedia.org/wiki/Birthday_problem#Cast_as_a_collision_problem
