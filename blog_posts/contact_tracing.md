@@ -2,14 +2,15 @@
 
 # Contact Tracing - a System Design Exercise
 
-Contact tracing is one of the possible ways to control the spread of an infectious disease, by notifying the people who have been in contact with a confirmed positive case, and asking them to self-quarantine. Governments and health authorities are conducting contact tracing using various methods, some involving manual processes others using an automated system based on smartphone apps. How would you design such an automated contact tracing system? 
+Contact tracing is one of the possible ways to control the spread of an infectious disease, by notifying the people who have been in contact with a confirmed positive case, and asking them to self-quarantine. Governments and health authorities are conducting contact tracing using various methods, some involving manual processes others using an automated system based on smartphone apps. How would you design such an automated contact tracing system? Here I want to present to you upfront a possible architecture with one use case depicted. Don't worry about all the details now, as you go through the blogpost hopefully all the pieces should fall into their place.
 
-This is not purely a teoretical exercise, these systems already exists and are in production in some countries. At the time of writing this in January 2021, there are 8 countries from the European Union that use an official contact tracing apps, inter-operating with each other, functioning beyong borders (Croatia, Denmark, Germany, Italy, Netherlands, Ireland, Latvia, Poland and Spain). Some of these system even have open source implementations, for example the [Spanish RadarCovid](https://github.com/RadarCOVID).
+![alt text](ContactTracingHighLevel1.svg "Contact Tracing High-Level diagram")
 
-
-[![alt text](RadarCovid.png "Radar Covid App Icon")](https://github.com/RadarCOVID)
+Also note that this is not purely a teoretical exercise, these systems already exist and are in production in some countries. At the time of writing this in January 2021, there are 8 countries from the European Union that use an official contact tracing apps, inter-operating with each other, functioning beyong borders (Croatia, Denmark, Germany, Italy, Netherlands, Ireland, Latvia, Poland and Spain). Some of these system even have open source implementations, for example the [Spanish RadarCovid](https://github.com/RadarCOVID).
 
 Based on the latest data (27 December 2020) in Spain the app was downloaded by 6 million people (12% of the population), with around 25.000 positive cases declared through the app. This 25.000 only equals about 1.5% of the total positive cases reported since the initial release of the app 9th of September 2020 ([1.4 million cases](https://ourworldindata.org/coronavirus-data-explorer?zoomToSelection=true&time=2020-09-09..latest&country=~ESP&region=World&casesMetric=true&interval=total&hideControls=true&smoothing=0&pickerMetric=location&pickerSort=asc)).
+
+[![alt text](RadarCovid.png "Radar Covid App Icon")](https://github.com/RadarCOVID)
 
 The goal of this blog post is to describe how these contact tracing systems are built and how they work, applying some simplifications to favor understandability. The approach taken is to present this as a systems design exercise, divided into the following parts:
 * [Scoping](#scoping)
@@ -148,7 +149,7 @@ Of course building all this from scratch would require a lot of effort. Fortunat
 
 On Android the Exposure Notification System is accessed through Google Play Service. Based on what we have discussed so far, the following diagram should give you an idea, how do all the pieces fit toghter.
 
--- diagram --
+![alt text](ContactTracingHighLevel2.svg "Contact Tracing High-Level diagram")
 
 One intersting thing to examine is how the ID generation work. This is documented in the Cryptographic specification, however it is worth going into the details a bit here and separating the encyrption and decryption flows. 
 
@@ -158,7 +159,7 @@ The basic idea is generating a random key every day, then using that key to deri
 
 The encryption flow that takes place in ENS is the following. A cryptoghraic random number generator (CRNG) generates a Temporary Exposure Key (TEK) every 24 hours. This Temporary Exposure Key is then used to derive another key called Rolling Proximity Identified Key (RPIK). The key derivation is done using hash-based key derivation funcion (HKDF). Once we have the derived key (RPIK), we use it to generate a new identifier every 10 minutes, which is called Rolling Proximity Identifier (RPI). This Rolling Proximity Identifier will serve as the BeaconID basically. The key generation step is done through encryption, using the AES symmetric key cipher. Symmetrics means that the same key (RPIK) can be used for encryption and decryption as well. The data that we encrypt to generate the final IDs, is the timestamp corresponding to the 10 minute interval, marking the creating the new IDs.
 
-The same processs is reapated for starting from the Temporary Exposure Key (TEK), we derive another key called Associatd Encrypted Metadata Key (AEMK). Using this key we generate the final part of the bluetooth payload called the Associated Encrypted Metadata (AEM). AEM is generted using symmetric encrpytion, but in counter mode (AES-CTR). This mode of operation requires an initialization vector (IV), which should be like a random salt (we can us RPI for this purpose) (https://cryptobook.nakov.com/symmetric-key-ciphers/aes-cipher-concepts). Finally the data that we encrypt contians the protocol verion and the transmit power, which can be used for proximity calculation based on reciever signal strenght.
+The same processs is reapated for starting from the Temporary Exposure Key (TEK), we derive another key called Associatd Encrypted Metadata Key (AEMK). Using this key we generate the final part of the bluetooth payload called the Associated Encrypted Metadata (AEM). AEM is generted using symmetric encrpytion, but in [counter mode (AES-CTR)](https://cryptobook.nakov.com/symmetric-key-ciphers/cipher-block-modes). This mode of operation requires an initialization vector (IV), which should be like a random salt (we can us RPI for this purpose). Finally the data that we encrypt contians the protocol verion and the transmit power, which can be used for proximity calculation based on reciever signal strenght.
 
 Now I have to be honest, I don't really understand a reason for key derivation step, as the original random key (TEK) could just be used instead of deriving a new key (RPIK). The key derivation step could serve varios purposes. It could be needed to improve the random number generators output (which could be potentially biased). It could also serve to protect againt analysis and attacks of the system. With every PRIK we generate 144 PRIs every day (one every 10 minutes), so in theory these IDs could be used to try to guess the original encryption key (RPIK). But knowing the derived key (RPIK) is not enough to exploit the system, as we would need access to the original Temporary Exposure Key (TEK) for that.
 
@@ -176,3 +177,4 @@ Let's examine the decryption flow in more details. Once the Diagnosis Server is 
 * https://blog.google/documents/70/Exposure_Notification_-_Bluetooth_Specification_v1.2.2.pdf
 * https://blog.google/documents/69/Exposure_Notification_-_Cryptography_Specification_v1.2.1.pdf
 * https://en.wikipedia.org/wiki/Birthday_problem#Cast_as_a_collision_problem
+* https://cryptobook.nakov.com/symmetric-key-ciphers/cipher-block-modes
