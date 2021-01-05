@@ -2,7 +2,7 @@
 
 # Contact Tracing - a System Design Exercise
 
-Contact tracing is one of the possible ways to control the spread of an infectious disease, by notifying the people who have been in contact with a confirmed positive case, and asking them to self-quarantine. Governments and health authorities are conducting contact tracing using various methods, some involving manual processes others using an automated system based on smartphone apps. How would you design such an automated contact tracing system? Here I want to present to you upfront a possible architecture with one use case depicted. Don't worry about all the details now, as you go through the blogpost hopefully all the pieces should fall into their place.
+Contact tracing is one of the possible ways to control the spread of an infectious disease, by notifying the people who have been in contact with a confirmed positive case, and asking them to self-quarantine. Governments and health authorities are conducting contact tracing using various methods, some involving manual processes others using an automated system based on smartphone apps. How would you design such an automated contact tracing system? Here I want to present to you upfront a possible architecture with one use case depicted. Don't worry about all the details now, as you go through the blog post hopefully all the pieces should fall into their place.
 
 ![alt text](ContactTracingHighLevel1.svg "Contact Tracing High-Level diagram")
 
