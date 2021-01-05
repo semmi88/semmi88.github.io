@@ -5,10 +5,10 @@ Blog posts:
 
 ***
 
-Writing summaries and reviewing interesting books:
+Reviewing interesting books and writing small summaries:
 
 * ### [Book reviews](book_reviews/index.md)
 
 ***
 
-*Markdown help page with examples*(markdown_help.md)
+*Markdown [help page](markdown_help.md)*
