@@ -1,6 +1,6 @@
 &leftarrow; [back to Homepage](../index.md)
 
-**[Software Engineering at Google - by Titus Winters, Tom Manshreck, Hyrum Wright, 2020](software_eng_at_google.md)**
+**[Software Engineering at Google - by Titus Winters, Hyrum Wright, 2020](software_eng_at_google.md)**
 
 [![alt text](software_eng_at_google.jpg "Cover")](software_eng_at_google.html)
 
