@@ -8,7 +8,7 @@
 ## The main ideas presented by the book:
 - Software engineering vs Progamming
 - Software engineering is programming integrated over time
-- The book presents all the things you should consider for your project, if they are planned to have a longer lifecycle
+  - all the things you should consider for your projects, if they are planned to have a longer lifecycle
 - Large emphasis on continous delivery: 
   - on a longer timespan your software must be able to react to changes, the incapability to react is a high-risk bet, because changes are inevitable (technologies - dependencies, runtimes, hardware; business - market conditions, customer taste)
   - ability to make reliabe updates - is the essence of long-term sustainability for your project
@@ -137,14 +137,14 @@ Source Control - not only technology + but policies and usage conventions
       - correlates with high-performing software orgs
 
 Build system: Flexibility vs Determinism->Parellelism
-  Task-based build systems
-    - define tasks and dependencies between tasks
-    - imperative buildfiles, arbitrary tasks 
-      - felxible, more control for the developer, but non deterministic build systeem cannot track/paralellize steps
-  Artifact-based build systems
-    - define only targets to build, the build execution steps taken are left up to the build system
-    - declarative buildfiles, limited number of tasks
-     - less control for the developer, but build system can track/parallelize
+Task-based build systems
+  - define tasks and dependencies between tasks
+  - imperative buildfiles, arbitrary tasks 
+  - felxible, more control for the developer, but non deterministic build systeem cannot track/paralellize steps
+Artifact-based build systems
+  - define only targets to build, the build execution steps taken are left up to the build system
+  - declarative buildfiles, limited number of tasks
+  - less control for the developer, but build system can track/parallelize
      
 Dependency managemant - hardest problem in software
  - not just single dependency, but networks of dependencies
