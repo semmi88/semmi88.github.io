@@ -1,7 +1,7 @@
 
 &leftarrow; [back to Book reviews](index.md)
 
-**Software Engineering at Google - by Titus Winters, Tom Manshreck, Hyrum Wright, 2020**
+**Software Engineering at Google - by Titus Winters, Hyrum Wright, 2020**
 
 ![alt text](software_eng_at_google.jpg "Cover")
 
@@ -186,6 +186,5 @@ Compute-As-A-Service
    - throughput across many machines vs individual request latency
   
 API/Service design trade-off
- - centralization vs customization
-   - finding the rigth abstraction level
-   - generic API, easier to manage, coherence - vs - usage inconvinience
+  - finding the rigth abstraction level
+  - generic API, easier to manage, coherence - vs - usage inconvinience
