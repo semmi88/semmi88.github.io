@@ -2,7 +2,7 @@
 
 **[Software Engineering at Google - by Titus Winters, Tom Manshreck, Hyrum Wright, 2020](software_eng_at_google.md)**
 
-[![alt text](software_eng_at_google.md.jpg "Cover")](software_eng_at_google.md.html)
+[![alt text](software_eng_at_google.jpg "Cover")](software_eng_at_google.html)
 
 **[Peak - by Anders Ericsson, Robert Pool, 2016](peak.md)**
 
