@@ -1,5 +1,9 @@
 &leftarrow; [back to Homepage](../index.md)
 
+**[Software Engineering at Google - by Titus Winters, Tom Manshreck, Hyrum Wright, 2020](software_eng_at_google.md)**
+
+[![alt text](software_eng_at_google.md.jpg "Cover")](software_eng_at_google.md.html)
+
 **[Peak - by Anders Ericsson, Robert Pool, 2016](peak.md)**
 
 [![alt text](peak.jpg "Cover")](peak.html)
