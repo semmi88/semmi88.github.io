@@ -30,7 +30,7 @@ Other assumptions about the disease that we can make:
 - infectious period of the disease is known or at least can be closely approximated - we can use 14 days in case of COVID-19 (as defined in the [Privacy Policy of a real app](https://radarcovid.gob.es/politica-de-privacidad))
 - for the disease to spread, individuals have to be in close physical contact - for which we can use the definition of less than 2 meters for more than 15 minutes (as in the [Privacy Policy of a real app](https://radarcovid.gob.es/politica-de-privacidad))
 
-This first assumption one is an important piece of information, as all data and events registered by the system can be deleted after 14 days, as they are no longer relevant. This puts limits on the storage space, network data transfer and computations needed and allows the system to scale nicely, as we don't need to keep infinite history. The following assumption will help us when doing the calculations for close contact events and exposure detection.
+This first one is an important piece of information, as all data and events registered by the system can be deleted after 14 days, as they are no longer relevant. This puts limits on the storage space, network data transfer and computations needed and allows the system to scale nicely, as we don't need to keep infinite history. The following assumption will be of help when doing the calculations for close contact events and exposure detection.
 
 
 Next, let's roughly define the main use cases, and agree on the requirements of the system. These could be grouped in four separate categories.
