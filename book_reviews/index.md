@@ -1,5 +1,9 @@
 &leftarrow; [back to Homepage](../index.md)
 
+**[How Emotions Are Made - by Lisa Feldman Barrett, 2016](how_emotions_are_made.md)**
+
+[![alt text](how_emotions_are_made.jpg "Cover")](how_emotions_are_made.html)
+
 **[Software Engineering at Google - by Titus Winters, Hyrum Wright, 2020](software_eng_at_google.md)**
 
 [![alt text](software_eng_at_google.jpg "Cover")](software_eng_at_google.html)
