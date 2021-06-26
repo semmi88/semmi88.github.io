@@ -1,5 +1,9 @@
 &leftarrow; [back to Homepage](../index.md)
 
+**[Being Nobody, Going Nowhere - by Ayya Khema, 2005](beingnobody.md)**
+
+[![alt text](beingnobody.jpg "Cover")](beingnobody.html)
+
 **[How Emotions Are Made - by Lisa Feldman Barrett, 2016](how_emotions_are_made.md)**
 
 [![alt text](how_emotions_are_made.jpg "Cover")](how_emotions_are_made.html)
