@@ -12,6 +12,7 @@
 ### The main takeaways:
 
 * Inner acceptance = outer control
+  * be kind to yourself   
   * being harder on yourself leads to less motivation and worse self control
   * feeling bad leads to giving in, guilt , shame are your enemies
   * self-forgiveness is your friend
