@@ -1,5 +1,6 @@
 Exploring software, machine learning and other random topics
 
+* ### [(2021 Jul) I've failed my Facebook interview, but that's okay](blog_posts/facebook_interview.md)
 * ### [(2021 Jan) Contact Tracing - a System Design Exercise](blog_posts/contact_tracing.md)
 
 ***
