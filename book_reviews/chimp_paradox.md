@@ -116,6 +116,7 @@ Problem solving with successful thinking (human):
     - how do others contribute? how can you help others?
     - engage using a solution focused attitude (not a win-lose attitude)
     - seek for mediation or support from neutral person
+
 Chimp reverses the order of thinking, which makes it less useful as if does not make you change and learn from a problem.
 
 Dreams vs Goals
