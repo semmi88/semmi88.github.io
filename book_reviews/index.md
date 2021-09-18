@@ -1,5 +1,9 @@
 &leftarrow; [back to Homepage](../index.md)
 
+**[The Chimp Paradox - by Prof Steve Peters, 2012](chimp_paradox.md)**
+
+[![alt text](chimp_paradox.jpg "Cover")](chimp_paradox.html)
+
 **[Being Nobody, Going Nowhere - by Ayya Khema, 2005](beingnobody.md)**
 
 [![alt text](beingnobody.jpg "Cover")](beingnobody.html)
