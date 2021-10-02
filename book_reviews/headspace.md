@@ -7,11 +7,11 @@
 ## Mindfulness:
 It means being present and aware during everyday life.
 
-What is the benefit of a mindful life?
+What is the benefit of a mindfulness?
  - life gets more comfortable
     - the more aware you are, the more comfortable you feel and the easier you relate to other
  - it helps you live more skillfully
-    - restraining yourself, responding sensitively and skillfully in difficult situations
+    - being aware allows you to respond skillfully to difficult situation, be sensitivy and restrain yourself when it is beneficial 
 
 These benefits are achieved through a fundamental shift in how you relate to your thoughts and feelings
 
@@ -24,13 +24,13 @@ Meditation creates the ideal conditions for you to practice mindfulness and awar
 
 Repeating the exercise often will help in being more present, more aware.
 
-## Training the mind
+### Training the mind
 It is not just focusing on the breath. It has there components to it, which need to be undestood:
  - The approach - what to expect of the training
  - The practice - how to practice the tecnique
  - The integration - how to integrate into everyday life
 
-### The approach
+## The approach
 Metaphors and useful ways to think about the mind.
 
 Goal: being present in everyday life and experiencing the current moment
@@ -56,7 +56,7 @@ How to thinkg about hapiness/sadness:
       - try to focus on others happiness, instead of yours
   - there is another kind of happyness, which is comfortable no matter the emotions, the happyness of a quiet mind
 
-#### Wondering mind
+### Wondering mind
 
 Metaphore 1: Think of the mind as a busy road, and think of thoughts as cars
   - just as roads are build for cars to travel on
@@ -84,7 +84,7 @@ Metaphore 3: thinkg of your mind like a theater
  - it can be fast moving, slow moving, you might get involved and entertained, or you might get bored and plan for the next day
  - but it is not your job to direct, to get involved, you just need to wath what unfolds
 
-### The practice - Meditation Take 10 Exercise
+## The practice - Meditation Take 10 Exercise
 Gentle curiosity, no judgement, just observe
  
  1. Preparation 
@@ -109,7 +109,7 @@ Gentle curiosity, no judgement, just observe
    - open your eyes, notice how you feel
    - carry awareness to your next activity
  
-### The integration
+## The integration
   - if you are not aware, thoughs take over control
   - meditation in itself, getting all nice and calm, what good is it for if it doesn't change the way you feel and behave in life
   - the ultimate goal is to live mindfully, so your own life and life of other around you will be more comfortable, and to maintain awareness to respond skillfully to situations
@@ -124,7 +124,7 @@ How much effor you put into things?
   - balance between focus and relaxation
   - learn how to work with the mind every day
 
-#### Relating to others
+### Relating to others
 By knowing your mind, you understand others as well, and the fact that we all share the human condition.
 
 The journey from self to other is as follows:
