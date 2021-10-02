@@ -1,5 +1,9 @@
 &leftarrow; [back to Homepage](../index.md)
 
+**[The Headspace Guide to Meditation & Mindfulness - by Andy Puddicombe, 2016](headspace.md)**
+
+[![alt text](headspace.jpg "Cover")](headspace.html)
+
 **[The Chimp Paradox - by Prof Steve Peters, 2012](chimp_paradox.md)**
 
 [![alt text](chimp_paradox.jpg "Cover")](chimp_paradox.html)
