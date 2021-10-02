@@ -92,22 +92,22 @@ Gentle curiosity, no judgement, just observe
     - you'll need to find the right balance between focus and relaxation without drifting off
     - so for example if you are tired lying down to do the exercies might not be a good idea
  2. Checking in 
-   - bringing your body and mind together, necessary part of meditation. Should take around 5 minutes.
-   - start with eyes open, deep breath, and notie how your body extends and relaxes
-   - close your eyes and be more aware of physical sensations, like the weight of your body, the contact points with the surface, sounds around you
-   - allow thought to come and go, and observe the general your general mood and your energy level
-   - check how the body feels, scan for tense/relaxed and comfortable/uncomfortable areas
+    - bringing your body and mind together, necessary part of meditation. Should take around 5 minutes.
+    - start with eyes open, deep breath, and notie how your body extends and relaxes
+    - close your eyes and be more aware of physical sensations, like the weight of your body, the contact points with the surface, sounds around you
+    - allow thought to come and go, and observe the general your general mood and your energy level
+    - check how the body feels, scan for tense/relaxed and comfortable/uncomfortable areas
  3. Focus on the breath
-   - observe rising and falling sensations
-   - the breath can move around in the body - stomach/lungs
-   - observer the rythm, depth, tighness/spaciousness, roughenss/smoothes
-   - in case you notice yourself being distracted, your mind wondered off, just acknowledge this and return to observing the breath
-   - if it helps you focuse, count the breaths up to 10 and then start over
+    - observe rising and falling sensations
+    - the breath can move around in the body - stomach/lungs
+    - observer the rythm, depth, tighness/spaciousness, roughenss/smoothes
+    - in case you notice yourself being distracted, your mind wondered off, just acknowledge this and return to observing the breath
+    - if it helps you focuse, count the breaths up to 10 and then start over
  4. Finish off 
-   - free the mind, let if be as busy or as quiet as it wants to be
-   - bring back the attention to physical sensations, contact, sounds
-   - open your eyes, notice how you feel
-   - carry awareness to your next activity
+    - free the mind, let if be as busy or as quiet as it wants to be
+    - bring back the attention to physical sensations, contact, sounds
+    - open your eyes, notice how you feel
+    - carry awareness to your next activity
  
 ## The integration
   - if you are not aware, thoughs take over control
