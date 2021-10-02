@@ -93,7 +93,7 @@ Gentle curiosity, no judgement, just observe
     - so for example if you are tired lying down to do the exercies might not be a good idea
  2. Checking in 
     - bringing your body and mind together, necessary part of meditation. Should take around 5 minutes.
-    - start with eyes open, deep breath, and notie how your body extends and relaxes
+    - start with eyes open, deep breath, and notice how your body extends and relaxes
     - close your eyes and be more aware of physical sensations, like the weight of your body, the contact points with the surface, sounds around you
     - allow thought to come and go, and observe the general your general mood and your energy level
     - check how the body feels, scan for tense/relaxed and comfortable/uncomfortable areas
