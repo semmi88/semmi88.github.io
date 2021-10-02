@@ -102,7 +102,7 @@ Gentle curiosity, no judgement, just observe
     - the breath can move around in the body - stomach/lungs
     - observer the rythm, depth, tighness/spaciousness, roughenss/smoothes
     - in case you notice yourself being distracted, your mind wondered off, just acknowledge this and return to observing the breath
-    - if it helps you focuse, count the breaths up to 10 and then start over
+    - if it helps you focus, count the breaths up to 10 and then start over
  4. Finish off 
     - free the mind, let if be as busy or as quiet as it wants to be
     - bring back the attention to physical sensations, contact, sounds
