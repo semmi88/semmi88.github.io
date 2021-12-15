@@ -1,5 +1,9 @@
 &leftarrow; [back to Homepage](../index.md)
 
+**[The Psychology of Computer Programming - by Gerald Weinberg, 1971](psychology_programming.md)**
+
+[![alt text](psychology_programming.jpg "Cover")](psychology_programming.html)
+
 **[The Headspace Guide to Meditation & Mindfulness - by Andy Puddicombe, 2016](headspace.md)**
 
 [![alt text](headspace.jpg "Cover")](headspace.html)
