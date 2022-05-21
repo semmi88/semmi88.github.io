@@ -1,4 +1,4 @@
-# Taming the Rubik's Cube / How I met Group Theory
+# Taming the Rubik's Cube (or How I met Group Theory)
 
 ## How the Rubik's Cube made the world a better place
 
@@ -47,24 +47,22 @@ For example, in the case of the 2x2x2 Mini Cube we have 24 colored facelets (4 c
 
 ![alt text](permutation_group.png "Permutation Group")
 
-
-
 ### Non-commutativity makes the puzzle hard
 
+An important thing to notice is that the face twists (these permutation operations) are non commutative. This just means that the order of operations matters, and changing the order might give us a different result. (This is also called non-abelian, after the mathematician Niels Henrik Abel).
+ - this is different than multiplication, which is commutative, where reversing the order doesn't change the result 10 x 2 = 2 x 10
+ - it is more like divison, where  10 / 2 ≠ 2 / 10
 
-An important thing to notice is that these permutation operations (the face twists) are non commutative. This just means that the order of operations matters, and exchanging the order might give us a different result. (This is also called non-abelian, after the mathematician Niels Henrik Abel).
+To see this non commutative property of cube rotations in action, let's just do the following sequence of moves - `R B` (right face rotation, followed by a back face rotation) - and check the end state of the cube. Let's compare this to the end state we get if we apply the operations in reverse order - `B R` (back face, then right face rotation). As we can see, the order matter, as we end up with different end configurations for the two cases: `R B` ≠ `B R`
 
-This is different from multiplication operation, which is commutative, where reversing the order does not change the result 10 x 2 = 2 x 10. 
-It is more like divison, where  10 / 2 does not equal to 2 / 10. 
+**If you don't own a Rubik's cube, but want to follow along, just use this [neat online cube solver](https://rubiks-cube-solver.com/)**
 
-To see this non commutative property of cube rotations in action, let's just do the following sequence of moves -RB (right face rotation, followed by a back face rotation) - and check the end state of the cube.
-Now let's undo this sequence, and apply the operations in reverse order - BR (back face, then right face rotation) - and compare tne new end state of the cube. As we can see, the order matter, as we end up with different end configurations for the two cases. So we can say that RB does not equal BR. 
+![alt text](non_commutative.png "Non commutativity")
 
+And in fact this non-commutative property is what makes the puzzle hard, because we need to apply the rotations in a careful order. If twisting the cube faces would be commutative, then solving the cube would be trivial. To see this, let's take a simplified version of the puzzle, where we can only turn the front (F) and back (B) faces (all other rotation are not allowed). In this specific case, we have a commutative operations, because the front and back faces don't intersect (the facelets that they are permuting are independent of each other), and so the order of rotation does not matter. 
 
-(Examples)
+No matter how much someone scrambles the cube with these operation, the solution will be trivial. We know that making 4 turns of any face gets as back to the inital starting position. So if the front and back faces are not in the initial starting position, we just need to turn them 1,2 or 3 times (depending on the setup) and the cube is solved. So we can conclude that commutativity is boring, when it comes to cubing.
 
-
-And in fact this non-commutative property is what makes the puzzle hard, as we need to apply the rotatation in a careful order. If twisting the cube faces were a commutative operation, then solving the cube would be trivial. To see this, let's suppose that we can only turn the front (F) and back (B) faces (all other faces rotation are not allowed). In this specific case, because the front and back faces don't intersect (the facelets that they are permuting are independent of each other), the order of rotation does not matter. So we have a commutative subset of operations. No matter how much someone scrambles the cube with these operation, the solution will be trivial. We know that making 4 turns of a face gets as back to the inital starting position. So if a face is not in the initial starting position, we just need to turn it 1 to 3 times depending on the setup. So we turn the front face a couple of time (1 to 3), and then the back face another couple of times (1 to 3) and the cube is solved. So we can conclude that commutativity is boring, when it comes to cubing.
-
+## Commutators - a cubers best friends
 
 
