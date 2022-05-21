@@ -1,5 +1,9 @@
 &leftarrow; [back to Homepage](../index.md)
 
+**[A mi kockánk - Rubik Ernő, 2022](cubed.md)**
+
+[![alt text](cubed.jpg "Cover")](cubed.html)
+
 **[The Psychology of Computer Programming - by Gerald Weinberg, 1971](psychology_programming.md)**
 
 [![alt text](psychology_programming.jpg "Cover")](psychology_programming.html)
