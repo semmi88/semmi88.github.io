@@ -29,7 +29,7 @@ The Rubik's cube is made up of 26 tiny cubes (or cubelets), which can be grouped
 
 Solving methods usually are described using the [Standard Cube Notation](https://ruwix.com/the-rubiks-cube/notation/), which assigns a single capital letter to face rotations. 
  - 90° clockwise rotation of the 6 faces: F=Front, B=Back, R=Right, L=Left, U=Up, D=Down
- - 90° rotation of middle layers: M=middle (between R and L), E=Equator (between U and D), S=Standing (between F and B)
+ - 90° rotation of middle layers: E=Equator (between Up-Down), M=Middle (between Left-Right), S=Standing (between Front-Back)
  - Counterclowckwise rotations of 90° are described by adding an aposthrope: F' is the opposite (or inverse operation) of F
  - Multiple rotations are described by adding a number after the letter: FFF = F3
    - Turning a face 4 times leaves the cube unchanged (identity operation), so: F4=1
