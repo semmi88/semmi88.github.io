@@ -137,19 +137,22 @@ Similarly as before, in these 4 stesp, we applied the commutator ` X Y X' Y' `. 
 
 ## Conjugates - a cubers second best friends
 
-Once we came up with some algorithms (RoCo, SwaCo), our next step would be to find ways to apply these algorithms with more flexibly. For example these algorithms only work if the cubelets are all in the upper layer and close to each other. This is where conjugates come to our help. 
+Once we came up with some algorithms (RoCo, SwaCo), our next step would be to find ways to apply these algorithms with more flexibly. For example these algorithms only work if the cubelets are all in the upper layer and in specific positions. This is where conjugates come to our help. 
 
-In group theory the conjugate of an operation X, with another operation Y is defined as the sequence of operations ` X Y X' `. But from the cubers point of view, the important thing to know is that if X and Y are possible operations on a group, than the conjugate X Y X' also is. And this means we can combine operations/moves on the cube that we already know and make new moves.
+In group theory the conjugate of an operation X, with another operation Y is defined as the sequence of operations ` X Y X' `. But from the cubers point of view, the important thing to know is that if X and Y are possible operations on a group, than the conjugate X Y X' also is. And this means we can combine moves that we already know in a flexible way and make new algorithms.
 
-This is typically used as applying a setup move X, then doing the main algorithm Y, and finally undoing the setup move X'. This pattern offers us an easy way to reuse algorithms. 
+This is typically applied with a setup move X, then doing the main algorithm Y, and finally undoing the setup move X'. This pattern offers us an easy way to reuse algorithms. For example, let's say we want to rotate the upper layer's front-right corner and the bottom layer's back-right corner:
+
+- **Step1** These corner cubelets we want to rotate are not on the same layer, so we apply a setup move (X) and twist the back face to bring them onto to top layer: `B`
+
+![alt text](conjugate_setup.jpg "Conjugate Setup")
+
+- **Step2** Now, we can just apply the RoCo algorithm to rotate the two corners in the upper layer - right hand side: ` R' D R F D F' U F D' F' R' D' R U' `
+
+![alt text](conjugate_roco.jpg "Conjugate Rotate Corners")
 
 
-For example if the corners that we want to flip are not on the same layer, we could move them onto the same layer using a setup move, then apply FliCo, and finally undo this setup move. Happy days!
+- **Step3** Finally, we undo the setup move, to get back to the original cube position: ` B' `
 
-Let's look at two examples.
-
-Flipping diagonal corner cubies on the front face
-
-Swapping three corner cubies on the front face
-
+![alt text](conjugate_setup_inverse.jpg "Conjugate Setup Inverse")
 
