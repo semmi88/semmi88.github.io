@@ -71,9 +71,9 @@ To see this non commutative property of cube rotations in action, let's just do 
 
 ![alt text](non_commutative.png "Non commutativity")
 
-And in fact this non-commutative property is what makes the puzzle hard, because we need to apply the rotations in a careful order. If twisting the cube faces would be commutative, then solving the cube would be trivial. To see this, let's take a simplified version of the puzzle, where we can only turn the front (F) and back (B) faces (all other rotation are not allowed). In this specific case, we have commutative operations, because the front and back faces don't intersect (the facelets that they are permuting are independent of each other), and so the order of twists does not matter. (A fancy way of saying this in mathematics is that “disjoint permutations” commute).
+And in fact this non-commutative property is what makes the puzzle hard, because we need to apply the rotations in a careful order. If twisting the cube faces would be commutative, then solving the cube would be trivial. To see this, let's take a simplified version of the puzzle, where we can only turn the front (F) and back (B) faces (all other rotations are not allowed). In this specific case, we have commutative operations, because the front and back faces don't intersect (the facelets that they are permuting are independent of each other), and so the order of twists does not matter. (A fancy way of saying this in mathematics is that “disjoint permutations” commute).
 
-No matter how much someone scrambles the cube with these two operation, the solution will be trivial. We know that making 4 turns of any face gets as back to the inital starting position. So if the front and back faces are not in the initial starting position, we just need to turn them 1,2 or 3 times (depending on the setup) and the cube is solved. So we can conclude that commutativity is boring, when it comes to cubing.
+No matter how much someone scrambles the cube with these two operations, the solution will be trivial. We know that making 4 turns of any face gets us back to the initial starting position. So if the front and back faces are not in the initial starting position, we just need to turn them 1,2 or 3 times (depending on the setup) and the cube is solved. So we can conclude that commutativity is boring, when it comes to cubing.
 
 As a side note, computer solving algorithms (like the Thistlethwaite algorithm), use principles from group theory and similar subgroups (with restricted set of moves) to reduce the complexity of solving the cube and guarantee a worst case scenario of 45 moves to solve any scrambled cube.
 
@@ -83,9 +83,9 @@ As we saw before, some operations on the cube are non-commutative (right-back tu
 
 In mathematics we measure how commutative two operations are using a commutator. The idea is to apply the two operations and their inverses one after the other and check the result. For example given X and Y operations, the commutator would be calculated as the sequence `X Y X' Y'`.
 
-If the operations are commutative, the order can be exchanged (`X Y X' Y' = X X' Y Y'`), and operations and their inverses will cancel each other out, and we get "zero" or Identity Operation as a result (which means that the state is left unchanged). However for non-commutative operations, the result of the commutator will be different from "zero" and will reflect the level commutativity. Almost commmutative operations will have a "simple" commutator, and operations which are far from commuting will have a "complex" commutator. So in a way commutator shows how many elements were "co-mutated" by applying both operations and their inverses.
+If the operations are commutative, the order can be exchanged (`X Y X' Y' = X X' Y Y'`), and operations and their inverses will cancel each other out, and we get "zero" or Identity Operation as a result (which means that the state is left unchanged). However for non-commutative operations, the result of the commutator will be different from "zero" and will reflect the level commutativity. Almost commutative operations will have a "simple" commutator, and operations which are far from commuting will have a "complex" commutator. So in a way commutator shows how many elements were "co-mutated" by applying both operations and their inverses.
 
-Coming back to cube solving, we want to find algorithms which modify only a few parts of the cube, and leave the rest unchanged. We can achive this goal by finding two operations which almost commute. Applying the commutator of these operations will affect only a few cubelets, as most of the changes will be canceled out.
+Coming back to cube solving, we want to find algorithms which modify only a few parts of the cube, and leave the rest unchanged. We can achieve this goal by finding two operations which almost commute. Applying the commutator of these operations will affect only a few cubelets, as most of the changes will be canceled out.
 
 And how can we find operations which almost commute? As a rule of thumb we can say that permutation operations "almost commute" if they only affect a few elements in common. (This is not generally true, but a good enough assumption for our use case). To really understand all this, let's look at two examples.
 
@@ -111,20 +111,20 @@ Say that we want to come up with the algorithm that rotates corners on the top l
 ![alt text](cube_roco_inverse.jpg "Rotates Corners Inverse")
 
 
-- **Step4** Do the inverse of the auxiliart/helper move in step2 (Y')- this just gets the flipped corners back to their initial position: `U'`
+- **Step4** Do the inverse of the auxiliary/helper move in step2 (Y')- this just gets the flipped corners back to their initial position: `U'`
 
 ![alt text](cube_roco_u_inverse.jpg "Rotate Upper Layer Inverse")
 
 
 If you look carefully, with these 4 steps we executed the commutator `X Y X' Y'` of two operations. And because these operations almost commute, we undo most of the changes to the cube, except the ones involving common elements of X and Y in the top layer - the rotated corners. And that is exactly what we wanted! 
 
-This formula can be applied to generate all sort of algorithms that modify only a few parts of the cube. And it is fairly simple, the only creative part is to come up with the first sequence of operation (the useful moves), which make a slight change in the top layer.
+This formula can be applied to generate all sorts of algorithms that modify only a few parts of the cube. And it is fairly simple, the only creative part is to come up with the first sequence of operations (the useful moves), which make a slight change in the top layer.
 
 ### SwEd
 
 ![alt text](cube_swed_full.jpg "Swap Edges")
 
-Another example would be swapping edge cubelets, moving three of the edges in the upper layer (permute them in a cycle), without changing their orientation. Let's call algorithm this SwEd (from Swaping Edges - and in this case specifically upper layer, front-right-back edges).
+Another example would be swapping edge cubelets, moving three of the edges in the upper layer (permute them in a cycle), without changing their orientation. Let's call this algorithm SwEd (from Swapping Edges - and in this case specifically upper layer, front-right-back edges).
 
  - **Step1** The useful moves (let's call it X) - in this case is swapping a pair of edge cubelets in the top layer (edge1 swapped with edge2). Again, here we don't care about messing up the bottom layer. A possible sequence would be applying the following 7 twists: ` M S D S' D' D' M' `
 
@@ -138,16 +138,16 @@ Another example would be swapping edge cubelets, moving three of the edges in th
 
 ![alt text](cube_swed_inverse.jpg "Swap Edges Inverse")
 
- - **Step4** Do the inverse of the auxiliart/helper move in step2 (Y')- this just gets the upper layer back to it's initial position
+ - **Step4** Do the inverse of the auxiliary/helper move in step2 (Y')- this just gets the upper layer back to it's initial position
 `U'`
 
 ![alt text](cube_swed_u_inverse.jpg "Rotate Upper Layer Inverse")
 
-Similarly as before, in these 4 stesp, we applied the commutator ` X Y X' Y' `. And because the only common elements between the operations were the swapped edges in the top layer, all other layers are left unchanged. We could go on and invent other algorithms, but will stop here for now.
+Similarly as before, in these 4 steps, we applied the commutator ` X Y X' Y' `. And because the only common elements between the operations were the swapped edges in the top layer, all other layers are left unchanged. We could go on and invent other algorithms, but will stop here for now.
 
 ### Parity - The laws of the cube
 
-The algorithms that we have come up with (RoCo, SwEd) work really well, but stragely they have some constraints. We cannot rotate just one corner, we always have to rotate two of them. Similarly we cannot swap only two edges, we have to swap three of them. Now why is that?
+The algorithms that we have come up with (RoCo, SwEd) work really well, but strangely they have some constraints. We cannot rotate just one corner, we always have to rotate two of them. Similarly we cannot swap only two edges, we have to swap three of them. Now why is that?
 
 This is related to the concept of parity, which refers to whether a permutation is even or odd. An even permutation can be represented by an even number of swaps, while an odd permutation can be represented by an odd number of swaps. Now, because of the mechanics and the symmetries of the Rubik's cube, there are certain "laws" that arise, which put constraints on possible cube states.
 
