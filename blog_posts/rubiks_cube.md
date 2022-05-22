@@ -79,7 +79,7 @@ Coming back to cube solving, we want to find algorithms which modify only a few 
 
 And how can we find operations which almost commute? As a rule of thumb we can say that permutation operations "almost commute" if they barely intersect, if they only move a few elements in common. (This is not generally true, but a good enough assumption for our use case). To really understand all this, let's look at two examples. 
 
-**And again, if you don't own a Rubik's cube, but want to follow along, just use this [neat online cube solver](https://rubiks-cube-solver.com/)**
+**And again, if you don't own a Rubik's cube, but want to follow along, just use this [neat online cube solver](https://rubiks-cube-solver.com/), which can also execute algorithms specified with the standard cube notation**
 
 ### RoCo
 
