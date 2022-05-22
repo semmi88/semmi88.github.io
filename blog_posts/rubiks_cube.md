@@ -83,7 +83,9 @@ And how can we find operations which almost commute? As a rule of thumb we can s
 
 ### RoCo
 
-Say that we want to come up with the algorithm that rotates corners on the top layer, meaning that it will not move them, just change their orientation. Let's call this algorithm Roco (from Rotates Corners). Here is the strategy that we can apply:
+![alt text](cube_roco_full.jpg "Rotates Corners")
+
+Say that we want to come up with the algorithm that rotates corners on the top layer, meaning that it will not move them, just change their orientation. Let's call this algorithm Roco (from Rotates Corners - and in this case specifically upper-right corners). Here is the strategy that we can apply:
 
 **Step1** We find a sequence of useful moves (let's call it X) - twists that leave the top layer unchanged, except for the one useful change that we are interested in: a single edge cubelet rotated. This is easier than it sounds, because even though we have to be careful with the top layer, our operation can arbitrarily mess up the bottom layer.
 
@@ -111,7 +113,7 @@ This formula can be applied to generate all sort of algorithm to modify only a f
 
 ### SwEd
 
-Another example would be swapping edge cubelets, moving three edges around the top layer, without affecting other cubelets.  Let's call algorithm this SwEd (from Swaping Edges).
+Another example would be swapping edge cubelets, moving three edges around the top layer, without changin their orientation or affecting any other cubelets. Let's call algorithm this SwEd (from Swaping Edges - and in this case specifically upper layer, front-right-back edges).
 
 **Step1** The useful moves (let's call it X) - in this case is swapping a pair of edge cubelets in the top layer. Again, here we don't care about messing up the bottom layer. A possible sequence is applying the following 6 twists: ` `
 
