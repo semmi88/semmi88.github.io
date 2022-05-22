@@ -1,6 +1,6 @@
 &leftarrow; [back to Homepage](../index.md)
 
-# Taming the Rubik's Cube (or How I met Group Theory)
+# Taming the Rubik's Cube - or How I met Group Theory
 
 * [Intro](#how-the-rubiks-cube-made-the-world-a-better-place)
 * [Cubing basics](#cubing-basics)
@@ -181,9 +181,9 @@ This is typically applied with a setup move X, then doing the main algorithm Y (
 Notice that in these three steps we have executed a conjugate ` X Y X' `, where the middle operation Y was in itself a series of operations, more precisely a commutator for corner rotations. Equipped with all these tools we confidently go on and solve the Rubik's cube and many other similar twisty puzzles!
 
 **References**
-- https://www.youtube.com/watch?v=7LTCEyrQk44
-- https://www.youtube.com/watch?v=54SGrZbLcoE&t=2161s
-- https://math.berkeley.edu/~hutching/rubik.pdf
-- http://www.geometer.org/rubik/group.pdf
-- https://rubiks-cube-solver.com/
+- [https://www.youtube.com/watch?v=7LTCEyrQk44](https://www.youtube.com/watch?v=7LTCEyrQk44)
+- [https://www.youtube.com/watch?v=54SGrZbLcoE&t=2161s](https://www.youtube.com/watch?v=54SGrZbLcoE&t=2161s)
+- [https://math.berkeley.edu/~hutching/rubik.pdf](https://math.berkeley.edu/~hutching/rubik.pdf)
+- [http://www.geometer.org/rubik/group.pdf](http://www.geometer.org/rubik/group.pdf)
+- [https://rubiks-cube-solver.com/](https://rubiks-cube-solver.com/)
 
