@@ -1,5 +1,12 @@
 # Taming the Rubik's Cube (or How I met Group Theory)
 
+* [Intro](#how-the-rubiks-cube-made-the-world-a-better-place)
+* [Cubing basics](#cubing-basics)
+* [Group Theory](#hello-group-theory)
+* [Commutators](#commutators---a-cubers-best-friends)
+* [Parity]
+* [Conjugates](#conjugates---a-cubers-second-best-friends)
+
 ## How the Rubik's Cube made the world a better place
 
 Recently I've read the book [Cubed, written by Erno Rubik](https://semmi88.github.io/book_reviews/cubed.html) (the inventor of the cube), and this book rekindled my love for the Cube. The book details the process of invention and searches for reasons to explain its popularity. The argument put forth, with which I agree, is that it is not a coincidence that the Rubik's Cube became widely known around the world. There something universal, almost magical about it, and it is full of contrast and contradicitons: simplicity vs complexity, pleasure vs frustration.
@@ -8,7 +15,7 @@ The game itself is easy to understand, intuitive - there is no need for an instr
 
 No wonder, that the Rubik's Cube became a cultural symbol, a symbol of intelligence and problem solving. It brought on a revolution in edutainment (education + entertainment) by offering fun ways to introduce mathematical concepts to kids. And in the process it made studying, thinking about problems cool again. I could even go as far as to say, that the Rubik's Cube gave us a universal value system on which we can all agree. As somehow, deep down, we can all agree that solving a scrabled cube is a good thing, being able to understand and solve complex puzzles is a useful skill in life, and in it is worth investing time to learn these skills.
 
-## Solving methods and Cubing Basics
+## Cubing Basics
 
 So how can you solve the cube? There are several well documented strategies, like the [layer-by-layer approach](https://ruwix.com/the-rubiks-cube/how-to-solve-the-rubiks-cube-beginners-method/), where you focus on completing each layer at a time by orienting and permuting the cubies. In total you need to learn about 5 algorithms, and with practice you will be able to solve the cube in around 2 minutes. That is pretty cool!  
 
@@ -51,6 +58,10 @@ For example, in the case of the 2x2x2 Mini Cube we have 24 colored facelets (4 c
 
 ![alt text](permutation_group.png "Permutation Group")
 
+???? Computer algorithms for Solver algorithms
+
+
+
 ### Non-commutativity makes the puzzle hard
 
 An important thing to notice is that the face twists (these permutation operations) are non commutative. This just means that the order of operations matters, and changing the order might give us a different result. (This is also called non-abelian, after the mathematician Niels Henrik Abel).
@@ -63,7 +74,7 @@ To see this non commutative property of cube rotations in action, let's just do 
 
 ![alt text](non_commutative.png "Non commutativity")
 
-And in fact this non-commutative property is what makes the puzzle hard, because we need to apply the rotations in a careful order. If twisting the cube faces would be commutative, then solving the cube would be trivial. To see this, let's take a simplified version of the puzzle, where we can only turn the front (F) and back (B) faces (all other rotation are not allowed). In this specific case, we have a commutative operations, because the front and back faces don't intersect (the facelets that they are permuting are independent of each other), and so the order of face twists does not matter. 
+And in fact this non-commutative property is what makes the puzzle hard, because we need to apply the rotations in a careful order. If twisting the cube faces would be commutative, then solving the cube would be trivial. To see this, let's take a simplified version of the puzzle, where we can only turn the front (F) and back (B) faces (all other rotation are not allowed). In this specific case, we have commutative operations, because the front and back faces don't intersect (the facelets that they are permuting are independent of each other), and so the order of twists does not matter. (A fancy way of saying this in mathematics is that “disjoint permutations” commute).
 
 No matter how much someone scrambles the cube with these two operation, the solution will be trivial. We know that making 4 turns of any face gets as back to the inital starting position. So if the front and back faces are not in the initial starting position, we just need to turn them 1,2 or 3 times (depending on the setup) and the cube is solved. So we can conclude that commutativity is boring, when it comes to cubing.
 
@@ -133,15 +144,21 @@ Another example would be swapping edge cubelets, moving three of the edges in th
 
 ![alt text](cube_swed_u_inverse.jpg "Rotate Upper Layer Inverse")
 
-Similarly as before, in these 4 stesp, we applied the commutator ` X Y X' Y' `. And because the only common elements between the operations were the swapped edges in the top layer, all other layers are left unchanged. We could go on and invent new algorithm, but will stop here for now.
+Similarly as before, in these 4 stesp, we applied the commutator ` X Y X' Y' `. And because the only common elements between the operations were the swapped edges in the top layer, all other layers are left unchanged. We could go on and invent other algorithms, but will stop here for now.
+
+## Parity -
+
+The algorithms that we have come up with (RoCo, SwEd) work really well, but stragely they have some constraints. We cannot rotate just one corner, we have to rotate two of them. Similarly we cannot swap only two edges, we have to swap three of them. Now why is that?
+
+
 
 ## Conjugates - a cubers second best friends
 
-Once we came up with some algorithms (RoCo, SwaCo), our next step would be to find ways to apply these algorithms with more flexibly. For example these algorithms only work if the cubelets are all in the upper layer and in specific positions. This is where conjugates come to our help. 
+Once we came up with some algorithms (RoCo, SwEd), our next step would be to find ways to apply these algorithms with more flexibly. For example these algorithms only work if the cubelets are all in the upper layer and in specific positions. This is where conjugates come to our help. 
 
-In group theory the conjugate of an operation X, with another operation Y is defined as the sequence of operations ` X Y X' `. But from the cubers point of view, the important thing to know is that if X and Y are possible operations on a group, than the conjugate X Y X' also is. And this means we can combine moves that we already know in a flexible way and make new algorithms.
+In group theory the conjugate of an operation X, with another operation Y is defined as the sequence of ` X Y X' `. But from the cubers point of view, the important thing to know is that if X and Y are possible operations on a group, than the conjugate X Y X' also is. And this means we can combine moves that we already know in a flexible way and make new algorithms.
 
-This is typically applied with a setup move X, then doing the main algorithm Y, and finally undoing the setup move X'. This pattern offers us an easy way to reuse algorithms. For example, let's say we want to rotate the upper layer's front-right corner and the bottom layer's back-right corner:
+This is typically applied with a setup move X, then doing the main algorithm Y (usually a commutator), and finally undoing the setup move X'. This pattern offers us an easy way to reuse algorithms. For example, let's say we want to rotate the upper layer's front-right corner and the bottom layer's back-right corner:
 
 - **Step1** These corner cubelets we want to rotate are not on the same layer, so we apply a setup move (X) and twist the back face to bring them onto to top layer: `B`
 
@@ -155,4 +172,13 @@ This is typically applied with a setup move X, then doing the main algorithm Y, 
 - **Step3** Finally, we undo the setup move, to get back to the original cube position: ` B' `
 
 ![alt text](conjugate_setup_inverse.jpg "Conjugate Setup Inverse")
+
+Notice that in these three steps we have executed a conjugate ` X Y X` `, where the middle operation Y was in itself a series of operations, more precisely a commutator for corner rotations. Equipped with all these tools we confidently go on and solve the Rubik's cube and many other similar twisty puzzles!
+
+**References**
+- https://www.youtube.com/watch?v=7LTCEyrQk44
+- https://www.youtube.com/watch?v=54SGrZbLcoE&t=2161s
+- https://math.berkeley.edu/~hutching/rubik.pdf
+- http://www.geometer.org/rubik/group.pdf
+- https://rubiks-cube-solver.com/
 
