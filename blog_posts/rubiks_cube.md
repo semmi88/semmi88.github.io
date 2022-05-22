@@ -1,3 +1,5 @@
+&leftarrow; [back to Homepage](../index.md)
+
 # Taming the Rubik's Cube (or How I met Group Theory)
 
 * [Intro](#how-the-rubiks-cube-made-the-world-a-better-place)
