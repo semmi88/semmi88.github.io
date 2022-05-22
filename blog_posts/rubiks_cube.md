@@ -77,14 +77,15 @@ If the operations are commutative, the order can be exchanged (`X Y X' Y' = X X'
 
 Coming back to cube solving, we want to find algorithms which modify only a few parts of the cube, and leave rest unchanged. We can achive this goal by finding operations which almost commute. Because applying the commutator of these operations will give a simple result, meaning most changes will cancel each other out, except for a few changes.
 
-And how can we find operations which almost commute? As a rule of thumb we can say that permutation operations "almost commute" if they barely intersect, if they only move a few elements in common. (This is not generally true, but a good enough assumption for our use case). To really understand all this, let's look at two examples. **And again, if you don't own a Rubik's cube, but want to follow along, just use this [neat online cube solver](https://rubiks-cube-solver.com/)**
+And how can we find operations which almost commute? As a rule of thumb we can say that permutation operations "almost commute" if they barely intersect, if they only move a few elements in common. (This is not generally true, but a good enough assumption for our use case). To really understand all this, let's look at two examples. 
 
+**And again, if you don't own a Rubik's cube, but want to follow along, just use this [neat online cube solver](https://rubiks-cube-solver.com/)**
 
 ### RoCo
 
 Say that we want to come up with the algorithm that rotates corners on the top layer, meaning that it will not move them, just change their orientation. Let's call this algorithm Roco (from Rotates Corners). Here is the strategy that we can apply:
 
-**Step1** We find a set of useful moves (let's call it X) - a series of moves that leaves the top layer unchanged, except for the one useful change that we are interested in:ca single edge cubelet rotated. This is easier than it sounds, because even though we have to be careful with the top layer, our operation can arbitrarily mess up the bottom layer.
+**Step1** We find a sequence of useful moves (let's call it X) - twists that leave the top layer unchanged, except for the one useful change that we are interested in: a single edge cubelet rotated. This is easier than it sounds, because even though we have to be careful with the top layer, our operation can arbitrarily mess up the bottom layer.
 
 One possibility is the following sequence of 6 moves: ` R' D R F D F' `
 ![alt text](cube_roco.jpg "Rotates Corners")
@@ -104,10 +105,23 @@ One possibility is the following sequence of 6 moves: ` R' D R F D F' `
 ![alt text](cube_roco_u_inverse.jpg "Rotate Upper Layer Inverse")
 
 
-If you look carefully, we executed a commutator `X Y X' Y'` of two operations. And because these operations almost commute, we undo most of the changes to the cube, except the ones involving common elements of X and Y in the top layer. And that is exactly what we wanted! 
+If you look carefully, with these 4 steps we executed the commutator `X Y X' Y'` of two operations. And because these operations almost commute, we undo most of the changes to the cube, except the ones involving common elements of X and Y in the top layer - the rotated corners. And that is exactly what we wanted! 
 
-This formula can be applied to generate all sort of algorithm to modify only a few parts of the cube. And it is fairly simple, the only creative part is to come up the first operation (the useful moves), which does the change in the top layer.
+This formula can be applied to generate all sort of algorithm to modify only a few parts of the cube. And it is fairly simple, the only creative part is to come up the first sequence of operation (the useful moves), which does the change in the top layer.
 
 ### SwEd
 
-Another example would be
+Another example would be swapping edge cubelets, moving three edges around the top layer, without affecting other cubelets.  Let's call algorithm this SwEd (from Swaping Edges).
+
+**Step1** The useful moves (let's call it X) - in this case is swapping a pair of edge cubelets in the top layer. Again, here we don't care about messing up the bottom layer. A possible sequence is applying the following 6 twists: ` `
+
+
+**Step2** We apply a similar auxiliary/helper move (let's call it Y) as before, just twisting the upper layer, so our pair of swapped edges are replaced by another pair: `U`
+
+
+**Step3** Do the inverse of the usefule moves in step1 (X') - this will undo all the mess in the bottom layer, and also swap the new pair of edge cubelets: `  `
+
+**Step4** Do the inverse of the auxiliart/helper move in step2 (Y')- this just gets the upper layer back to it's initial position
+`U'`
+
+Similarly as before, in these 4 stesp, we applied the commutator ` X Y X' Y' `. And because the only common elements between the operations were the swapped edges in the top layer, all other layers are left unchanged. We could go on and invent new algorithm, but will stop here for now.
