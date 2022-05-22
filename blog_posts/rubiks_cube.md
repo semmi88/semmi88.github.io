@@ -4,7 +4,6 @@
 * [Cubing basics](#cubing-basics)
 * [Group Theory](#hello-group-theory)
 * [Commutators](#commutators---a-cubers-best-friends)
-* [Parity]
 * [Conjugates](#conjugates---a-cubers-second-best-friends)
 
 ## How the Rubik's Cube made the world a better place
@@ -147,64 +146,15 @@ Another example would be swapping edge cubelets, moving three of the edges in th
 
 Similarly as before, in these 4 stesp, we applied the commutator ` X Y X' Y' `. And because the only common elements between the operations were the swapped edges in the top layer, all other layers are left unchanged. We could go on and invent other algorithms, but will stop here for now.
 
-### Parity -
+### Parity - The laws of the cube
 
 The algorithms that we have come up with (RoCo, SwEd) work really well, but stragely they have some constraints. We cannot rotate just one corner, we always have to rotate two of them. Similarly we cannot swap only two edges, we have to swap three of them. Now why is that?
 
-This is related to the concept of parity, which refers to whether a permutation is even or odd. An even permutation can be represented by an even number of swaps, while an odd permutation can be represented by an odd number of swaps. 
+This is related to the concept of parity, which refers to whether a permutation is even or odd. An even permutation can be represented by an even number of swaps, while an odd permutation can be represented by an odd number of swaps. Now, because of the mechanics and the symmetries of the Rubik's cube, there are certain "laws" that arise, which put constraints on possible cube states.
 
-Now, because of the mechanics and the symmetries of the Rubik's cube, whenever we twist a face of the cube, we always perform an even number of swaps. Each cubelet which changes location will also make another cubelet change location. And so no matter how many twists we make, the accumulated number of swaps will always remain even (as even + even = even). So it is impossible to swap only two cublets of the cube using legal moves.
+Whenever we twist a face of the cube, we always perform an even number of swaps. Each cubelet which changes location will also make another cubelet change location (just think of any of the 6 basic face twists). And so, no matter how many twists we make, the accumulated number of swaps will always remain even (as even + even = even). So it is impossible to swap only two cublets of the cube using legal moves, as that would be an odd number of swaps.
 
-If we look at corner pieces, there are three possible orientations to which we will assign numbers: correctly orientation (0), rotated clockwise (1) or rotated counterclockwise (2). Again because of the symmetries of the cube another "law" arises: the sum of corner orientations always remain divisible by 3, no matter how many legal turns we make. To prove this we can think of a solved cube, and define a corner as correctly oriented if the top/bottom facelet has the top/bottom center color. Now let's examine the 6 possible face twists and how they affect the sum. Up and Down rotations don't change the corner orientation (so the sum stays 0). For the remaining 4 side turn (Left, Right, Front, Back) we always rotate two corners clockwise and the other two counterclockwise (so the sum is increased by 1+1+2+2=6). Then we can state that the sum of corner orientations always remain divisible by 3, no matter how many legal turn we make.
-
-
- Using this frame of reference, it is easy to see that any twist of the top and bottom faces will not change the orientation of the corners, and therefore the total orientation will remain exactly divisible by 3. For any of the 4 sides, a 90 degree turn will twist two corners by orientation 1 and the other two corners by orientation 2. The total change in orientation is 1+1+2+2 = 6, which is divisible by 3. Therefore, no matter how many legal moves you make in a row, the corner orientation will always remain divisible by 3.
-
-
-Another thing to notice, is that our algorithms are built on commutators, which repeat every operation in reverse (` X Y X' Y' `). So regardless of how many moves are in each individual operation (X and Y), the total number of face twists will also always be and even number for a commutator.
-
-
-
-
-
-
-As it turns out, every cube state reachable by legal moves can always be represented by an even number of swaps, and at the same time cannot be represented by an odd number of swaps (the two are mutually exclusive). Since the above cube has an odd number of swaps ("one" swap), this state cannot be reached.
-
-To understand why this is so, we need to realise that each legal move always performs the equivalent of an even number of swaps. No matter how many moves you perform, the number of accumulated swaps will therefore always remain even.
-
-In step1 of SwEd, the useful move, do a swap of two edges. Then in step3, we undo the useful move, which does another swap of two edges.
-
-
-So for every swap we do in the useful move
-
-
-
-When considering the permutation of all edges and corners together, the overall parity must be even, as dictated by laws of the cube. However, when considering only edges or corners alone, it is possible for their parity to be either even or odd. To obey the laws of the cube, if the edge parity is even then the corner parity must also be even, and if the edge parity is odd then the corner parity must also be odd.
-
-An interesting fact is that a commutator always represents an even permutation on both edges and corners. Given a commutator X.Y.X-1.Y-1, regardless of whether X.Y involves an even or odd number of swaps, X-1.Y-1 will involve the exact same number of swaps, and 2 times any number gives us an even number overall. What this means is that commutators cannot directly solve positions where the edges and corners have odd parity.
-
-While parity tends not to be an issue at the beginning of a solve, it may become an issue in the endgame. If the edges and corners have odd parity, the easiest way to correct them is to apply a single 90 degree turn of any face. However, in the endgame, we typically have a need to employ sequences that affect only a select few pieces while preserving everything else, and a single 90 degree turn does quite the opposite, dislodging 8 pieces. Commutators allow us to affect a small number of pieces while preserving the rest, however these do not directly apply when the parity of the edges and corners are odd.
-
-In the Heise method, parity is dealt with while solving the last 5 edges. If all edges are solved (which is an even edge permutation), this forces the remaining corners to have even parity.
-
-
-
-
-
-In conclusion, we can say that it is impossible to do any of the following (using only face twist):
-- rotate a single corner/flip a single edge - (always has even number, at least two) 
-- permute/swap two cubelets - (always has to be odd number, at least three)
-
-Not every random scramble can be solved by legal moves because of the parity which refers to whether a permutation is even or odd (can that permutation be represented by an even or odd number of swaps):
-
-    Corner orientation
-    Each corner piece has three possible orientations. It can be oriented correctly (0), clockwise (1) or counterclockwise (2). The sum of corner orientations always remain divisible by 3, no matter how many legal turns you make. See the first two cases on the image.
-    Edge orientation
-    Each legal rotation on the Rubik's Cube always flips an even number of edges so there can't be only one piece oriented wrong. See the third example.
-    Piece swaps
-    Considering the permutation of all the corners and edges, the overall parity must be even which means that each legal move always performs the equivalent of an even number of swaps (ignoring orientation). See the last example.
-
-
+If we look at corner pieces, there are three possible orientations to which we can assign numbers: correctly orientation (0), rotated clockwise (1) or rotated counterclockwise (2). Now we can prove that the sum of corner orientations always remains divisible by 3. Think of a solved cube, and define a corner as correctly oriented if the top/bottom facelets have the top/bottom center colors. Now let's examine the 6 possible face twists and how they affect the sum. Up and Down rotations don't change the corner orientation (so the sum stays 0). For the remaining 4 side turn (Left, Right, Front, Back) we always rotate 4 corners, two in clockwise and two in counterclockwise direction (so the sum is increased by 1+1+2+2=6). And so the sum always remains divisible by 3, no matter how many legal turns we make. Making it impossible to rotate only one corner, as that would increase the sum by 1 or 2, breaking the law.
 
 ## Conjugates - a cubers second best friends
 
