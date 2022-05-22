@@ -54,12 +54,9 @@ The cube is a highly symmetric twisty puzzle. It can be studied using Group Theo
 
 A permutation group is an ordered list of numbers, on which we define permutation operations. These operations can rearrange the numbers, in a certain ways, and also meet the four primary properties of a group (have Indentity Operation, have Inverse Operations, are Associative, exibit Closure). 
 
-For example, in the case of the 2x2x2 Mini Cube we have 24 colored facelets (4 colors on each of the 6 faces). If we assign numbers to each facelet, the state of the cube can be described by an ordered list of 24 numbers. Then every twist on the cube basically just rearranges this ordered list. This way we can transform the problem of solving the cube, into studying lists of numbers.
+The cube has 6 different colored faces and each color is repeated exactly 9 times, so it can be considered as ordered list of 54 numbers. Rotating a face of the cube then just rearranges the ordered list in a certain way (it's a permutation operation). Repeating and combining these permutations we can define new permutations, which rearrange the list in new ways. This way we can transform the problem of solving the cube, into studying permutations on lists of numbers.
 
-![alt text](permutation_group.png "Permutation Group")
-
-???? Computer algorithms for Solver algorithms
-
+![alt text](permutation_groups.png "Permutation Groups")
 
 
 ### Non-commutativity makes the puzzle hard
@@ -77,6 +74,8 @@ To see this non commutative property of cube rotations in action, let's just do 
 And in fact this non-commutative property is what makes the puzzle hard, because we need to apply the rotations in a careful order. If twisting the cube faces would be commutative, then solving the cube would be trivial. To see this, let's take a simplified version of the puzzle, where we can only turn the front (F) and back (B) faces (all other rotation are not allowed). In this specific case, we have commutative operations, because the front and back faces don't intersect (the facelets that they are permuting are independent of each other), and so the order of twists does not matter. (A fancy way of saying this in mathematics is that “disjoint permutations” commute).
 
 No matter how much someone scrambles the cube with these two operation, the solution will be trivial. We know that making 4 turns of any face gets as back to the inital starting position. So if the front and back faces are not in the initial starting position, we just need to turn them 1,2 or 3 times (depending on the setup) and the cube is solved. So we can conclude that commutativity is boring, when it comes to cubing.
+
+As a side note, computer solving algorithms (like the Thistlethwaite algorithm), use principles from group theory and similar subgroups (with restricted set of moves) to reduce the complexity of solving the cube and guarantee a worst case scenario of 45 moves to solve any scrambled cube.
 
 ## Commutators - a cubers best friends
 
