@@ -114,9 +114,9 @@ This formula can be applied to generate all sort of algorithms that modify only 
 
 ![alt text](cube_swed_full.jpg "Swap Edges")
 
-Another example would be swapping edge cubelets, moving three of edges in the upper layer, without changing their orientation. Let's call algorithm this SwEd (from Swaping Edges - and in this case specifically upper layer, front-right-back edges).
+Another example would be swapping edge cubelets, moving three of the edges in the upper layer, without changing their orientation. Let's call algorithm this SwEd (from Swaping Edges - and in this case specifically upper layer, front-right-back edges).
 
- - **Step1** The useful moves (let's call it X) - in this case is swapping a pair of edge cubelets in the top layer. Again, here we don't care about messing up the bottom layer. A possible sequence would be applying the following 7 twists: ` M S D S' D' D' M' `
+ - **Step1** The useful moves (let's call it X) - in this case is swapping a pair of edge cubelets in the top layer (edge1 swapped with edge2). Again, here we don't care about messing up the bottom layer. A possible sequence would be applying the following 7 twists: ` M S D S' D' D' M' `
 
 ![alt text](cube_swed.jpg "Swap Edges")
 
@@ -124,7 +124,7 @@ Another example would be swapping edge cubelets, moving three of edges in the up
 
 ![alt text](cube_swed_u.jpg "Rotate Upper Layer")
 
- - **Step3** Do the inverse of the usefule moves in step1 (X') - this will undo all the mess in the bottom layer, and also swap the new pair of edge cubelets: ` M D D S D' S' M' `
+ - **Step3** Do the inverse of the useful moves in step1 (X') - this will undo all the mess in the bottom layer, and will also swap the new pair of edge cubelets (edge1 swapped with edge3): ` M D D S D' S' M' `
 
 ![alt text](cube_swed_inverse.jpg "Swap Edges Inverse")
 
@@ -134,3 +134,22 @@ Another example would be swapping edge cubelets, moving three of edges in the up
 ![alt text](cube_swed_u_inverse.jpg "Rotate Upper Layer Inverse")
 
 Similarly as before, in these 4 stesp, we applied the commutator ` X Y X' Y' `. And because the only common elements between the operations were the swapped edges in the top layer, all other layers are left unchanged. We could go on and invent new algorithm, but will stop here for now.
+
+## Conjugates - a cubers second best friends
+
+Once we came up with some algorithms (RoCo, SwaCo), our next step would be to find ways to apply these algorithms with more flexibly. For example these algorithms only work if the cubelets are all in the upper layer and close to each other. This is where conjugates come to our help. 
+
+In group theory the conjugate of an operation X, with another operation Y is defined as the sequence of operations ` X Y X' `. But from the cubers point of view, the important thing to know is that if X and Y are possible operations on a group, than the conjugate X Y X' also is. And this means we can combine operations/moves on the cube that we already know and make new moves.
+
+This is typically used as applying a setup move X, then doing the main algorithm Y, and finally undoing the setup move X'. This pattern offers us an easy way to reuse algorithms. 
+
+
+For example if the corners that we want to flip are not on the same layer, we could move them onto the same layer using a setup move, then apply FliCo, and finally undo this setup move. Happy days!
+
+Let's look at two examples.
+
+Flipping diagonal corner cubies on the front face
+
+Swapping three corner cubies on the front face
+
+
