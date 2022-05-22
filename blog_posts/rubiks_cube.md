@@ -77,20 +77,32 @@ If the operations are commutative, the order can be exchanged (`X Y X' Y' = X X'
 
 Coming back to cube solving, we want to find algorithms which modify only a few parts of the cube, and leave rest unchanged. We can achive this goal by finding operations which almost commute. Because applying the commutator of these operations will give a simple result, meaning most changes will cancel each other out, except for a few changes.
 
-And how can we find operations which almost commute? As a rule of thumb we can say that permutation operations "almost commute" if they barely intersect, if they only move a few elements in common. (This is not generally true, but a good enough assumption for our use case). To really understand all this, let's look at two examples.
+And how can we find operations which almost commute? As a rule of thumb we can say that permutation operations "almost commute" if they barely intersect, if they only move a few elements in common. (This is not generally true, but a good enough assumption for our use case). To really understand all this, let's look at two examples. **And again, if you don't own a Rubik's cube, but want to follow along, just use this [neat online cube solver](https://rubiks-cube-solver.com/)**
+
 
 ### RoCo
 
 Say that we want to come up with the algorithm that rotates corners on the top layer, meaning that it will not move them, just change their orientation. Let's call this algorithm Roco (from Rotates Corners). Here is the strategy that we can apply:
 
-**Step1** We find a set of useful moves (let's call it X) - a series of moves that leaves the top layer unchanged, except for the one useful change that we are interested in:ca single edge cubelet rotated. This is easier than it sounds, because even though we have to be careful with the top layer, our operation can arbitrarily mess up the bottom layer. One possibility is the following sequence of 6 moves: `L D' L' F' D' F`
+**Step1** We find a set of useful moves (let's call it X) - a series of moves that leaves the top layer unchanged, except for the one useful change that we are interested in:ca single edge cubelet rotated. This is easier than it sounds, because even though we have to be careful with the top layer, our operation can arbitrarily mess up the bottom layer.
+
+One possibility is the following sequence of 6 moves: ` R' D R F D F' `
+![alt text](cube_roco.jpg "Rotates Corners")
 
 **Step2** After this we do a simple auxiliary/helper move (let's call it Y) - which barely intersects with our sequence of useful moves (X). This could just be twisting the upper layer, so our rotated corner cubelet is replaced by another corner cubelet, and we do not touch the bottom layer. The intersection of the two moves (X and Y) then is just in the top layer, meaning that everything which is messed up in the bottom layer, will be reversed by the commutator: `U`
 
+![alt text](cube_roco_u.jpg "Rotate Upper Layer")
 
-**Step3** Do the inverse of the useful moves in Step1 (X') - this will undo all the mess in the bottom layer, and also rotate the new corner cubelet in the opposite direction: `F' D F L D L'`
+
+**Step3** Do the inverse of the useful moves in Step1 (X') - this will undo all the mess in the bottom layer, and also rotate the new corner cubelet in the opposite direction: ` F D' F' R' D' R  `
+
+![alt text](cube_roco_inverse.jpg "Rotates Corners Inverse")
+
 
 **Step4** Do the inverse of the auxiliart/helper move in step2 (Y')- this just gets the flipped corners back to their initial position: `U'`
+
+![alt text](cube_roco_u_inverse.jpg "Rotate Upper Layer Inverse")
+
 
 If you look carefully, we executed a commutator `X Y X' Y'` of two operations. And because these operations almost commute, we undo most of the changes to the cube, except the ones involving common elements of X and Y in the top layer. And that is exactly what we wanted! 
 
@@ -98,4 +110,4 @@ This formula can be applied to generate all sort of algorithm to modify only a f
 
 ### SwEd
 
-Another example would be:
+Another example would be
