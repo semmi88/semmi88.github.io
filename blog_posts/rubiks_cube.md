@@ -99,7 +99,7 @@ And how can we find operations which almost commute? As a rule of thumb we can s
 
 Say that we want to come up with the algorithm that rotates corners on the top layer, meaning that it will not move them, just change their orientation. Let's call this algorithm Roco (from Rotates Corners - and in this case specifically upper-right corners). Here is the strategy that we can apply:
 
- - **Step1** We find a sequence of useful moves (let's call it X) - twists that leave the top layer unchanged, except for the one useful change that we are interested in: a single edge cubelet rotated. This is easier than it sounds, because even though we have to be careful with the top layer, our operation can arbitrarily mess up the bottom layer. So after some tries, we could come up with the following sequence of 6 moves: ` R' D R F D F' `
+ - **Step1** We find a sequence of useful moves (let's call it X) - twists that leave the top layer unchanged, except for the one useful change that we are interested in: a single corner cubelet rotated. This is easier than it sounds, because even though we have to be careful with the top layer, our operation can arbitrarily mess up the bottom layer. So after some tries, we could come up with the following sequence of 6 moves: ` R' D R F D F' `
 
 ![alt text](cube_roco.jpg "Rotates Corners")
 
