@@ -1,5 +1,9 @@
 &leftarrow; [back to Homepage](../index.md)
 
+**[Designing Data-Intensive Applications - Martin Kleppman, 2017](ddia.md)**
+
+[![alt text](ddia.png "Cover")](ddia.html)
+
 **[A mi kockánk - Rubik Ernő, 2022](cubed.md)**
 
 [![alt text](cubed.jpg "Cover")](cubed.html)
