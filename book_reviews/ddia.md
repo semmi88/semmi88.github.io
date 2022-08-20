@@ -9,11 +9,6 @@ Many applications today are Data-intesive vs Compute-intensive:
  - raw CPU power is the not limiting factor
  - the primary challenge is data - data quantity, data procesing speed, data complexity
 
-The books consists of three parts:
- - Part 1 - focused on data storage & retrieval on a single machine (Chapters 1-4)
- - Part 2 - data storage & retrieval on multiple machines (Chapters 5-9)
- - Part 3 - building derived data systems - with batch & stream processing (Chapters 10-12)
-
 Big questions/hard problems:
 1. How to handle load?
  - indexes to speed up reads (range queries? hot indexes?)
@@ -24,22 +19,23 @@ Big questions/hard problems:
  - replication - failover/catch-up revocery 
    - lag? consistency guarantees? conflict resolution?
 
-Maind data dsitribution strategies:
- - Replication
- - Partitioning
+Maind data dsitribution strategies: **Replication & Partitioning**
 
 Table of contents:
-* [Chapter1 - Reliability/Scalability](#chapter1---reliabilityscalability)
-* [Chapter2 - Data Models & Query Languages](#chapter2---data-models--query-languages)
-* [Chapter3 - Storage and retrieval](#chapter3---storage-and-retrieval)
-* [Chapter4 - Encoding and Evolution](#chapter4---encoding-and-evolution)
-* [Chapter5 - Replication](#chapter5---replication)
-* [Chapter6 - Partitioning](#chapter6---partitioning)
-* []()
-* []()
-* []()
-* []()
-* []()
+* Part 1 - focused on data storage & retrieval on a single machine 
+  * [Chapter1 - Reliability/Scalability](#chapter1---reliabilityscalability)
+  * [Chapter2 - Data Models & Query Languages](#chapter2---data-models--query-languages)
+  * [Chapter3 - Storage and retrieval](#chapter3---storage-and-retrieval)
+  * [Chapter4 - Encoding and Evolution](#chapter4---encoding-and-evolution)
+* Part 2 - data storage & retrieval on multiple machines
+  * [Chapter5 - Replication](#chapter5---replication)
+  * [Chapter6 - Partitioning](#chapter6---partitioning)
+  * [Chapter7 - Transactions](#chapter7---transactions)
+  * []()
+Part 3 - building derived data systems - dataflow architecture
+ * []()
+ * []()
+ * []()
 	
 ## Chapter1 - Reliability/Scalability
 
@@ -314,33 +310,31 @@ Read commited
    - (two versions - commited vs transaction-in-progress)
  - prevents dirty writes - ovewrite of uncommited (row-level locks)
 Snapshot Isolation ~ Repeatable Read
- - writers block writesr, readers never block (writer nor reader)
+ - writers block writers, readers never block (writer nor reader)
  - good enough for small read/write transactions and long-running read-only
  - prevents read skew - timing anomaly, see different part of the database at different point in time 
    - while ongoing transaction A, it sees commited changes to the database by another transaction B 
    - instead of a consitent snapshot as it was at the beginning of transaction A (multi-version conccurency control)
 Serializable
- - prevents lost updates - timing anomaly, two concurrent read-modify-write transactions, the first overwrites the write of the second without incorporating the changes
-		
+ - prevents lost updates - timing anomaly
+   - two concurrent read-modify-write transactions, the first overwrites the write of the second without incorporating the changes
+   - (atomic operations / explicit lock / autodetect and abort / compare-and-set)
+ - prevents write skew - timing anomaly, two transactions read-and-updating two different objects based on a premise, that is outdated 
+   - phantoms - query some condition, another write affects the results of the query, outdated premise (block data not commited yet)
+   - at least on oncall, room double-booking, double-spending, duplicate-username chosen
+```	
 
- 
- - (atomic operations / explicit lock / autodetect and abort / compare-and-set)
-	write skew - timing anomaly, two transactions read-and-updating two different objects based on a premise, that is outdated 
-	phantoms - query some condition, another write affects the results of the query, outdated premise
-	(block data not commited yet)
-		- at least on oncall, room double-booking, double-spending, duplicate-username chosen
-```					
-			Solutions
-				- materializing conlficts - complex implementation
-				- single threaded execution - does not scale ~ it's like locking the entire database
-				- 2PL (two phase locking) - does not perform well
-						readers block writers (but not reader)
-						writers block readers (and writers)
-						- lock modes shared mode/exlusive mode
-				- SSI (Serializable Snapshot Isolation)
-					- detect outdated premise in transactions
-						- detect reads of potentially stale value MVCC (uncommited write occurs before read)
-							only an issue if we want to commit that read value - optimistic approach
-						- detect writes that affect prior reads (write occurs after read)
-							allow to proceed, aborted if not serilaziable - optimistic approach
+Implementations
+  - materializing conlficts - complex implementation
+  - single threaded execution - does not scale ~ it's like locking the entire database
+  - 2PL (two phase locking) - does not perform well
+    - readers block writers (but not reader)
+    - writers block readers (and writers)
+    - lock modes shared mode(read-read okay)/exlusive mode
+  - **SSI (Serializable Snapshot Isolation)**
+    - detect outdated premise in transactions
+    - detect reads of potentially stale value MVCC (uncommited write occurs before read)
+      - only an issue if we want to commit that read value - optimistic approach
+    - detect writes that affect prior reads (write occurs after read)
+      - allow to proceed, aborted if not serilaziable - optimistic approach
 
