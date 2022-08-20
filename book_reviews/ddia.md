@@ -301,9 +301,10 @@ ACID
  - Atomicity - Abortability of transactions - takes care of partial error
  - (Consistency - Consistent state of the data between transactions - not really related to database, the application's responsability)
  - Isolation - Concurrent transactions don't interfere with each other - different levels
+   - handling race conditions
  - (Durability - Committed transaction data will not be lost - written to disk & replicated)
 
-(Transaction) Isolation Levels 
+(Transaction) Isolation Levels
 ```
 Read commited
  - prevents dirty reads - read of uncommited 
@@ -315,7 +316,7 @@ Snapshot Isolation ~ Repeatable Read
  - prevents read skew - timing anomaly, see different part of the database at different point in time 
    - while ongoing transaction A, it sees commited changes to the database by another transaction B 
    - instead of a consitent snapshot as it was at the beginning of transaction A (multi-version conccurency control)
-Serializable
+Serializable (guarantees some serial order)
  - prevents lost updates - timing anomaly
    - two concurrent read-modify-write transactions, the first overwrites the write of the second without incorporating the changes
    - (atomic operations / explicit lock / autodetect and abort / compare-and-set)
@@ -337,4 +338,73 @@ Implementations
       - only an issue if we want to commit that read value - optimistic approach
     - detect writes that affect prior reads (write occurs after read)
       - allow to proceed, aborted if not serilaziable - optimistic approach
+      
+## Chapter8 - Trouble with Distribuited Systems
+
+No shared memory (shared nothing architecture) - communicate via network
+ - unrelibale network - variable delays (swtich / VM / OS - queues), lost/delayed packets
+ - unreliable clocks
+ - process pauses (GC, CPU context switch, VM, I/O)
+
+All this can lead to partial failures and nondeterminism.
+
+How to handle network faults?: *timeout*
+
+What is the correct *timeout* value?
+ - networks can have unbounded delays, no guarantees
+ - timeout too long - blocking app/user waiting/unused capacity
+ - timeout too short - declaring a node dead prematurely - double execution of an action, failover -> which may cause cascading failures
+ - no "correct" value, determined experimentally
+
+Trade-off: **Bounded delay vs Resource Utilization**
+
+Circuit-switching
+ - telephone netwrods, ISDN
+ - fixed bandiwth allocation -> know bandwith requriement for a call
+ - bounded delay/latency -> but worse resource utilization
+
+Packet-switching
+ - Ethernet and IP
+ - dynamic bandwith allocation -> unknown bandwith requirements, optimized for bursty traffic
+ - variable delay/latency -> but better resoure utilization
+
+Unreliable Clocks - pitfalls
+ - leap seconds, time-of-day clock might jump backwards
+ - quartz clock drifting, nodes with different time
+ - NTP synchronized - not reliable 
+   - local time servers is *<10ms* drift (best case scenario)
+   - remote time server *<100ms*
+
+Physical clocks 
+ - time-of-day (might jump back-forward)
+ - monotonic (might jump forward)
+Logical clocks
+ - strictly monotonic
+
+
+Trade-off: **Cost vs Reliability**
+
+Hard Real-Time Systems
+  - expensive, bounded delay but a lower throughput
+  - special OS (RTOS), languages, libraries, tools
+
+Byzantine Faults - (hard to deal with, usually assumed not to happen)
+ - compromised nodex/untrusted parties
+ - arbitrary faults, corrupted responses
+
+
+Philosophical:
+ - in a distribuited system - how can we know anything, if the mechanism of perception and measurement is unreliable?
+ - makes assumption about the system behavior (system model)
+ - design to provide guarantees under these assumptions
+
+
+Truth is defined by the majority
+ - cannot rely on a single node, must rely on quorum
+ - individual nodes must abide quorom decisions
+ - leader and the lock
+   - fencing tokens - sequence number - to avoid long pause caused inconsistencies, lock expired but not known by node leasing it
+     - return a sequence number when lock is requested/leased
+     - send senquence number when writing using lock 
+     - compare to see if it's the latest sequence number, or newer one has been issued
 
