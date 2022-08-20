@@ -36,7 +36,7 @@ Table of contents:
 * Part 3 - building derived data systems - dataflow architecture
   * [Chapter10 - Batch processing](#chapter10---batch-processing)
   * [Chapter11 - Stream processing](#chapter11---stream-processing)
-  * [a]()
+  * [Chapter12 - Future of data systems](#chapter12---future-of-data-systems)
 	
 ## Chapter1 - Reliability/Scalability
 
@@ -666,4 +666,101 @@ Fault tolerance - exactly once execution
  - rolling checkpoint generation / state saved to disk - or state rebuilt from log
  - atomic commit - transctions with rollback
  - idempotent writes - send offset with each change, don't accept older offset / fencing token
+
+## Chapter12 - Future of Data Systems
+
+No one-size fits all software - need to integrage different data systems
+
+How to keep data in sync/consistent? - Ordering
+1. log-based derived data - log-based order
+2. distributed transactions - order writes using 2PL - locks & mutex
+
+How to handle failures?
+1. log-based derived data - (deterministic) retry and idempotency (more than once execution)
+2. distributed transactions - retry with atomic commit to ensure only once execution
+
+Log-based derived data 
+ - async replication, no timing guarantees
+ - localize failure, replication failure does not affect main write
+ - single leader node throughput === guarantees total order broadcast (forces a bottleneck)
+   - higher load requires partitions - ordering between partitions becomes ambiguous - casual dependecies cannot be captured effectively
+
+Distributed transactions
+ - linearizability (read own writes)
+ - amplify failure, any write failes aborts whole operation
+ - poor performance
+
+Stable ordering and fault-tolerant message processing are quite strict demands, but less expesnive and more operationally robust then distributed transactions (1. log-based derived data >> 2. distributed transactions)
+
+Lambda architecture
+ - event log
+ - stream processing system for quick / approximate updates to dervied views  
+ - batch processing system for slow / correct updates to derived views
+   - overhead of maintaining two separate systems, merging results can become complex
+   - rise of unified system to do both
+
+Reads are events too
+ - serving a read requests, could be interpreted as join
+   - join between stream of read request and database - stream-table join
+ - one-off read ~ pass read request through join operator and forget it 
+ - subscribe request ~ persistent join with past and future events - state stored
+
+Making operations idempotent - Duplicate surpression
+ - add metadata - operation IDs - pass from client all the way to db recods and enforce uniqueness
+ - fencing token when failing over from one node to another
+
+Enforcing uniqueness constriants
+ - single leader works - for limited throughput and as long as it does not fail
+ - for failover consensus, synchronization is needed
+
+Single partition solution for uniqueness
+ - sending writes that can conflict to the same partition
+- each partition is processed sequentially - local database to keep track of state
+- for every write we emit a success or reject message
+
+Multi partition solution for uniqueness
+ - example: money transfer from A to B, request ID - three different partitions - how to sync?
+ - cross-partitions transactions - atomic commit - throughput suffers
+ - multiple stages of stream processors (dataflow)
+   - stage 1: durably log a single message with all data requestID, account A, account B (either appears or not in the log, single ojbect write are atomic)
+   - stage 2: read each request and emit two output message/stream (could be duplicated)
+     - A stream: debit + request ID
+     - B stream: credit + request ID
+     - immutable and deterministic to support retries
+   - stage 3: A & B stream processor process and deduplicate messages based on request ID   
+
+Consistency conflates two requirements:
+ - Timeliness - read most up-to-date value 
+   - linearizability - achieves it in a strong way
+   - read-after-write - weaker guarantee
+ - Integrity - no data contradiction and no data loss 
+   - atomic commit
+   - exactly-once execution 
+     - handles lost events (fault-tolerant delivery)
+     - handles duplicate execution surpression (through idempotency)
+ - Integrity (permanent inconsistency) >> Timeliness (eventual consistency)
+
+Hard uniqueness constriant (consensus)
+ - can be achieved by funneling all events in a particular partition through a single node
+ - limits performance, clients wait for checks
+
+Weaker uniqueness contraint (timeliness enforcement is relaxed):
+ - optimistic write, and clients check for constraints after (async)
+ - compensating transaction might be acceptable in many cases (apologies)
+
+Dataflow systems:
+ - multi stage derived data stream processors
+ - can maintain integrity without atomic commit, linearizability, synchronous cross-partition coordination - less expensive, more robust
+ - if we loosen the timeliness constraints (allow temporary violation and compensate later) we can avoid sync coodination and improve throughput even more
+
+Trade-off: **Performance/Availability at high load** vs **Number of inconsistencies/Compensating transactions** 
+
+---
+
+Ethics
+ - Predictive analytics
+   - Algorithmic prison - beign exluced from key aspects of society (loan, jobs, housing, ari travel) because of ml decision-making software labelling someone as risky - (without any proof of guilt)
+   - amplify bias in the data, past discriminations, negative feeddback loops
+ - Privacy and survaillance
+   - harm now or in the future ~ similar to pollution/hazardous
 
