@@ -4,24 +4,30 @@
 
 ![alt text](ddia.png "Cover")
 
-## High level overview of the book:
-Presents two emotion theories:
- - the *classical theory of emotions* does not stand up to evidence anymore
- - a new theory of *constructed emotions* is a better fit to the scientific evidence
-    - and also provides useful tools to think about emotions and improve our lifes
+## Main ideas and overview of the book:
+Many applications today are Data-intesive vs Compute-intensive:
+ - raw CPU power is the not limiting factor
+ - the primary challenge is data - data quantity, data procesing speed, data complexity
 
-Advices:
-  - if emotions are constructed, you are in part responsible for what you feel and how you interpret the world
-    - work on your emotional granularity, rich set of concept is toolbox for a meaningful life
-    - reframe emotions and situations, deconstructing the self - is this causing me real physical harm or it's just a threat to my ego/self
-  - everything we feel and do is influenced by our body budget (hungry,tired,in pain)
-    - balance your body budget by eating healthy, sleeping enough and exercising
-  - watch out for the mental inference fallacy - attribute mental state to physical behavior
-    - a mental state can have vastly different manifestations
+The books consists of three parts:
+ - Part 1 - focused on data storage & retrieval on a single machine (Chapters 1-4)
+ - Part 2 - data storage & retrieval on multiple machines (Chapters 5-9)
+ - Part 3 - building derived data systems - with batch & stream processing (Chapters 10-12)
 
-## Classical Theory of Emotions - Essentialism
-  - states that emotions are localized to individual parts of the brain (e.g.the fear circuit/network) - one-to-one mapping
-    - however a metastudy found no consistent emotional fingerprints in the brain - no dedicated circuit
-    - each instance of an emotion can vary a lot, using different brain parts
-  - states that emotions are the reactions of the brain to a certain situation
-    - reactive brain would be metabolically less efficient than a predicting/correcting brain    
+Big questions/hard problems:
+1. How to handle load?
+ - indexes to speed up reads (support range queries? hot indexes?)
+ - partitioning to speed up read/writes (hot partitions? rebalancing?)
+2. How handle failures?
+ - replication (lag? consistency?)
+	
+## Chapter1 - Reliability/Scalability
+
+Describing Load:
+ - specific to your system
+ - e.g: volume of reads/writes, volume of data to store, distribution of followers per user
+
+Describing Performance:
+ - Throughput - in offline/batch systems (nr of records per second, total processing time of dataset)
+ - Response time - in online/interactive systems - percentiles - median p50, p95, p999 (1 in 1000) - tail latencies
+  
