@@ -72,3 +72,62 @@ Triple Store  (RDF - Resource Description Framework)
     - subject = vertex
     - prediate = property name | edge label
     - object = property value | vertex
+
+## Chapter3 - Storage and Retrieval
+
+* For efficient lookups we need an index
+* For efficient range lookups, we need a sorted index
+* But each index comes with write overhead cost
+* To recover from crases - write-ahead log or redo log
+
+
+Storage engines:
+```
+	- in-memory only (limited in size)
+	- log-strcutured storage engine
+		- in memory hash index or sorted/sparse index
+		- in-memory memtable - balanced tree to sort
+		- disk based sorted log database (SSTable, LSM tree) - append only
+	- page-structured storage engines
+		- disk based B-tree index
+		- disk based database - in-place updates
+```
+In-memory hash-index 
+ - simple index, append only writes
+ - cons: if many keys, it does not fit in RAM
+ - cons: no support for range queries, only exact queries
+
+SSTable/LSM-Tree 
+ - sorted, sparse, index, write firts to memory - updates appended
+ ```
+		- in-memory writes to a sorted+balanced tree - periodcally write to disk (sorted+compacted)
+		- keep in-memory spare index for each segment written to disk - sparse is enough because values are sorted
+		- values can be repeated, needs to check in specific order, from more recent to least recent segements
+		- bloomfilter for quickly discarting non-members
+```
+B-tree 
+- sorted index, write to disk - update-in-place, overwrite
+```
+		- works with fixed-sized blocks/pages
+		- each page stores key range boundaries and references to child pages - starts from root page
+		- high branching factor -100-500, few levels
+		- easy to add new key/split a page, tricky to delete
+		- pros: keys are stored in one place, easier to lock/make transactional
+```
+
+Write Performance - LSM-tree wins
+ - lower write amplification and sequential operations/compression
+ - B-tree higher write amplification (redo log, page, split/parent page)
+
+Read Performance - B-tree wins 
+ - fewer operations (˜4 page reads, 4 deep B-trees)
+ - LSM-tree might need to check several data structure/SSTables in compaction
+
+Access Pattern differences
+ - OLTP - transactions - low latency, small nr of records
+ - OLAP - analaytics - bulk, aggregates over large nr of records
+
+Column-Oriented Stotage
+ - if rows are a large (100+ columns) and we need to aggregate and extract a couple of columns (3) - row based storage is highly inefficient
+ - compression
+ - different sorting order (write have to go first to memory, and merged to disk later)
