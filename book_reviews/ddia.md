@@ -31,11 +31,12 @@ Table of contents:
   * [Chapter5 - Replication](#chapter5---replication)
   * [Chapter6 - Partitioning](#chapter6---partitioning)
   * [Chapter7 - Transactions](#chapter7---transactions)
-  * []()
-Part 3 - building derived data systems - dataflow architecture
- * []()
- * []()
- * []()
+  * [Chapter8 - Trouble with distributed systems](#chapter8---trouble-with-distribuited-systems)
+  * [Chapter9 - Consistency and Consensus](#chapter9---consistency-and-consensus)
+* Part 3 - building derived data systems - dataflow architecture
+  * [a]()
+  * [a]()
+  * [a]()
 	
 ## Chapter1 - Reliability/Scalability
 
@@ -407,4 +408,111 @@ Truth is defined by the majority
      - return a sequence number when lock is requested/leased
      - send senquence number when writing using lock 
      - compare to see if it's the latest sequence number, or newer one has been issued
+
+## Chapter9 - Consistency and Consensus
+
+Distributed Consistency Models 
+```
+Linearizability (~Consistency in reads/writes)
+- total order - sinlge copy of data and all operation are atomic
+- recency guarantee
+- single up-to-date value - that all nodes agree on
+- coordinating state of replicas in face of delays/faults 
+- slow, proportial to deays in network, coordination overhead, comes with performance hit
+
+Casuality (Caually consistent)
+- partial order, casual oredering
+- casaully related events are ordered (happens-before)
+- non related events are concurrent, no order defined
+- can be implemented without performance hit
+```
+
+Ordering - helps preserve casuality
+  - Sequence number ordering - OK in a single-leader system
+  - Lamport timestamp - in a mulit-leader/leaderless system
+    - each node has a counter and an ID
+    - maximum counter values is tracked and always sent - nodes update their counter
+
+Total Order Broadcast - Atomic Broadcast
+ - messages are guaranteed to be delivered reliably in a fixed order 
+   - reliable message delivery (if delivered to one node, delivered to all nodes)
+   - total order delivery (delivered in the same order for every node)
+   - there is no guarantee WHEN a message will be delivered - nodes could lag behind
+ - every node processes the same writes in the same order (replication log, transction log, write-ahead log, lock log)
+
+
+CAP Theorem - when Partitioned network, choose one:
+ - Consistency (linearizability) - consistent reads/writes - disconnected nodes wait/return error (unavailable)
+ - Availability - disconnected nodes process request independentyl - (non-linearizable, ~not consistent)
+
+Problems with CAP
+ - considers only on consistency model (linearizability)
+ - considers one kind of fault (network partition - not delays/lost packets)
+
+Consensus
+ - most important and fundamental problem in distributed computing - get all nodes to agree
+ - but not every system requires consensus - maybe it's okey to have multiple leaders/conflicting values - branching/merging version histories
+ - equivalent to other problems
+   - linearizable compare-and-set/increment-and-get register  
+   - Total Order Broadcast
+   - locks and leases
+   - mebership/coordnation 
+
+Coordination/Consensus services - ZooKeeper and etcd
+ - small database, holding data in memory, slowly changing data
+ - replicated across nodes consistently - using fault-tolerant total order broadcast
+ - small number of nodes (3 - 5) - easier to perform majority votes, than on thousands of nodes
+
+"Outsourcing" some of the work of coordinating nodes
+ - leader election -> implemented by distributed lock, linearizability - all nodes must agree who has the lock
+ - allocating work to nodes - job schedulers
+ - rebalancing partitions
+ - service discovery - who is the leader 
+   - read only cache replicas, not voting, just to serve reads that not need to be linearizable (like DNS - availability > staleness)
+ - membership service - active live members of a cluster with consensus
+
+
+Fault-Tolerant Consensus Algorithms:
+ - Viewstamped Replication
+ - Paxos
+ - Zab (Zookeeper - Hadoop, Kafka)
+ - Raft (etcd - K8)
+
+2-Phase-Commit - 2PC -> (comes down to a single node atomic commit on the coordinator)
+ - coordinator - hands out unique transaction ID
+   - prepera request - participants acknowledging will wait indefinitely for coordinator decision
+   - commit/abort request - coordinator decision - written to disk first - send to participants
+   - in case of error/timeout - retry forever
+ - problems - coordinator failure recovery
+   - could never return - indefinite wait for decisions or loss of atomicity guarantees
+   - corrupted log, requiers manual conflict resolution or loss of atomicity guarantees
+
+
+Consensus is easy - if we have the leader node
+ - but what happens if leader node fails
+ - we wait for the leader node to recover indefinitly
+ - or human selects the leadaer node - "act of God"
+
+Fault-Tolerant Consensus (unifrom consensus) is hard 
+ - because of has to satisfy livenes property (Termination) - make progress, eventually a decision has to be made
+ - of course if all nodes crash there cannot be a consensus 
+ - there is a limit, consensus algorithms require the majority of nodes to be working correctly for termination
+
+
+Chicken and the egg problem
+ - problem of split brain - two or more nodes believe they are the leader and get the database into inconsistent state
+ - so to elect a leader - we need consensus
+ - but to reach consensus - we need a leader to decide from proposals
+
+Given a weaker guarantee - unque leader within each epoch
+ - two rounds of voting
+   - leader election - increases the epoch, quorum majority (the highest number wins if multiple leaders)
+   - leader proposal for every decisions - has to wait for quorom majority approval 
+   - overlap between the two 
+     - at least 1 node who approved the proposal, participated in latest leader election
+     - so there is no higher epoch that would conflict, the leader still holds the leadership 
+ - voting is like synchronous replication - comes with a cost
+ - if a flaky network, the system could be stuck in leader reeleciton instead of doing actual work
+		
+---
 
