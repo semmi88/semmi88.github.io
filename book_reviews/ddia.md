@@ -31,3 +31,44 @@ Describing Performance:
  - Throughput - in offline/batch systems (nr of records per second, total processing time of dataset)
  - Response time - in online/interactive systems - percentiles - median p50, p95, p999 (1 in 1000) - tail latencies
   
+## Chapter2 - Data Models & Query Languages
+
+Declarative Query Language (SQL) vs Imperative Query API
+ - more concise
+   - hides implementation details, allows for database system to intorduce improvements
+   - decouples client code from database engine details
+   - more limited in funcionality, which give  more room for optimizations in database
+
+MapReduce a hybrid - selection query, with map and reduce user specified by code
+ - map(record) -> emit(key, value)
+ - group and sort by key
+ - reduce(key, value) -> for each key called once, to produce final result
+
+
+Relational Model - classic approach
+ - if self-contianed data with mostly one-to-many relationships - Document Model better
+   - less data locality, needs to join information
+ - if lost of many-to-many relationship, anything can be connected - Graph Model better
+   - complicated queries, several levels of joins needed, number of joins not fixed
+ - schema-on-write - table update/backfill needed for schema change
+
+
+Document Model
+ - suitable for tree-like structure (mostly one-to-many relationships)
+   - easy to represent: one-to-many relationships
+   - hard to represent: many-to-on, many-to-many - data duplication, manual/client side joins - reference resolution
+ - data locality
+ - schema-on-read - easy to incorporate schema changes
+
+
+Graph-Like Model
+ - suitable for lots of many-to-many relationships
+ - flexiblity to add edges, vertices
+ Property Graph Model
+  - vertices (properties)
+  - edges (properties - head - tail - label)
+Triple Store  (RDF - Resource Description Framework)
+  - (subject, predicate, object) - does not distinguish between properties and edges - predicates used for both
+    - subject = vertex
+    - prediate = property name | edge label
+    - object = property value | vertex
