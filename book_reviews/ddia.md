@@ -35,7 +35,7 @@ Table of contents:
   * [Chapter9 - Consistency and Consensus](#chapter9---consistency-and-consensus)
 * Part 3 - building derived data systems - dataflow architecture
   * [Chapter10 - Batch processing](#chapter10---batch-processing)
-  * [a]()
+  * [Chapter11 - Stream processing](#chapter11---stream-processing)
   * [a]()
 	
 ## Chapter1 - Reliability/Scalability
@@ -602,3 +602,68 @@ Graph data
  - process one vertex at a time, vertexes send messages to other vertexes for the next iteration
    - could be slow due to lots of cross-machine communication
    - small data could be processed on a single-machine (GraphChi)
+   
+## Chapter11 - Stream processing
+
+- Unbounded input - topics containing events
+- Uses message borker / event logs
+- Continous processing
+
+Messaging systems
+ - direct messagings - UDP/HTTP/RPC - application code retries
+
+Queue-based message brokers (AMQP/JMS)
+ - transient storage - (deleted after ACK) 
+ - multiple parallel consumers - fan out
+ - ACK and redelivery - deleted cannot be reprocessd, no history
+
+Log-based message brokers (Kafka/Kinesis)
+ - durabile storage  - append only log - *ORDERED*
+ - partitions that have assinged consumers (from consumer groups)
+ - consumer offset - easier to reprocess, can jump back in history
+
+Change Data Capture
+ - system of records -> log of data changes -> derived systems
+  - apply changes in the same *ORDER* to derived systems (log based message broker)
+  - async replication, that has lag
+
+Event sourcing
+ - similar to CDC, but higher level, application level (not DB level)
+ - immutable event log - recrods actions, not side effects/DB level entity changes
+
+Mutable state & Immutable changelog
+ - they represent two sides of the same coin - no contradiction
+   - changelog === evolution of state overtime
+ - separate how data is written, from how it is read
+   - no worries about - schema design, index complexities to supporting certain query/access patterns
+   - use a write-optimized event log, then later add several different read-optimized views as needed (derived data systems)
+
+Stream Processing output
+ - a new data store (derived data system, db, cache, search index)
+ - push/stream events to a client app
+ - produce another stream (derived stream)
+
+Unbounded input
+ - cannot be sorted (no sort-merge join)
+ - cannot be restarted from the beginning if failed
+
+Stream Processing
+ - pattern matching engines - maintains state of the query - events flow through continously
+ - aggergation engines - copmute avg/count over a fixed window
+
+Event time vs Processing time
+ - occurence time by device clock, sent time by device clock, recieved time by server clock
+ - lagging,straggler events - dropped or metric correction republished
+
+Joins 
+ - time window limited, time-dependent (slowly changing dimensions)
+ - stream processor needs to maintain state 
+   - based on one join input
+   - and query state on events from the other join input (enrich)
+
+Fault tolerance - exactly once execution
+ - microbatching (1 second window) - repeatable retry
+ - rolling checkpoint generation / state saved to disk - or state rebuilt from log
+ - atomic commit - transctions with rollback
+ - idempotent writes - send offset with each change, don't accept older offset / fencing token
+
