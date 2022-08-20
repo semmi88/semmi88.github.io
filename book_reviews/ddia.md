@@ -29,9 +29,9 @@ Maind data dsitribution strategies:
  - Partitioning
 
 Table of contents:
-* [Chapter1 - Reliability/Scalability](chapter1---reliabilityscalability)
-* [Chapter2 - Data Models & Query Languages](chapter2---data-models--query-languages))
-* [Chapter3 - Storage and retrieval]([chapter3---storage-and-retrieval))
+* [Chapter1 - Reliability/Scalability](#chapter1---reliabilityscalability)
+* [Chapter2 - Data Models & Query Languages](#chapter2---data-models--query-languages)
+* [Chapter3 - Storage and retrieval]([#chapter3---storage-and-retrieval)
 *
 *
 *
