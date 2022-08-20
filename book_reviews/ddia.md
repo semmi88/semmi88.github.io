@@ -78,7 +78,7 @@ Triple Store  (RDF - Resource Description Framework)
 * To recover from crases - write-ahead log or redo log
 
 
-Storage engines:
+Storage engine types:
 ```
 	- in-memory only (limited in size)
 	- log-strcutured storage engine
@@ -97,10 +97,10 @@ In-memory hash-index
 SSTable/LSM-Tree 
  - sorted, sparse, index, write firts to memory - updates appended
  ```
-		- in-memory writes to a sorted+balanced tree - periodcally write to disk (sorted+compacted)
-		- keep in-memory spare index for each segment written to disk - sparse is enough because values are sorted
-		- values can be repeated, needs to check in specific order, from more recent to least recent segements
-		- bloomfilter for quickly discarting non-members
+	- in-memory writes to a sorted+balanced tree - periodcally write to disk (sorted+compacted)
+	- keep in-memory spare index for each segment written to disk - sparse is enough because values are sorted
+	- values can be repeated, needs to check in specific order, from more recent to least recent segements
+	- bloomfilter for quickly discarting non-members
 ```
 B-tree 
 - sorted index, write to disk - update-in-place, overwrite
@@ -128,3 +128,32 @@ Column-Oriented Stotage
  - if rows are a large (100+ columns) and we need to aggregate and extract a couple of columns (3) - row based storage is highly inefficient
  - compression
  - different sorting order (write have to go first to memory, and merged to disk later)
+
+
+## Chapter4 - Encoding and Evolution
+
+Data Encoding/Serialization is tranformation
+ - from memory efficient data structures (with pointers)
+ - to sequence of bytes (on disk, or over network)
+
+Evolvability
+ - Data outlives code
+ - Rolling updates - nodes with different verisons
+   - backward compatibility (new code reading old data)
+   - forwards compatibility (old code reading new data)
+
+Data Encoding formats:
+- programming language specific 
+  - single language
+  - weak support for versioning
+  - not performant
+- textual (XML, JSON, CSV) 
+  - simple
+  - datatypes are ambigous (number encoding) and limited (no binary string support - base64 workaround)
+  - schemas are optional, too complex, rarely used
+- binary (Thrift, protobuf, Avro)
+  - more compact (50% less)
+  - mandatory schemas - enforced documentation, typed checking, evolvability
+  - add new fields - optional or must have defaults
+  - delete existing optional fields only
+  - never reuse tag numbers
