@@ -65,13 +65,10 @@ Graph-Like Model
  - suitable for lots of many-to-many relationships
  - flexiblity to add edges, vertices
  Property Graph Model
-  - vertices (properties)
-  - edges (properties - head - tail - label)
+  - vertices (properties) + edges (properties - head - tail - label)
 Triple Store  (RDF - Resource Description Framework)
   - (subject, predicate, object) - does not distinguish between properties and edges - predicates used for both
-    - subject = vertex
-    - prediate = property name | edge label
-    - object = property value | vertex
+    - subject (vertex) + prediate (property name | edge label) + object (property value | vertex)
 
 ## Chapter3 - Storage and Retrieval
 
