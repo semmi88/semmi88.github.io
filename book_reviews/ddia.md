@@ -16,10 +16,17 @@ The books consists of three parts:
 
 Big questions/hard problems:
 1. How to handle load?
- - indexes to speed up reads (support range queries? hot indexes?)
- - partitioning to speed up read/writes (hot partitions? rebalancing?)
+ - indexes to speed up reads (range queries? hot indexes?)
+ - replication read scaling/latency improve
+ - partitioning read & writes scaling (hot partitions? rebalancing?)
 2. How handle failures?
- - replication (lag? consistency?)
+ - replication - failover/catch-up revocery 
+   - lag? consistency guarantees? conflict resolution?
+
+Maind data dsitribution strategies:
+ - Replication
+ - Partitioning
+
 	
 ## Chapter1 - Reliability/Scalability
 
@@ -157,3 +164,62 @@ Data Encoding formats:
   - add new fields - optional or must have defaults
   - delete existing optional fields only
   - never reuse tag numbers
+
+## Chapter5 - Replication
+
+Shared nothing architecture 
+ - independent machines, no access to other's memory disk - communicate through network
+ - cheap, commodity hardware
+ - more complex software required for coordination and high reliability
+
+Shared memory or shared disk architecture 
+ - mahcines can access other machines memory/disk
+ - more expensive hardware, contention and locking overhead 
+ - less software complexity
+
+
+Main approaches to replication:
+ - Single Leader
+ - Multiple Leaders
+ - Leaderless - (quorum)
+ 
+Quorum
+ - n nodes, w - write quorum, r - read quorum
+ - if w + r > n - overlap, there is at least on node up to date
+ - for partitions - if home partition is down - use other nodes
+   - sloppy quorum and hinted handoff 
+  - durability OK, but consitency violated, could read non-latest value
+
+Node failure
+ - follower - catch-up recovery
+ - leader - failover
+
+Replication implementation
+ - statment based (SQL forwarded) - cannot handle non-determinism (now, random)
+ - write ahead log - low level (bytes on disk) - tied to storage engine
+ - logical row-based - high level (before, after) - decoupled from storage engine
+
+Hard problems: Consistency guarantees & Conlfict resolution
+
+Consistency guarantees - eventual consistency, replication lag
+```
+- Read-Your-Own-Writes
+	- client remeber last logical timestamp, and compare with replica's logical timestamp
+- Monotonic Reads - (different answers from replicas - disappearing writes)
+	- always read from same replica for a given user
+- Consistent Prefix Reads - (see writes in the same order)
+	- happens for partitions
+	- no easy solution - keep track of casual dependencies
+```
+Conflict resolution - where multiple parallel writes might happen (Multi-Leader, Leaderless)
+```
+- Conclift avoidance - each user writes to the same leader
+- Last-Write-Wins - durability violated
+- Merging values - set, list
+- Record conflict - delegate to app layer, user resolution
+- Read Repair (for quorum reads)
+- Versioning for each key in DB
+	- client must read before writing (DB returns version, client sends version)
+	- concurrent values are kept as siblings - need for conflict resolution
+	- version vector - one version number per replica
+```
