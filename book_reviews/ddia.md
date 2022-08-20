@@ -178,6 +178,8 @@ Data Encoding formats:
   - delete existing optional fields only
   - never reuse tag numbers
 
+---
+
 ## Chapter5 - Replication
 
 Shared nothing architecture 
@@ -290,5 +292,55 @@ Request routing
  - where is my data?
    - how has the information? - client (complex app) / a routing tier (from coordination service) / all nodes (gossip protocol)
  - service discovery problem
-   - how to learn about changes?
-   - coodrination service - Zookeper - authoritive mapping of partitions->nodes
+   - how to learn about changes? - coodrination service - Zookeper - authoritive mapping of partitions->nodes
+
+## Chapter7 - Transactions
+
+Transaction 
+ - purpose - to simplify the programming model - for applications accessing a database
+ - give safety guarantees - in case of error scenarios and concurrency issues
+ - concurrent write, constraint violation, crash, network failur, disk failre, hardware/sofware faults => simplified to commit or abort
+
+ACID
+ - Atomicity - Abortability of transactions - takes care of partial error
+ - (Consistency - Consistent state of the data between transactions - not really related to database, the application's responsability)
+ - Isolation - Concurrent transactions don't interfere with each other - different levels
+ - (Durability - Committed transaction data will not be lost - written to disk & replicated)
+
+(Transaction) Isolation Levels 
+```
+Read commited
+ - prevents dirty reads - read of uncommited 
+   - (two versions - commited vs transaction-in-progress)
+ - prevents dirty writes - ovewrite of uncommited (row-level locks)
+Snapshot Isolation ~ Repeatable Read
+ - writers block writesr, readers never block (writer nor reader)
+ - good enough for small read/write transactions and long-running read-only
+ - prevents read skew - timing anomaly, see different part of the database at different point in time 
+   - while ongoing transaction A, it sees commited changes to the database by another transaction B 
+   - instead of a consitent snapshot as it was at the beginning of transaction A (multi-version conccurency control)
+Serializable
+ - prevents lost updates - timing anomaly, two concurrent read-modify-write transactions, the first overwrites the write of the second without incorporating the changes
+		
+
+ 
+ - (atomic operations / explicit lock / autodetect and abort / compare-and-set)
+	write skew - timing anomaly, two transactions read-and-updating two different objects based on a premise, that is outdated 
+	phantoms - query some condition, another write affects the results of the query, outdated premise
+	(block data not commited yet)
+		- at least on oncall, room double-booking, double-spending, duplicate-username chosen
+```					
+			Solutions
+				- materializing conlficts - complex implementation
+				- single threaded execution - does not scale ~ it's like locking the entire database
+				- 2PL (two phase locking) - does not perform well
+						readers block writers (but not reader)
+						writers block readers (and writers)
+						- lock modes shared mode/exlusive mode
+				- SSI (Serializable Snapshot Isolation)
+					- detect outdated premise in transactions
+						- detect reads of potentially stale value MVCC (uncommited write occurs before read)
+							only an issue if we want to commit that read value - optimistic approach
+						- detect writes that affect prior reads (write occurs after read)
+							allow to proceed, aborted if not serilaziable - optimistic approach
+
