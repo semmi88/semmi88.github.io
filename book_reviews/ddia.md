@@ -34,7 +34,7 @@ Table of contents:
   * [Chapter8 - Trouble with distributed systems](#chapter8---trouble-with-distribuited-systems)
   * [Chapter9 - Consistency and Consensus](#chapter9---consistency-and-consensus)
 * Part 3 - building derived data systems - dataflow architecture
-  * [a]()
+  * [Chapter10 - Batch processing](#chapter10---batch-processing)
   * [a]()
   * [a]()
 	
@@ -516,88 +516,89 @@ Given a weaker guarantee - unque leader within each epoch
 		
 ---
 
+* Systems of Record - source of truth, authoritive verison of the data
+* Derived Data Systems - redundant, used to improve performance
+
 ## Chapter10 - Batch processing
 
+- Bounded input - files containing recrods
+- Uses filesystem
+- Periodic processing
 
-- Bounded input - file containing recrods
-- Uses filesystems
-- Periodically processing
+On a sinlge machine only - Unix tools efficiency
+ - do one thing well
+ - immutable input, stateless, no side effects, repeatable (pure functions)
+ - composability, pipe
+   - universal interface input/output - file description, ordered sequence of bytes separated by \n
+   - separation of logic from wiring - input/output can be redirected
+ - efficient implementation - sort - can spill to disk, uses sequential access patterns, uses multiple CPUs
 
-On a sinlge machine only
-	Unix tools efficiency
-		- do one thing well
-		- immutable input, stateless, no side effects, repeatable (pure functions)
-		- composability, pipe
-			- universal interface input/output - file description, ordered sequence of bytes separated by \n
-			- separation of logic from wiring - input/output can be redirected
-		- efficient implementation - sort - can spill to disk, uses sequential access patterns, uses multiple CPUs
+On multiple machines - Distributed Batch Processing has to solve:
+ - partitioning
+ - fault tolerance - save to disk, retry
 
+MapReduce-Hadoop ecosystem
+ - used to build search indexes (full-text/fuzzy index)
+ - used to build key-value data files (ml recommendations,classificaion precompute)
+	
+Higher level programming models
+ - Pig, Hive, Cascading, Crunch
 
-On multiple machines 
+HDFS - distributed filesystem
+ - NameNode keeps track of which file block on which node
+ - deamon process on each node - exposing a network service to allow other nodes to access files
 
-	Distributed Batch Processing has to solve:
-		- partitioning
-		- fault tolerance - save to disk, retry
+Map_Group/SortMerge_Reduce (similar to UNIX pholosophy)
+ - immputable inputs - input/output HDFS direcroty 
+ - no side effects (preferrebly)
+ - repeatable
+ - composable - MapReduce jobs ca be composed as well, separation of logic and wiring I/O directories
 
-	MapReduce-Hadoop ecosystem
-		- used to build search indexes (full-text/fuzzy index)
-		- used to build key-value data files (ml recommendations,classificaion precompute)
-	Higher level programming models
-		- Pig, Hive, Cascading, Crunch
+```
+Mapper 
+- take a file block input, and iterate over recods
+- extract [key,value] pairs from each records
+- sort by key
+- write to disk
 
-	HDFS - distributed filesystem
-		- NameNode keeps track of which file block on which node
-		- deamon process on each node - exposing a network service to allow other nodes to access files
+Reducer - assigned some keys/partitions
+- connect to each mapper 
+- download files of sorted [key,value] pairs (corresponding to it's partition)
+- merge sorted files together
+- iterate over keys and produce output - (could be the input for next map reduce job)
+```
 
-	Map_Group/SortMerge_Reduce (similar to UNIX pholosophy)
-		- immputable inputs - input/output HDFS direcroty 
-		- no side effects (preferrebly)
-		- repeatable
-		- composable - MapReduce jobs ca be composed as well, separation of logic and wiring I/O directories
-		- Mapper 
-			- take a file block input, and iterate over recods
-			- extract [key,value] pairs from each records
-			- sort by key
-			- write to disk
-		- Reducer - assigned some keys/partitions
-			- connect to each mapper 
-			- download files of sorted [key,value] pairs (corresponding to it's partition)
-			- merge sorted files together
-			- iterate over keys and produce output - (could be the input for next map reduce job)
+Reduce-Side Join / Sort-Merge join
+ - mapper output is sorted by keys
+ - reducers merge together sorted keys 
 
-	Reduce-Side Join / Sort-Merge join
-		- mapper output is sorted by keys
-		- reducers merge together sorted keys 
-
-	Map-Side Join
-		- small side of join in memory (broadcast hash)
-		- both sides of join use same partitions, small side in memory
+Map-Side Join
+ - small side of join in memory (broadcast hash)
+ - both sides of join use same partitions, small side in memory
 
 
-MapReduce/DataFlow Engines/MPP
+MapReduce vs MPP (Massively Parallel Processing Databases)
+ - general-purpose storage
+   - HDFS - read/write data in arbitrary format (sequence of bytes) any data model, any encoding (not just relational model)
+   - dump data and figure out how to process later
+ - general-purpose processing
+   - SQL query execution supported
+   - arbitrary code execution in Map/Reduce callbacks (ml systems precompute)
+ - fault tolerance - restarting of failed tasks
+ - sparing use of memory - eager to write to disk 
+   - for fault tolerance + assumption that data does not fit in memory
 
-	MapReduce vs MPP (Massively Parallel Processing Databases)
-		- general-purpose storage
-			- HDFS - read/write data in arbitrary format (sequence of bytes) any data model, any encoding (not just relational model)
-			- dump data and figure out how to process later
-		- general-purpose processing
-			- SQL query execution supported
-			- arbitrary code execution in Map/Reduce callbacks (ml systems precompute)
-		- fault tolerance - restarting of failed tasks
-		- sparing use of memory - eager to write to disk - for fault tolerance + assumption that data does not fit in memory
-
-	Beyond Mapreduce - Dataflow Engines
-		- offer a more flexible programming model and processing speed up
-			- not just Map-SortMerge-Reduce steps, arbitrary Operators (skip sort if not needed)
-				- Operators, just like in MapReduce, are user functions that process one record at a time on a single thread
-			- don't save intermediate results to HDFS/replicated if not needed (keep on local disk only)
-
-		- Tez - light wrapper over YARN
-		- Spark - RDD for tracking data ancestry for fault tolerance
-		- Flink - checkpointing state for fault tolerance
+Beyond Mapreduce - Dataflow Engines
+ - offer a more flexible programming model and processing speed up
+ - not just Map-SortMerge-Reduce steps, arbitrary Operators (skip sort if not needed)
+   - Operators, just like in MapReduce, are user functions that process one record at a time on a single thread
+ - don't save intermediate results to HDFS/replicated if not needed (keep on local disk only)
+   - Tez - light wrapper over YARN
+   - Spark - RDD for tracking data ancestry for fault tolerance
+   - Flink - checkpointing state for fault tolerance
 
 Graph data
-	- iteravite processing - Pregel processing model 
-	- process one vertex at a time, vertexes send messages to other vertexes for the next iteration
-		- could be slow due to lots of cross-machine communication
-		- small data could be processed on a single-machine (GraphChi)
+ - iteravite processing - Pregel processing model 
+ - process one vertex at a time, vertexes send messages to other vertexes for the next iteration
+   - could be slow due to lots of cross-machine communication
+   - small data could be processed on a single-machine (GraphChi)
