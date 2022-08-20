@@ -80,14 +80,14 @@ Triple Store  (RDF - Resource Description Framework)
 
 Storage engine types:
 ```
-	- in-memory only (limited in size)
-	- log-strcutured storage engine
-		- in memory hash index or sorted/sparse index
-		- in-memory memtable - balanced tree to sort
-		- disk based sorted log database (SSTable, LSM tree) - append only
-	- page-structured storage engines
-		- disk based B-tree index
-		- disk based database - in-place updates
+- in-memory only (limited in size)
+- log-strcutured storage engine
+	- in memory hash index or sorted/sparse index
+	- in-memory memtable - balanced tree to sort
+	- disk based sorted log database (SSTable, LSM tree) - append only
+- page-structured storage engines
+	- disk based B-tree index
+	- disk based database - in-place updates
 ```
 In-memory hash-index 
  - simple index, append only writes
@@ -97,19 +97,19 @@ In-memory hash-index
 SSTable/LSM-Tree 
  - sorted, sparse, index, write firts to memory - updates appended
  ```
-	- in-memory writes to a sorted+balanced tree - periodcally write to disk (sorted+compacted)
-	- keep in-memory spare index for each segment written to disk - sparse is enough because values are sorted
-	- values can be repeated, needs to check in specific order, from more recent to least recent segements
-	- bloomfilter for quickly discarting non-members
+- in-memory writes to a sorted+balanced tree - periodcally write to disk (sorted+compacted)
+- keep in-memory spare index for each segment written to disk - sparse is enough because values are sorted
+- values can be repeated, needs to check in specific order, from more recent to least recent segements
+- bloomfilter for quickly discarting non-members
 ```
 B-tree 
 - sorted index, write to disk - update-in-place, overwrite
 ```
-		- works with fixed-sized blocks/pages
-		- each page stores key range boundaries and references to child pages - starts from root page
-		- high branching factor -100-500, few levels
-		- easy to add new key/split a page, tricky to delete
-		- pros: keys are stored in one place, easier to lock/make transactional
+- works with fixed-sized blocks/pages
+- each page stores key range boundaries and references to child pages - starts from root page
+- high branching factor -100-500, few levels
+- easy to add new key/split a page, tricky to delete
+- pros: keys are stored in one place, easier to lock/make transactional
 ```
 
 Write Performance - LSM-tree wins
