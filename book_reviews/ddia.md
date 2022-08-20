@@ -18,7 +18,8 @@ Big questions/hard problems:
 1. How to handle load?
  - indexes to speed up reads (range queries? hot indexes?)
  - replication read scaling/latency improve
- - partitioning read & writes scaling (hot partitions? rebalancing?)
+ - partitioning data size scaling & read/writes scaling
+   - skewed/hot partitions? rebalancing?
 2. How handle failures?
  - replication - failover/catch-up revocery 
    - lag? consistency guarantees? conflict resolution?
@@ -223,3 +224,59 @@ Conflict resolution - where multiple parallel writes might happen (Multi-Leader,
 	- concurrent values are kept as siblings - need for conflict resolution
 	- version vector - one version number per replica
 ```
+
+## Chapter6 - Partitioning
+
+When you have so much data that it is not feasable to:
+  - store on a single machine
+  - process on a single machine
+
+Partitioning spreads the data and query load accross many machines
+ - Large dataset - distribuited across many disks
+ - Large query load - distribuited across many CPUs
+
+Record -> Partition -> Node
+
+Two main approches:
+```
+- partition by - Key Ranges
+	- sorted, supports range scans
+	- certain access patterns could lead to hotspot - date key, recent data
+- partition by - Hash of Key Ranges
+	- randomizes data, breaks hot spot patterns
+	- but cannot be range scanned
+```
+
+Problems
+
+Skewed partitioning, hot spot
+ - nodes with more data or more query than other nodes
+ - append random digits to key - spread write load to 10 partitions, but also increas read load to 10
+
+Secondary indexes - don't map neatly to partitions
+ - local si - each node stores the indexes of data written to it (by Document)
+   - easy write, complex read (scatter/gather)
+ - global si - partitoned differently from primary key, each node has some terms (by Term)
+    - easy reads, complex writes (one write may affect many partitions/nodes) 
+    - on writes, asynchronous update of global secondary indexes
+
+Rebalancing - changing data size
+ - hash mod N -> bad idea
+   - when adding/removing nodes - all patritions change
+ - random partition boundaries  -> good idea
+   - needs hash key for continous ranges
+   - "consistent hashing" - as only a few partitions change when adding nodes
+ - fixed number of partitions 
+   - as data grows, partitions grow
+   - node added - fewer partitons per node - steals form other nodes
+ - dynamic number of partitions
+  - fixed sized partitions - split/merge as data increases
+  - fixed number partitions per node - datasize increases partitions, add nodes decreases
+
+
+Request routing
+ - where is my data?
+   - how has the information? - client (complex app) / a routing tier (from coordination service) / all nodes (gossip protocol)
+ - service discovery problem
+   - how to learn about changes?
+   - coodrination service - Zookeper - authoritive mapping of partitions->nodes
