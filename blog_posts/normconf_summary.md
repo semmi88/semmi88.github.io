@@ -15,4 +15,4 @@ While the conference is mainly targetting data and ml people, most of the learni
 
 As the mastermind behind the whole conference, Vicki's keynote presentation perfectly sums up its main idea. In the data science and machine learning space - the advertised map (of what we do at work) is not the true territory. The interviews and medium articles do not encompass most of what is done on a day-to-day basis, like adding dictionaries and adding things to lists. Building machine learning systems is just building software, engineering work, and it's fragile, and lot's of things can break, and it's not glamorous. Solid fundamentals, which seem boring, actually build to advanced work, so we should not be discouraged.
 
-![alt text](bender_cube.jpg "Bender meme, come up with my own algorithms")
+![alt text](Vicki_Boykis_.png "The advertised map is not the true territory")
