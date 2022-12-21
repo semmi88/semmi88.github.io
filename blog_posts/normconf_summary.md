@@ -3,12 +3,14 @@
 
 # Nuggets of Wisdom - from NormConf 2022
 
-* [Vicki Boykis - Keynote/Main idea](#vicki-boykis---keynote)
-* [Vincent Warmerdam - Keep calm and think critically](#vincent-warmerdam---group-by-statements-that-save-the-day)
+* [Vicki Boykis - Most ML work is not glamorous](#vicki-boykis---keynote)
+* [Vincent Warmerdam - Must have skills are fake news](#vincent-warmerdam---group-by-statements-that-save-the-day)
 * [Luca Belli - The great overlap between senior engineers and managers](#luca-belli---geriatric-data-science-life-after-senior)
 * [Joel Grus - What's the simplest possible thing that might work, and why didn't you try that first?](#joel-grus---whats-the-simplest-possible-thing-that-might-work-and-why-didnt-you-try-that-first)
-* [Peter Sobot - How to thinkg about engineering and ML costs](#peter-sobot---its-all-about-cost-how-to-think-about-machine-learning-products)
-* [Katie Bauer - How to translate to PM speak and back](#katie-bauer---how-to-translate-to-pm-speak-and-back)
+* [Peter Sobot - Thinkg about costs of engineering and ML](#peter-sobot---its-all-about-cost-how-to-think-about-machine-learning-products)
+* [Katie Bauer - Translate PM speak](#katie-bauer---how-to-translate-to-pm-speak-and-back)
+* [Jamed David Long - Substractive thinking](#james-david-long---id-have-written-a-shorter-solution-but-i-didnt-have-the-time)
+
 
 A week ago I've attended [NormConf - The Normcore Tech Conference](https://normconf.com/) - and I've truly enjoyed it. In fact, I've enjoyed it so much, that I've decided to write a blog post about it, in order to summraize some learnings, but also to promote the conference. All talks mentioned here are short (20 minutes) and punchy and make for a great listen in my opinion.
 
@@ -36,6 +38,18 @@ This talk leaves you with a great sense of calmness. Today there are lot's of he
 
 - [Vincent Warmerdam - NormConf talk ](https://youtu.be/pR3QUegElmA?t=2187)
 - [Vincent is the creator of - CalmCode blog](https://calmcode.io/)
+
+
+## Matthijs Brouns - How small can I get that Docker container?
+
+Matthijs shared tricks on making Docker images smaller, like using dockerignore, small base image, few layers and multi-stage builds to remove build-time dependencies. However, for me the most important parts of the talk is the explanation of Python PyPI wheels and why don't they don't work on Alpine Linux OS. Wheels are the reason that downloading and installing most Python packages just works nowadays. Wheels are a binary distribution format, which means that they contain all external C code dependencies pre-built for your OS. This contrasts with source distribution formats (tar.gz), where you need to compile the C dependencies on your machine, when you install the package. Wheels are based on a standard (called standard manylinux), a subset of kernel and user space APIs that is assumed to work on many different type of linux distributions (debian, ubuntu, etc). However, because Apline wants to be so small, it does not conform tothis standard and uses slightly different set fo base packages ()does not use glibc.
+
+Why are Because Alpine wants to be so small uses slightly different set of base package, than other linuxes. 
+Wheels only work, because they are based on standard called
+"standard manylinux". 
+subset of kernel and user space API - that is assumed to work on many different type of linux distributions (debian, ubuntu, etc), called it standard manylinux. Part of this standard is that things needs to be built againts glibc, but Alpine does not use glibc.
+
+- [Matthijs Brouns - NormConf talk](https://youtu.be/pR3QUegElmA?t=7645)
 
 ## Luca Belli - Geriatric data science: life after senior
 
@@ -69,3 +83,12 @@ As engineers, we should strive to build the best thing given the constraints (li
 Often there is a misunderstanding between engineers and product people (PMs - Product Managers). Why is this the case? One common pattern is that engineers give very technical answers, overwhelming with the level of details, when actually what product managers are interested in are simple high level summaries, and explanations of the levers that can be pulled to change outcomes. A helpful advice is to assume good intent. People you work with are on the same team as you, and even though they might think and work in a different way, they are trying to do the right thing. Also consider incentives to be able to communicate better.
 
 - [Katie Bauer - NormConf talk](https://youtu.be/pR3QUegElmA?t=29146)
+
+
+## James David Long - I'd have written a shorter solution but I didn't have the time
+
+![alt text](JD_Long.jpg "Substractive thinking")
+
+By default our brains are thinking in additive ways. Substractive thinking is hard and people don't tend to do it, but there is great benefit in it. The whole concept of Minimum Viable Product is an exercise to trick you brain into substractive thinking, figuring out what's the least we can do, to make the most positive value. Another great example is, when you are facing a bug, try creating a minimum reproducible example, because removing all the noise usually leads to the answer or makes it easier for someone else to find thea answer. This is a redactive exercise and it's a critical meta skill.
+
+- [James David Long - NormConf talk](https://youtu.be/DYz5dMmtO6o?t=12655)
