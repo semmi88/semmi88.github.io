@@ -10,3 +10,9 @@ This idea is really powerful, it frees you from the necessity to show off, to br
 
 While the conference is mainly targetting data and ml people, most of the learnings can be applied to wide range of jobs, so don't be discouraged by that. I've got to say big kudos to the whole organizing team and to the speakers, who come off as really kind people and great educators. All images and ideas are taken directly form the conference, with the original author mentioned and linked. So with that let's dive in.
 
+
+### Vicki Boykis - Keynote
+
+As the mastermind behind the whole conference, Vicki's keynote presentation perfectly sums up its main idea. In the data science and machine learning space - the advertised map (of what we do at work) is not the true territory. The interviews and medium articles do not encompass most of what is done on a day-to-day basis, like adding dictionaries and adding things to lists. Building machine learning systems is just building software, engineering work, and it's fragile, and lot's of things can break, and it's not glamorous. Solid fundamentals, which seem boring, actually build to advanced work, so we should not be discouraged.
+
+![alt text](bender_cube.jpg "Bender meme, come up with my own algorithms")
