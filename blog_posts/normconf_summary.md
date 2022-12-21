@@ -4,8 +4,8 @@
 # Nuggets of Wisdom from NormConf 2022
 
 * [Vicki Boykis - Keynote/Main idea](#vicki-boykis---keynote)
-* [Vincent Warmerdam - Keep calm and think critically]([#vincent-warmerdam---group-by-statements-that-save-the-day)
-* [Luca Belli - The great overlap between senior engineers and managers]([#luca-belli---geriatric-data-science---life-after-senior)
+* [Vincent Warmerdam - Keep calm and think critically](#vincent-warmerdam---group-by-statements-that-save-the-day)
+* [Luca Belli - The great overlap between senior engineers and managers](#luca-belli---geriatric-data-science---life-after-senior)
 * [Joel Grus - What's the simplest possible thing that might work, and why didn't you try that first?](#joel-grus---whats-the-simplest-possible-thing-that-might-work-and-why-didnt-you-try-that-first)
 
 A week ago I've attended [NormConf - The Normcore Tech Conference](https://normconf.com/) - and I've truly enjoyed it. In fact, I've enjoyed it so much, that I've decided to write a blog post about it, in order to summraize some learnings, but also to promote the conference. The idea behind NormConf is simple: let's highlight the mundane, unsexy, normcore, day-to-day stuff that is actaully done by data scientist and machine learning engineers. So instead of talking about how our awesome recommendation engine uses the latest and greatest algorithms, let's talk about how did we actually solve our Python dependency issues.
