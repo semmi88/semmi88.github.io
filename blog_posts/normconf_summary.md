@@ -3,6 +3,8 @@
 
 # Nuggets of Wisdom - from NormConf 2022
 
+![alt text](normconf.jpg "NormConf logo")
+
 * [Vicki Boykis - Most ML work is not glamorous](#vicki-boykis---keynote)
 * [Vincent Warmerdam - Must have skills are fake news](#vincent-warmerdam---group-by-statements-that-save-the-day)
 * [Matthijs Brouns - Small Docker and Python Wheels](#matthijs-brouns---how-small-can-i-get-that-docker-container)
@@ -86,4 +88,4 @@ Often there is a misunderstanding between engineers and product people (PMs - Pr
 
 ![alt text](JD_Long.jpg "Substractive thinking")
 
-By default our brains are thinking in additive ways. Subtractive thinking is hard and people don't tend to do it, but there is great benefit in it. The whole concept of Minimum Viable Product is an exercise to trick you brain into subtractive thinking, figuring out what's the least we can do, to make the most positive value. Another great example is, when you are facing a bug, try creating a minimum reproducible example, because removing all the noise usually leads to the answer or makes it easier for someone else to find thea answer. This is a redactive exercise and it's a critical meta skill.
+By default our brains are thinking in additive ways. Subtractive thinking is hard and people don't tend to do it, but there is great benefit in it. The whole concept of Minimum Viable Product is an exercise to trick you brain into subtractive thinking, figuring out what's the least we can do, to make the most positive value. Another great example is, when you are facing a bug, try creating a minimum reproducible example, because removing all the noise usually leads to the answer or makes it easier for someone else to find thea answer. This is a reductive exercise and it's a critical meta skill.
