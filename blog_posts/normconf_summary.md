@@ -1,15 +1,18 @@
 
 &leftarrow; [back to Homepage](../index.md)
 
-# Nuggets of Wisdom from NormConf 2022
+# Nuggets of Wisdom - from NormConf 2022
 
 * [Vicki Boykis - Keynote/Main idea](#vicki-boykis---keynote)
 * [Vincent Warmerdam - Keep calm and think critically](#vincent-warmerdam---group-by-statements-that-save-the-day)
 * [Luca Belli - The great overlap between senior engineers and managers](#luca-belli---geriatric-data-science-life-after-senior)
 * [Joel Grus - What's the simplest possible thing that might work, and why didn't you try that first?](#joel-grus---whats-the-simplest-possible-thing-that-might-work-and-why-didnt-you-try-that-first)
 * [Peter Sobot - How to thinkg about engineering and ML costs](#peter-sobot---its-all-about-cost-how-to-think-about-machine-learning-products)
+* [Katie Bauer - How to translate to PM speak and back](#katie-bauer---how-to-translate-to-pm-speak-and-back)
 
-A week ago I've attended [NormConf - The Normcore Tech Conference](https://normconf.com/) - and I've truly enjoyed it. In fact, I've enjoyed it so much, that I've decided to write a blog post about it, in order to summraize some learnings, but also to promote the conference. The idea behind NormConf is simple: let's highlight the mundane, unsexy, normcore, day-to-day stuff that is actaully done by data scientist and machine learning engineers. So instead of talking about how our awesome recommendation engine uses the latest and greatest algorithms, let's talk about how did we actually solve our Python dependency issues.
+A week ago I've attended [NormConf - The Normcore Tech Conference](https://normconf.com/) - and I've truly enjoyed it. In fact, I've enjoyed it so much, that I've decided to write a blog post about it, in order to summraize some learnings, but also to promote the conference. All talks mentioned here are short (20 minutes) and punchy and make for a great listen in my opinion.
+
+The whole idea behind NormConf is simple: let's highlight the mundane, unsexy, normcore, day-to-day stuff that is actaully done by data scientist and machine learning engineers. So instead of talking about how our awesome recommendation engine uses the latest and greatest algorithms, let's talk about how did we actually solve our Python dependency issues.
 
 This idea is really powerful, it frees you from the necessity to show off, to brag about your system, and gives space to talk about basic engineering struggles. Thinking about it in a philosophycal way, I could say that this allows the speakers to show vulnerability in a technical sense, humanizing them, bringing them close to the audience, we have all been there. It's a fresh take on tech conferences, and in my opinion a very welcomed one.
 
@@ -59,4 +62,10 @@ As engineers, we should strive to build the best thing given the constraints (li
 
 - [Peter Sobot - NormConf talk](https://youtu.be/pR3QUegElmA?t=18388)
 
+## Katie Bauer - How to translate to PM speak and back
 
+![alt text](Katie_Bauer.jpg "Tips for speaking with Product Managers")
+
+Often there is a misunderstanding between engineers and product people (PMs - Product Managers). Why is this the case? One common pattern is that engineers give very technical answers, overwhelming with the level of details, when actually what product managers are interested in are simple high level summaries, and explanations of the levers that can be pulled to change outcomes. A helpful advice is to assume good intent. People you work with are on the same team as you, and even though they might think and work in a different way, they are trying to do the right thing. Also consider incentives to be able to communicate better.
+
+- [Katie Bauer - NormConf talk](https://youtu.be/pR3QUegElmA?t=29146)
