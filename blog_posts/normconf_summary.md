@@ -5,6 +5,7 @@
 
 * [Vicki Boykis - Most ML work is not glamorous](#vicki-boykis---keynote)
 * [Vincent Warmerdam - Must have skills are fake news](#vincent-warmerdam---group-by-statements-that-save-the-day)
+* [Matthijs Brouns - Small Docker and Python Wheels](#matthijs-brouns---how-small-can-i-get-that-docker-container)
 * [Luca Belli - The great overlap between senior engineers and managers](#luca-belli---geriatric-data-science-life-after-senior)
 * [Joel Grus - What's the simplest possible thing that might work, and why didn't you try that first?](#joel-grus---whats-the-simplest-possible-thing-that-might-work-and-why-didnt-you-try-that-first)
 * [Peter Sobot - Thinkg about costs of engineering and ML](#peter-sobot---its-all-about-cost-how-to-think-about-machine-learning-products)
@@ -42,12 +43,9 @@ This talk leaves you with a great sense of calmness. Today there are lot's of he
 
 ## Matthijs Brouns - How small can I get that Docker container?
 
-Matthijs shared tricks on making Docker images smaller, like using dockerignore, small base image, few layers and multi-stage builds to remove build-time dependencies. However, for me the most important parts of the talk is the explanation of Python PyPI wheels and why don't they don't work on Alpine Linux OS. Wheels are the reason that downloading and installing most Python packages just works nowadays. Wheels are a binary distribution format, which means that they contain all external C code dependencies pre-built for your OS. This contrasts with source distribution formats (tar.gz), where you need to compile the C dependencies on your machine, when you install the package. Wheels are based on a standard (called standard manylinux), a subset of kernel and user space APIs that is assumed to work on many different type of linux distributions (debian, ubuntu, etc). However, because Apline wants to be so small, it does not conform tothis standard and uses slightly different set fo base packages ()does not use glibc.
+![alt text](Matthijs_Brouns.jpg "PyPI Wheels and Alpine Linux")
 
-Why are Because Alpine wants to be so small uses slightly different set of base package, than other linuxes. 
-Wheels only work, because they are based on standard called
-"standard manylinux". 
-subset of kernel and user space API - that is assumed to work on many different type of linux distributions (debian, ubuntu, etc), called it standard manylinux. Part of this standard is that things needs to be built againts glibc, but Alpine does not use glibc.
+Matthijs shared tricks on making Docker images smaller, like using dockerignore, small base image, few layers and multi-stage builds to remove build-time dependencies. However, for me the most important parts of the talk is the explanation of Python Wheels and why don't they don't work on Alpine Linux OS. Wheels are the reason that downloading and installing most Python packages just works nowadays. Wheels are a binary distribution format, which means that they contain all external C code dependencies pre-built for your OS. This contrasts with source distribution formats (tar.gz), where you need to compile the C dependencies on your machine, when you install the package. Wheels are based on a standard (called standard manylinux), a subset of kernel and user space APIs that is assumed to work on many different type of linux distributions (debian, ubuntu, etc). However, because Apline wants to be so small, it does not conform to this standard and uses slightly different set of base packages, leaving you no choice but to complie C code depdendencies. This often does not make sense, because it's a lot of time investment and complicates buliding your images.
 
 - [Matthijs Brouns - NormConf talk](https://youtu.be/pR3QUegElmA?t=7645)
 
