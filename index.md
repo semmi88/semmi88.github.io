@@ -1,5 +1,6 @@
 Articles exploring software engineering, machine learning and other random topics
 
+* ### [(2022 Dec) Nuggets of Wisdom - from NormConf 2022](blog_posts/normconf_summary.md)
 * ### [(2022 May) Taming the Rubik's Cube - or How I met Group Theory](blog_posts/rubiks_cube.md)
 * ### [(2021 Jul) I've failed my Facebook interview, but that's okay](blog_posts/facebook_interview.md)
 * ### [(2021 Jan) Contact Tracing - a System Design Exercise](blog_posts/contact_tracing.md)
