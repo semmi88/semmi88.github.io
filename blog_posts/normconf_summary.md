@@ -3,6 +3,10 @@
 
 # Nuggets of Wisdom from NormConf 2022
 
+* [Vicki Boykis - Keynote/Main idea](#Vicki-Boykis---Keynote)
+* [Vincent Warmerdam - Keep calm and think critically](#Vincent-Warmerdam---Group-by-statements-that-save-the-day)
+
+
 
 A week ago I've attended [NormConf - The Normcore Tech Conference](https://normconf.com/) - and I've truly enjoyed it. In fact, I've enjoyed it so much, that I've decided to write a blog post about it, in order to summraize some learnings, but also to promote the conference. The idea behind NormConf is simple: let's highlight the mundane, unsexy, normcore, day-to-day stuff that is actaully done by data scientist and machine learning engineers. So instead of talking about how our awesome recommendation engine uses the latest and greatest algorithms, let's talk about how did we actually solve our Python dependency issues.
 
@@ -24,7 +28,7 @@ As the mastermind behind the whole conference, Vicki's keynote talk perfectly su
 
 ![alt text](Vincent_Warmerdam.png "The real must have skills")
 
-This talk leaves you with a great sense of calm. Today there are lot's of headlines and course marketing materials promoting must have skills for data scientist. But, Vincent argues, we should not worry about these too much. The real must have skills are common sense and critical thinking. Of course tools can be super useful, but there is too much empahsis on learning technical tools, which are just tricks to help us get through the day. Keep the calm in mind, stop bragging about the tools and start sharing anecdotes.
+This talk leaves you with a great sense of calmness. Today there are lot's of headlines and course marketing materials promoting must have skills for data scientist. But, Vincent argues, we should not worry about these too much. The real must have skills are common sense and critical thinking. Of course tools can be super useful, but there is too much empahsis on learning technical tools, which are just tricks to help us get through the day. Keep the calm in mind, stop bragging about the tools and start sharing anecdotes.
 
 - [Vincent Warmerdam - NormConf talk ](https://youtu.be/pR3QUegElmA?t=2187)
 - [Vincent is the creator of - CalmCode blog](https://calmcode.io/)
