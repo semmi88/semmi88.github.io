@@ -13,13 +13,13 @@
 * [Jamed David Long - Substractive thinking](#james-david-long---id-have-written-a-shorter-solution-but-i-didnt-have-the-time)
 
 
-A week ago I've attended [NormConf - The Normcore Tech Conference](https://normconf.com/) - and I've truly enjoyed it. In fact, I've enjoyed it so much, that I've decided to write a blog post about it, in order to summraize some learnings, but also to promote the conference. All talks mentioned here are short (20 minutes) and punchy and make for a great listen in my opinion.
+A week ago I attended [NormConf - The Normcore Tech Conference](https://normconf.com/) - and I truly enjoyed it. In fact, I've enjoyed it so much, that I've decided to write a blog post about it, in order to summarize some learnings, but also to promote the conference. All talks mentioned here are short (20 minutes) and punchy and make for a great listen in my opinion.
 
-The whole idea behind NormConf is simple: let's highlight the mundane, unsexy, normcore, day-to-day stuff that is actaully done by data scientist and machine learning engineers. So instead of talking about how our awesome recommendation engine uses the latest and greatest algorithms, let's talk about how did we actually solve our Python dependency issues.
+The whole idea behind NormConf is simple: let's highlight the mundane, unsexy, normcore, day-to-day stuff that is actually done by data scientists and machine learning engineers. So instead of talking about how our awesome recommendation engine uses the latest and greatest algorithms, let's talk about how did we actually solve our Python dependency issues.
 
-This idea is really powerful, it frees you from the necessity to show off, to brag about your system, and gives space to talk about basic engineering struggles. Thinking about it in a philosophycal way, I could say that this allows the speakers to show vulnerability in a technical sense, humanizing them, bringing them close to the audience, we have all been there. It's a fresh take on tech conferences, and in my opinion a very welcomed one.
+This idea is really powerful, it frees you from the necessity to show off, to brag about your system, and gives space to talk about basic engineering struggles. Thinking about it in a philosophical way, I could say that this allows the speakers to show vulnerability in a technical sense, humanizing them, bringing them close to the audience, we have all been there. It's a fresh take on tech conferences, and in my opinion a very welcomed one.
 
-While the conference is mainly targetting data and ml people, most of the learnings can be applied to wide range of jobs, so don't be discouraged by that. I've got to say big kudos to the whole organizing team and to the speakers, who come off as really kind people and great educators. All images and ideas are taken directly form the conference, with the original author mentioned and linked. So with that let's dive in.
+While the conference is mainly targeting data and ml people, most of the learnings can be applied to a wide range of jobs, so don't be discouraged by that. I've got to say big kudos to the whole organizing team and to the speakers, who come off as really kind people and great educators. All images and ideas are taken directly form the conference, with the original author mentioned and linked. So with that let's dive in.
 
 
 ## Vicki Boykis - Keynote
@@ -35,7 +35,7 @@ As the mastermind behind the whole conference, Vicki's keynote talk perfectly su
 
 ![alt text](Vincent_Warmerdam.jpg "The real must have skills")
 
-This talk leaves you with a great sense of calmness. Today there are lot's of headlines and course marketing materials promoting must have skills for data scientist. But, Vincent argues, we should not worry about these too much. The real must have skills are common sense and critical thinking. Of course tools can be super useful, but there is too much empahsis on learning technical tools, which are just tricks to help us get through the day. Keep the calm in mind, stop bragging about the tools and start sharing anecdotes.
+This talk leaves you with a great sense of calmness. Today there are lot's of headlines and course marketing materials promoting must have skills for data scientists. But, Vincent argues, we should not worry about these too much. The real must have skills are common sense and critical thinking. Of course tools can be super useful, but there is too much emphasis on learning technical tools, which are just tricks to help us get through the day. Keep the calm in mind, stop bragging about the tools and start sharing anecdotes.
 
 - [Vincent Warmerdam - NormConf talk ](https://youtu.be/pR3QUegElmA?t=2187)
 - [Vincent is the creator of - CalmCode blog](https://calmcode.io/)
@@ -45,7 +45,7 @@ This talk leaves you with a great sense of calmness. Today there are lot's of he
 
 ![alt text](Matthijs_Brouns.jpg "PyPI Wheels and Alpine Linux")
 
-Matthijs shared tricks on making Docker images smaller, like using dockerignore, small base image, few layers and multi-stage builds to remove build-time dependencies. However, for me the most important parts of the talk is the explanation of Python Wheels and why don't they don't work on Alpine Linux OS. Wheels are the reason that downloading and installing most Python packages just works nowadays. Wheels are a binary distribution format, which means that they contain all external C code dependencies pre-built for your OS. This contrasts with source distribution formats (tar.gz), where you need to compile the C dependencies on your machine, when you install the package. Wheels are based on a standard (called standard manylinux), a subset of kernel and user space APIs that is assumed to work on many different type of linux distributions (debian, ubuntu, etc). However, because Apline wants to be so small, it does not conform to this standard and uses slightly different set of base packages, leaving you no choice but to complie C code depdendencies. This often does not make sense, because it's a lot of time investment and complicates buliding your images.
+Matthijs shared tricks on making Docker images smaller, like using dockerignore, small base image, few layers and multi-stage builds to remove build-time dependencies. However, for me the most important part of the talk is the explanation of Python Wheels and why don't they don't work on Alpine Linux OS. Wheels are the reason that downloading and installing most Python packages just works nowadays. Wheels are a binary distribution format, which means that they contain all external C code dependencies pre-built for your OS. This contrasts with source distribution formats (tar.gz), where you need to compile the C dependencies on your machine, when you install the package. Wheels are based on a standard (called standard manylinux), a subset of kernel and user space APIs that is assumed to work on many different types of linux distributions (debian, ubuntu, etc). However, because Alpine wants to be so small, it does not conform to this standard and uses a slightly different set of base packages, leaving you no choice but to compile C code dependencies. This often does not make sense, because it's a lot of time investment and complicates building your images.
 
 - [Matthijs Brouns - NormConf talk](https://youtu.be/pR3QUegElmA?t=7645)
 
@@ -53,7 +53,7 @@ Matthijs shared tricks on making Docker images smaller, like using dockerignore,
 
 ![alt text](Luca_Belli.jpg "Skill overlap between Senior IC and Management")
 
-Luca talks about senior leadership roles. One popular myth is that senior manager roles are very different from senior engineer, individual contributor roles (IC roles). People who pursue the IC career ladder, tell themselves that they don't like meeting, they want to work with computer, not people, they want spend time coding, and that the hard parts of each project is the technical work. These statements turn out to be mostly false. There is lot's of overlap in the necessary skills, and any sufficiently advanced engineer is indistinguishable from managment.
+Luca talks about senior leadership roles. One popular myth is that senior manager roles are very different from senior engineer, individual contributor roles (IC roles). People who pursue the IC career ladder, tell themselves that they don't like meetings, they want to work with computers, not people, they want to spend time coding, and that the hard parts of each project is the technical work. These statements turn out to be mostly false. There is lot's of overlap in the necessary skills, and any sufficiently advanced engineer is indistinguishable from management.
 
 - [Luca Belli - NormConf talk](https://youtu.be/pR3QUegElmA?t=11217)
 
@@ -70,7 +70,7 @@ Joel is the author of some fantastic books (like [Data Science from Scratch](htt
 
 ![alt text](Peter_Sobo.jpg "Engineering work and constraints")
 
-As engineers, we should strive to build the best thing given the constraints (like Time and Cost). Machine learning solutions are costly, so we should only use them in specific places where we benefit from it the most, and use them in an economical way. An inventive way to minimze costs is to use a cheap, inaccurate ML model to pre-filter our data, before applying the expensive heavy ML model.
+As engineers, we should strive to build the best thing given the constraints (like Time and Cost). Machine learning solutions are costly, so we should only use them in specific places where we benefit from it the most, and use them in an economical way. An inventive way to minimize costs is to use a cheap, inaccurate ML model to pre-filter our data, before applying the expensive heavy ML model.
 
 - [Peter Sobot - NormConf talk](https://youtu.be/pR3QUegElmA?t=18388)
 
@@ -87,6 +87,6 @@ Often there is a misunderstanding between engineers and product people (PMs - Pr
 
 ![alt text](JD_Long.jpg "Substractive thinking")
 
-By default our brains are thinking in additive ways. Substractive thinking is hard and people don't tend to do it, but there is great benefit in it. The whole concept of Minimum Viable Product is an exercise to trick you brain into substractive thinking, figuring out what's the least we can do, to make the most positive value. Another great example is, when you are facing a bug, try creating a minimum reproducible example, because removing all the noise usually leads to the answer or makes it easier for someone else to find thea answer. This is a redactive exercise and it's a critical meta skill.
+By default our brains are thinking in additive ways. Subtractive thinking is hard and people don't tend to do it, but there is great benefit in it. The whole concept of Minimum Viable Product is an exercise to trick you brain into subtractive thinking, figuring out what's the least we can do, to make the most positive value. Another great example is, when you are facing a bug, try creating a minimum reproducible example, because removing all the noise usually leads to the answer or makes it easier for someone else to find thea answer. This is a redactive exercise and it's a critical meta skill.
 
 - [James David Long - NormConf talk](https://youtu.be/DYz5dMmtO6o?t=12655)
