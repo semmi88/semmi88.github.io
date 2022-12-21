@@ -5,8 +5,8 @@
 
 * [Vicki Boykis - Keynote/Main idea](#Vicki-Boykis---Keynote)
 * [Vincent Warmerdam - Keep calm and think critically](#Vincent-Warmerdam---Group-by-statements-that-save-the-day)
-* [Luca Belli - The great overlap between senior engineers and managers](#Luca-Belli---Geriatric-data-science:-life-after-senior)
-* [Joel Grus - What's the simplest possible thing that might work, and why didn't you try that first?](#Joel-Grus---What's-the-simplest-possible-thing-that-might-work,-and-why-didn't-you-try-that-first?)
+* [Luca Belli - The great overlap between senior engineers and managers](#Luca-Belli---Geriatric-data-science---life-after-senior)
+* [Joel Grus - What's the simplest possible thing that might work, and why didn't you try that first?](#Joel-Grus---What's-the-simplest-possible-thing-that-might-work,-and-why-didn't-you-try-that-first)
 
 A week ago I've attended [NormConf - The Normcore Tech Conference](https://normconf.com/) - and I've truly enjoyed it. In fact, I've enjoyed it so much, that I've decided to write a blog post about it, in order to summraize some learnings, but also to promote the conference. The idea behind NormConf is simple: let's highlight the mundane, unsexy, normcore, day-to-day stuff that is actaully done by data scientist and machine learning engineers. So instead of talking about how our awesome recommendation engine uses the latest and greatest algorithms, let's talk about how did we actually solve our Python dependency issues.
 
@@ -33,7 +33,7 @@ This talk leaves you with a great sense of calmness. Today there are lot's of he
 - [Vincent Warmerdam - NormConf talk ](https://youtu.be/pR3QUegElmA?t=2187)
 - [Vincent is the creator of - CalmCode blog](https://calmcode.io/)
 
-## Luca Belli - Geriatric data science: life after senior
+## Luca Belli - Geriatric data science - life after senior
 
 ![alt text](Luca_Belli.png "Skill overlap between Senior IC and Management")
 
@@ -41,7 +41,7 @@ Luca talks about senior leadership roles. One popular myth is that senior manage
 
 - [Luca Belli - NormConf talk](https://youtu.be/pR3QUegElmA?t=11217)
 
-## Joel Grus - What's the simplest possible thing that might work, and why didn't you try that first? 
+## Joel Grus - What's the simplest possible thing that might work, and why didn't you try that first
 
 ![alt text](Joel_Grus.png "Simplest approach for text classification?")
 
