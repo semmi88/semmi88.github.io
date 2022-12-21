@@ -5,8 +5,9 @@
 
 * [Vicki Boykis - Keynote/Main idea](#vicki-boykis---keynote)
 * [Vincent Warmerdam - Keep calm and think critically](#vincent-warmerdam---group-by-statements-that-save-the-day)
-* ss[Luca Belli - The great overlap between senior engineers and managers](#luca-belli---geriatric-data-science---life-after-senior)
+* [Luca Belli - The great overlap between senior engineers and managers](#luca-belli---geriatric-data-science-life-after-senior)
 * [Joel Grus - What's the simplest possible thing that might work, and why didn't you try that first?](#joel-grus---whats-the-simplest-possible-thing-that-might-work-and-why-didnt-you-try-that-first)
+* [Peter Sobot - How to thinkg about engineering and ML costs](#peter-sobot---its-all-about-cost-how-to-think-about-machine-learning-products)
 
 A week ago I've attended [NormConf - The Normcore Tech Conference](https://normconf.com/) - and I've truly enjoyed it. In fact, I've enjoyed it so much, that I've decided to write a blog post about it, in order to summraize some learnings, but also to promote the conference. The idea behind NormConf is simple: let's highlight the mundane, unsexy, normcore, day-to-day stuff that is actaully done by data scientist and machine learning engineers. So instead of talking about how our awesome recommendation engine uses the latest and greatest algorithms, let's talk about how did we actually solve our Python dependency issues.
 
@@ -50,12 +51,12 @@ Joel is the author of some fantastic books (like [Data Science from Scratch](htt
 - [Joel Grus - NormConf talk](https://youtu.be/pR3QUegElmA?t=16892)
 - [Joel Grus - tech blog](https://joelgrus.com/)
 
-## Peter Sobo - It's all about cost: how to think about machine learning products
+## Peter Sobot - It's all about cost: how to think about machine learning products
 
 ![alt text](Peter_Sobo.jpg "Engineering work and constraints")
 
 As engineers, we should strive to build the best thing given the constraints (like Time and Cost). Machine learning solutions are costly, so we should only use them in specific places where we benefit from it the most, and use them in an economical way. An inventive way to minimze costs is to use a cheap, inaccurate ML model to pre-filter our data, before applying the expensive heavy ML model.
 
-- [Peter Sobo - NormConf talk](https://youtu.be/pR3QUegElmA?t=18388)
+- [Peter Sobot - NormConf talk](https://youtu.be/pR3QUegElmA?t=18388)
 
 
