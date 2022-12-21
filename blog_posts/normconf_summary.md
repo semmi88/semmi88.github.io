@@ -13,6 +13,20 @@ While the conference is mainly targetting data and ml people, most of the learni
 
 ### Vicki Boykis - Keynote
 
-As the mastermind behind the whole conference, Vicki's keynote presentation perfectly sums up its main idea. In the data science and machine learning space - the advertised map (of what we do at work) is not the true territory. The interviews and medium articles do not encompass most of what is done on a day-to-day basis, like adding dictionaries and adding things to lists. Building machine learning systems is just building software, engineering work, and it's fragile, and lot's of things can break, and it's not glamorous. Solid fundamentals, which seem boring, actually build to advanced work, so we should not be discouraged.
+![alt text](Vicki_Boykis.png "The advertised map is not the true territory")
 
-![alt text](Vicki_Boykis_.png "The advertised map is not the true territory")
+As the mastermind behind the whole conference, Vicki's keynote talk perfectly sums up its main ideas. In the data science and machine learning space - the advertised map (of what we do at work) is not the true territory. The interviews and medium articles do not encompass most of what is done on a day-to-day basis, like creating dictionaries and adding things to lists. Building machine learning systems is just building software, engineering work, and it's fragile, and lot's of things can break, and it's not glamorous. Solid fundamentals, which seem boring, actually build to advanced work, so we should not be discouraged.
+ - [Vicki Boykis - NormConf Keynote talk - YouTube link with timestamp](https://youtu.be/pR3QUegElmA?t=558)
+ - [Vicki Boykis tech blog](https://vickiboykis.com/)
+
+### Vincent Warmerdam - Group-by statements that save the day
+
+![alt text](Vincent_Warmerdam.png "The advertised map is not the true territory")
+
+This talk leaves you with a great sense of calm. Today there are lot's of headlines and course marketing materials promoting must have skills for data scientist. But, Vincent argues, we should not worry about these too much. The real must have skills are common sense and critical thinking. Of course tools can be super useful, but there is too much empahsis on learning technical tools, which are just tricks to help us get through the day. Keep the calm in mind, stop bragging about the tools and start sharing anecdotes.
+
+- [Vincent Warmerdam - NormConf talk - Youtube link with timestamp](https://youtu.be/pR3QUegElmA?t=2187)
+- [Vincent is the creator of CalmCode blog](https://calmcode.io/)
+
+
+
