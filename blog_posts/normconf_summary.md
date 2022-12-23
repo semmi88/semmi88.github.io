@@ -13,6 +13,8 @@
 * [Peter Sobot - Thinkg about costs of engineering and ML](#peter-sobot---its-all-about-cost-how-to-think-about-machine-learning-products)
 * [Katie Bauer - Translate PM speak](#katie-bauer---how-to-translate-to-pm-speak-and-back)
 * [Jamed David Long - Substractive thinking](#james-david-long---id-have-written-a-shorter-solution-but-i-didnt-have-the-time)
+* [James Kirk - Building Recommender Systems](#james-kirk---datas-desire-paths-shortcuts-and-lessons-from-industrial-recommender-systems)
+* [Chris Albon - Don't do invisible work](#chris-albon---dont-do-invisible-work)
 
 A week ago I attended [NormConf - The Normcore Tech Conference](https://normconf.com/) - and I truly enjoyed it. In fact, I've enjoyed it so much, that I've decided to write a blog post about it, in order to summarize some learnings, but also to promote the conference. All talks mentioned here are short (20 minutes) and punchy and make for a great listen in my opinion.
 
@@ -81,7 +83,6 @@ As engineers, we should strive to build the best thing given the constraints (li
 
 Often there is a misunderstanding between engineers and product people (PMs - Product Managers). Why is this the case? One common pattern is that engineers give very technical answers, overwhelming with the level of details, when actually what product managers are interested in are simple high level summaries, and explanations of the levers that can be pulled to change outcomes. A helpful advice is to assume good intent. People you work with are on the same team as you, and even though they might think and work in a different way, they are trying to do the right thing. Also consider incentives to be able to communicate better.
 
-
 ## James David Long - I'd have written a shorter solution but I didn't have the time
 
 - [James David Long - NormConf talk](https://youtu.be/DYz5dMmtO6o?t=12655)
@@ -89,3 +90,19 @@ Often there is a misunderstanding between engineers and product people (PMs - Pr
 ![alt text](JD_Long.jpg "Substractive thinking")
 
 By default our brains are thinking in additive ways. Subtractive thinking is hard and people don't tend to do it, but there is great benefit in it. The whole concept of Minimum Viable Product is an exercise to trick you brain into subtractive thinking, figuring out what's the least we can do, to make the most positive value. Another great example is, when you are facing a bug, try creating a minimum reproducible example, because removing all the noise usually leads to the answer or makes it easier for someone else to find thea answer. This is a reductive exercise and it's a critical meta skill.
+
+## James Kirk - Data's desire paths: shortcuts and lessons from industrial recommender systems
+
+- [James Kirk - NormConf talk](https://youtu.be/DYz5dMmtO6o?t=3771)
+
+![alt text](James_Kirk.jpg "Substractive thinking")
+
+James talks about how to frame recommender systems, because most of the time they are poorly framed (loose concepts about how it should work or using technology in search of a problem). His advice can be applied to almost all types of projects. For the right framing, make sure that the team is aligned and you have crip requirements: clearly defined user with a use-case, a measurable definition of success and how does recommendation success translate to business success. The three different flavors of recommendation are: classic recommendation based only on context, personalization uses user data and interaction data, "omakase" - you choose, infinite feed style based on loosely formed requests. Recommender systems are similar to search, but the query is based on the user/context and can be optimized for other factors not just precision - novelty, broadness, interactivity.
+
+## Chris Albon - Don't do invisible work
+
+- [Chris Albon - NormConf talk](https://youtu.be/DYz5dMmtO6o?t=20041)
+
+![alt text](Chirs_Albon.jpg "People suck at remembering, track your work")
+
+Without tools, people suck at remembering. A month from now you won't really remember all the things that you have worked on, and your manager will barely remember anything you have worked on. But performance review, promotions, bonuses are all based on work that people remember. Solution is to track your work and tell people about your work. Nobody is going to record your work for you, it is on you to keep a record. The format/tools you use don't really matter, just start doing it (example: brag documents, daily activity log, worklog entries, blog posts). These records will become very handy for future evaluations or updating your resume.
