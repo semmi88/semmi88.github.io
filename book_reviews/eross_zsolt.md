@@ -5,10 +5,18 @@
 ![alt text](eross_zsolt.jpg "Cover")
 
 ### Miről szól?
-* Erőss Zsolt hegymászó karrierját mutatja be
+* Erőss Zsolt hegymászó karrierjét és a magashegyi alpinizmust mutatja be
 * Kegyetlen sport, hivatás a hegymászás - minden csúcsmászás kockázatos és a szerencsén is sok múlik, gyakoriak a tragédiák
-* A hegyek és a kihívások szeretete jellemezte - "Az Everest nem a fő cél a hegymászóknak, hanem csak egy a sorban. A lényeg, hogy az ember szép kihívásokat keressen magának, és azokat megpróbálja teljesíteni"
-* A balesete után Zsolt nem csüggedt, örült hogy túlélte és a rehabilitációra koncentrált. Ez is ugyanolyan kihívás volt, mint egy csúcs. Jól körülhatárolható, egyértelmű cél, amelynek eléréséért mindent bele kellett adnia.
+* A hegyek és a kihívások szeretete jellemezte
+  * "Az Everest nem a fő cél a hegymászóknak, hanem csak egy a sorban. A lényeg, hogy az ember szép kihívásokat keressen magának, és azokat megpróbálja teljesíteni"
+* A balesete után Zsolt nem csüggedt, örült hogy túlélte és a rehabilitációra koncentrált
+  * Ez is ugyanolyan kihívás volt, mint egy csúcs. Jól körülhatárolható, egyértelmű cél, amelynek eléréséért mindent bele kellett adnia.
+* Magashegyi betegség - AMS - Acute Mountain Sickness
+  * Alacsonyabb légnyomás, kevesebb oxigén - fejfájás, hányingér, fáradtság
+  * Gyors adaptáció - szívverés, légvétel felgyorsul
+  * Lassú akklimatizáció - vér besűrűsödik (kevesebb plazma), több hemoglobin - climb high, sleep low
+  * Nagyobb magasságokban a vérerek kitágulnak hogy növelják a vér folyását, de a kapillárisok szívárognak és folyadél gyülemedhet fel az agyban, és tüdőben (HACE / HAPE - High Altitude Cerebral / Pulmonary Edema) - súlyos, halálos kimenetelű is lehet, nem tud a mászó tisztán gondolkozni - oxigén maszkkal és gyors ereszkedéssel lehet orvosolni
+
 
 ### Főbb témák:
 * Erőss Zsolt rendkívül tehetséges, elkötelezett hegymászó volt. De mint minden kiemelkedő, élsportoló, nem a semmibol, egyik naprol a másikra érte el az eredményeit. 
@@ -32,7 +40,8 @@
   * a szervezet szoktatása a magashegyi, oxigénhiányos környezethet
   * fel és le kell túrázni a hegyen (climb high, sleep low), az alvási magasságot napi 600 méterrel ajánlott csak emelni
   * viszont ahogyan egyre magasabbra merészkedunk, egyre súlyosbodnak a tünetek
-  * minden magashegyi csúcsra többnapos, táborláncon keresztüli túrával lehet feljutni. Több éjszakat is a hegyen kell tölteni
+  * minden magashegyi csúcsra többnapos, táborláncon keresztüli túrával lehet feljutni
+  * több éjszakat, heteket is a hegyen kell tölteni, mielőtt a szervezet alkalmazkodik és képes lesz túlélni 8000 méteren
 * Igázabol minden csúcstámadas kockázatos vállakozas
   * Ha valaki racionálisan, otthona melegéből mérlegelne, meg sem érné elindulni
   * Érdekes kérdés, hogy akkor mégis miért vállalják be önkent ezt a mászók, és miért vágnak bele úrja es újra ilyen rizikós és hatalmas megprobáltatásokba?
