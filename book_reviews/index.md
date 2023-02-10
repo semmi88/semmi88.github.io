@@ -2,7 +2,7 @@
 
 **[Erőss Zsolt a Himalájánál magasabbra - by Földes András, 2013](eross_zsolt.md)**
 
-![alt text](eross_zsolt.jpg "Cover")
+[![alt text](eross_zsolt.jpg "Cover")](eross_zsolt.md)
 
 **[Designing Data-Intensive Applications - Martin Kleppman, 2017](ddia.md)**
 
