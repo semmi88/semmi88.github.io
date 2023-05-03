@@ -2,9 +2,12 @@
 
 ### Background
 
+> **Note**
+> this article was also posted on [Aircall's Tech Blog](https://aircall.io/blog/tech-team-stories/exploring-relational-database-connections-from-serverless-compute/) 
+
 Our engineering team at Aircall favors using managed services and serverless technology in order to quickly deliver new functionalities. For example, our teams heavily rely on AWS Lambda, Function-as-a-Service, for implementing business logic.
 
-You can learn more about our tech stack in another blog entry. Lambda functions are an excellent choice for most scenarios, as they scale out-of-the-box based on traffic, are charged per usage, and can also be orchestrated into complex workflows using AWS Step Functions. However, there are some situations when their usage is not so straightforward. Let's dive deeper into one such case: connecting to a relational database.
+Lambda functions are an excellent choice for most scenarios, as they scale out-of-the-box based on traffic, are charged per usage, and can also be orchestrated into complex workflows using AWS Step Functions. However, there are some situations when their usage is not so straightforward. Let's dive deeper into one such case: connecting to a relational database.
 
 The well-established way of interacting with a relational database is by using a connection pool. One reason for this is that opening and closing database connections is a costly operation, using up database memory and compute resources, and doing it at a high rate (on every request) can greatly reduce performance. So a better way is to pool together connections and reuse them on subsequent requests, this way reducing overhead. A connection pool can also serve for limiting the maximum number of concurrent database connections, when there are no free connections to take from the pool, clients will wait for one to be available (or eventually timeout).
 
