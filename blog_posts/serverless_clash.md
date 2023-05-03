@@ -1,4 +1,4 @@
-# Serverless and Traditional compute clashing
+# Serverless and Traditional Compute clashing
 
 ### Background
 
@@ -12,11 +12,13 @@ However, to maintain a connection pool, we need a long-lived, always-running ser
 
 The question then arises, are there better ways of relational database connection when using serverless on-demand compute? Let's look at two such options, which promise to improve performance:
 
-    serverless-mysql - an open-source npm library, a wrapper around the MySQL client, with connection management specifically thought up for serverless applications, allowing concurrent executions to share connections
+ - *serverless-mysql* - an open-source npm library, a wrapper around the MySQL client, with connection management specifically thought up for serverless applications, allowing concurrent executions to share connections
 
-    AWS RDS Proxy - a paid AWS service, which provides a fully managed database proxy, allows for pooling and sharing of database connections, and can be enabled for most applications with no code changes
+ - *AWS RDS Proxy* - a paid AWS service, which provides a fully managed database proxy, allows for pooling and sharing of database connections, and can be enabled for most applications with no code changes
 
 ### Test set up
+
+![alt text](rdb_conn_diagram.jpg "Test setup diagram")
 
 To compare and evaluate these different options, we ran a test scenario simulating a typical use case in our system.
 
@@ -24,7 +26,7 @@ First, we deployed a relational database (AWS Aurora backed by MySQL), with one 
 
 In the second step, we deployed three different Lambdas, each with its own way of handling database connections:
 
-1. Simple approach - open/close DB connection on every invocation inside the lambda handler - using mysql2 npm library
+ **1. Simple approach** - open/close DB connection on every invocation inside the lambda handler - using mysql2 npm library
 ```
 import mysql2 from "mysql2/promise";
 
@@ -37,7 +39,7 @@ export const lambdaHandler = async (event:any): Promise<any> => {
 };
 ```
 
-2. Using serverless-mysql library with default configurations - DB connection created once outside the lambda handler and reused, while query() and end() calls are executed on every invocation inside the lambda handler
+  **2. Using serverless-mysql library** with default configurations - DB connection created once outside the lambda handler and reused, while query() and end() calls are executed on every invocation inside the lambda handler
 
 ```
 import mysql from "serverless-mysql";
@@ -51,7 +53,7 @@ export const lambdaHandler = async (event: any): Promise<any> => {
     await connection.end();
 };
 ```
-3. Using RDS Proxy with default configurations - same as the first approach, uses mysql2 library, but instead of connecting directly to the DB host url, we are connecting to the Proxy endpoint
+ **3. Using RDS Proxy** with default configurations - same as the first approach, uses mysql2 library, but instead of connecting directly to the DB host url, we are connecting to the Proxy endpoint
 ```
 import mysql2 from "mysql2/promise";
 
@@ -71,20 +73,21 @@ Because the Lambdas will scale seamlessly the bottleneck during our testing will
 We also set a latency goal, wanting to make sure that the 99th percentile of response times is below 500 milliseconds (a threshold taken from current production metrics). This means, that out of our 10.000 requests, we want to exclude the worst/slowest 1 percent (~100 calls) and measure the maximum response time for the remaining 99% of the calls.
 
 To mitigate the effect of Lambda cold starts on the test results, before every test run a 30 seconds warm-up is executed. To mitigate the effects of random network delays, all tests were executed twice and the best results were taken from these runs.
-
+```
 autocannon --connections <CONNECTIONS> --duration 30 <API_ENDPOINT> // warm-up 30 sec 
 autocannon --connections <CONNECTIONS> --amount 10000 --latency <API_ENDPOINT> // test run #1
 autocannon --connections <CONNECTIONS> --amount 10000 --latency <API_ENDPOINT> // test run #2
-
+```
 ### Test results and evaluation
 
 ```
-    Fixed amount of work: 10.000 requests
-
-    Latency goal: p99 < 500ms (excluding 1%, ~ 100 slowest requests)
-
-    Increasing number of concurrent connections (max 170 connections supported)
+ - Fixed amount of work: 10.000 requests
+ - Latency goal: p99 < 500ms (excluding 1%, ~ 100 slowest requests)
+ - Increasing number of concurrent connections (max 170 connections supported)
 ```
+
+![alt text](rdb_conn_res.png "Test results for different connection management options")
+
 
 In the table above you can find the final results. Each row represents the test runs for a different way of handling database connections. The columns represent the runs with an increasing number of concurrent connections. Each cell contains the resulting latencies (p99, p99.9), the average throughput (request/second), and also the total execution time for the 10.000 requests.
 
