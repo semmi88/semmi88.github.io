@@ -9,22 +9,23 @@
 
 Almost all human activity is composed of two parts:
 - the outer game played against external opponents, facing external obstacle/challenges - to reach external goals
-  - specific to the activity, differ in every activity
-- the inner game, takes place in the mind - played against internal obstacles (distraction/lapse of concentration, self-doubt, self-condemnation/judgments, nervousness) - habits of the mind that inhibit excellence
-  - generic, always the same, no matter the activity
-  - focus, non-judgment, welcoming obstacles/challenges - are a remedy to distraction, worry aoubt future & self-image, regretting past mistakes
+  - specific to the situation, different skills needed for every activity
+- the inner game, takes place in the mind - played against internal obstacles - habits of the mind that inhibit excellence
+  - (distraction/lapse of concentration, self-doubt, self-condemnation/judgments, worry/nervousness)
+  - generic, always the same skills, no matter the activity
+  - focus, non-judgment, welcoming obstacles/challenges - are a remedy
 ```
 it makes more sense to focus on the inner game - to play the inner game
 as the mental skills we develop can ge generally applied to all ascpects of life
 ```
 
-Prioritize Internal Needs vs External demands - to be in sync with yourself
+Prioritize Internal Needs vs External demands - to be in sync with yourself and more resilient to stress
 - External pressures - demands put on us by other, by society
-  - sometimes so deeply ingrained we don't even think about questioning them
+  - sometimes so deeply ingrained we don't even think about questioning them - external validation
   - or so authoritative that we are afraid to question them
 - Internal desires and needs
   - listening to yourself, Self 2, and acting in sync with inner desires
-  - self-discovery of true inner desires
+  - self-discovery to uncover true inner desires
 
 
 ### The two selves
@@ -32,7 +33,7 @@ Prioritize Internal Needs vs External demands - to be in sync with yourself
 To explain mental processes, let's imagine that each person has two selfes:
 
     Self1 - the teller, the ego-mind, expresses itself verbally - tries to hard, tries to control, is judgemental, always looking for approval and avoiding  disapproval
-    Self2 - the doer, expresses itself through body movements, has a great abilities, very good instincts and natural learning capabilities (the human brain and body is a remarkable instrument)
+    Self2 - the doer, expresses itself through body movements, has a great abilities, good instincts and natural learning capabilities (the human brain and body is a remarkable instrument)
 
 ### Quieting Self1 - Letting go of judgements
 
@@ -81,7 +82,6 @@ abandoning the ego, stop caring about what other people think
   - picture desired outcome
   - trust Self2, let it happen
   - non-judgemental calm observation of results -> leading to continuous observation and learning
-
 
 
 ### Focus & Concentration
