@@ -1,5 +1,8 @@
 &leftarrow; [back to Homepage](../index.md)
 
+**[The Inner Game of Tennis - by W. Timothy Gallwey, 1974](inner_game.md)**
+[![alt text](inner_game.jpg "Cover")](inner_game.md)
+
 **[Erőss Zsolt a Himalájánál magasabbra - by Földes András, 2013](eross_zsolt.md)**
 
 [![alt text](eross_zsolt.jpg "Cover")](eross_zsolt.html)
