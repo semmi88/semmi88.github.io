@@ -16,13 +16,13 @@ These are tricky questions, as there is no right answer to these. But there abso
 
 And complaining usually is a wrong answer. 
 
-After analyzing my own failed (or partially failed) interviews, I can conclude that even if you feel like you have every right to complain, you shouldn't, because it will put you in a bad position, can easily result in negative feedback.
+After analyzing my own failed (or partially failed) interviews, I can conclude that even if you feel like you have every right to complain, you shouldn't, because it will put you in a bad position, it can easily result in negative feedback.
 
 ## What's the problem with complaining? 
 Taking the perspective of the interviewer, I can see the following issues:
 
 * complaining is the easy thing to do, everyone can do it, it does not differentiate you from the crowd
-* complaining on its own does not get you front A to B, in a way it's assuming the victim mentality, feeling disempowered to better the situation
+* complaining on its own does not get you from A to B, in a way it's assuming the victim mentality, feeling disempowered to better the situation
 * complaining could signal to the interviews that you are a serial complainer, who brings negativity, lowers team morale, gives off negative vibes
 * and most importantly complaining could signal a lack of empathy from your side - inability to see other perspectives, or a general disinterest in getting to know other perspectives
 
@@ -32,11 +32,11 @@ Taking the perspective of the interviewer, I can see the following issues:
 
 So does this mean that you should only share good things - rainbows and sunshines - when asked about your previous jobs? Of course not! 
 
-It's just that there are more clever ways express the same, sort of complaining indirectly:
+It's just that there are more clever ways to express the same, think of it as complaining indirectly:
 
 * explain why you did not like something?
 * what did you do to understand the reasons behind it?
-* how did you try to improve the situation?
+* how did you try to improve or change the situation?
 * what are some valid alternatives?
 * what would you prefer instead?
 
