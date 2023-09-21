@@ -42,9 +42,9 @@ It's just that there are more clever ways to express the same, think of it as co
 
 Most of the time people are not stupid and most of the time there are good reasons for things. 
 
-Showing that you understand the underlying reasons and seek alternatives - is the right way to complain. This kind of thinking and framing shows your ability to debug problems, people and processes - which means you have a better chance of improving things. 
+Showing that you understand the underlying reasons and seek alternatives - is the right way to complain. This kind of thinking and framing shows your ability to debug problems, people and processes - which means you have better chances to actually improve the status quo. 
 
-Now these are the kind of vibes you want to "radiate" during a job interview.
+Now these are the kind of vibes you want to "radiate" during a job interview. And also this is the kind of mentality that takes you further in general.
 
 
 
