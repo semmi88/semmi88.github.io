@@ -3,7 +3,7 @@
 
 # My advice for job interviews: do not complain
 
-![alt text](good_vibes_only.jpg "Good Vibes Only")
+![alt text](good_vibes_only_small.jpg "Good Vibes Only")
 
 Navigating job interviews is hard. The process is imperfect and unfair. Nonetheless, you should try to show the best version of yourself.
 
