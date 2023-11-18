@@ -1,6 +1,6 @@
 &leftarrow; [back to Homepage](../index.md)
 
-**The Manager's Path - by Camille Fournier, 2017**
+**[The Manager's Path - by Camille Fournier, 2017](manager_path.md)**
 
 [![alt text](manager_path.jpg "Cover")](manager_path.md)
 
