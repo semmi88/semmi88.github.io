@@ -34,6 +34,18 @@ The value of planning is to force forethought and deep thinking (not to come up 
 - adjust the plan on the fly
 - launch/rollback plan
 
+### Self Management
+
+- to manage others well, you have to manage yourself well
+- the more time you understand yourself, the better off you will be
+  - the way you react (self awareness)
+  - things that insipre you
+  - things that drive you crazy
+- get good at working through conflict
+  - take ego out, learn to recognize the voice of your ego
+  - see past you own interpretations, you own stories  
+  - get curious
+
 ### Managing People
 
 It's an Emotional Labor - soft skills to address the emotional need of people/teams
@@ -42,18 +54,21 @@ It's an Emotional Labor - soft skills to address the emotional need of people/te
 - Human Connections
 - Mentoring - useful both ways (the mentor pratices communicaiton skills and listening)
 
-**Rule of management: No surprises!** - especially negative one. communicate often, early & keep records
+**Rule of management: No surprises!** 
+- especially negative one
+- communicate often, early & keep records
+- rule of 3, communicate multiple time, multiple ways, prepare FAQ
 
-Get to know people:
-- what gets them excited/motivated
-- what frustrates them
+1-on-1:
+- get to know people
+  - what gets them excited/motivated
+  - what frustrates them
 - goals - in life/in career
 - communication stlye / expectations - meeting frequency | info sharing | review frequency
 - prase/feedback - give it quick
-
-1-on-1:
 - keep a common shared doc - with topics/notes/todos/follow-ups/feedback
 - driven by employee
+- what's going well/what can be improved
 - workplace problems
  - deal with it or put it aside for now, by agreement
  - complaining just increases drama
@@ -68,6 +83,12 @@ Micro-Management vs Autonomy
 Hiding information - real FAILURE of manager/team
 Getting stuck or Making mistakes - just an opportunities for learning
 
+Holding managers accountable:
+- unstable product roadmap
+- full time firefighting mode
+- derailed in refactoring project
+
+Good Manager == Good Debugger (chasing the why?s)
 
 ### Continous Feedback and Performance Evaluations
 
@@ -88,8 +109,8 @@ As a manager you need to know how to play the "promotion game", how to showcase 
 
 ###  Managing teams
  
-- identify & clear bottlenecks and roadblocks
-- keep team focused on top prio deliveries
+- identify & clear bottlenecks and roadblocks - (speed & frequency of code release)
+- keep team focused on top prio deliveries - clear goals, aligned
 - clear communication: timeline & scope
 - learn how to work with smarted/techier people
 - supporting people is more important than tech skills
@@ -112,7 +133,9 @@ How to drive good team decisions:
    - conflict tamer - harder, but better in the long run
  - don't always rely on consensus/voting - because not everyone has equal stakes/knowledge/bias
  - depersonalise decisions - standars/process 
- - you are free to disagree - but you have to understand why, where are other opinions coming from (cannot just assume ignorace/stupidity)
+ - you are free to disagree - but you have to understand why, get curious
+  - where are other opinions coming from (cannot just assume ignorace/stupidity)
+  - seek out more info to be in the best position to decide
 
 Disrespecting manager/team members:
 - ask why are they working here, do they want to keep working here?
@@ -134,12 +157,75 @@ Rules of thumb:
 - Q1 more productive than Q4
 - ~10 weeks per engineer/per quarter for focused work
 - doubling rule - when doing estimations
-- 20% of capacity retained for genering sustaining work
+- 20% of capacity on sustainability (tech debt, refactor, sustainable engineering)
 
  Managing time:
  - importance vs urgency
  - efficient meeting - agenda / up-front work-reading / summary-conclusion documented
-   
+
+Effective strategy for saying NO:
+- yes, and for that we only have to delay the other project
+- help me say yes - asking details about ideas
+- yes, but not right now - appeal to budget/time
+
+### Management tasks - 4 general categories
+- Info gathering/sharing
+- Nudging - reminders, keep on track, asking questions (instead of ordering)
+- Decision Making - managing conflicting perspectives and even with incomplete information
+- Role Modeling - values
+
+
+### CTO
+
+- not a techincal role, tehc peopl would not enjoy it
+- instead a strategist to expand the company - guessing about the future
+
+Delivering bad news:
+- in person (if possible)
+- individually (instead ot all at once)
+- clear & honest
+- show that you care about team/project
+- why is this the path forward?
+- what are new opportunities?
+
+Asking for advice
+- shows respect and it's a covert way to surface problems
+
+### Culture
+
+A complex system that works, always evolves from a simple system that works - never created from scratch.
+- shared rules of a community, core principles, guidelines to follow
+- creates automatic rules of interaction/decision making
+- makes collaboration easier, aligned
+- not exactly the same for every person, but big overlap - the bigger the overlap, the easier the collaboration
+
+Create space/framework for casual interactions:
+- dreaded interactions - if you only have interactions with someone when you need something or something went wrong
+
+### Engineering Processes
+
+Engineering procees == risk management ~ a proxy for how hard it needs to be for something complicated (rare/risky) to happen 
+- no engineering process == you can't scale
+- wrong engineering process == you slow down teams
+
+Focus:
+- product/business focused company -> promotes leaders who are the best shippers, best communicators across functions
+- engineering focused company -> promotes leader who are the most skilled, up-to-date in technology
+
+Code Review:
+- do not debate style - unproductive - use linter
+- limit pending MRs (don't overwhelm) 
+
+Post Mortems:
+- instead of blaming, learning opportunity
+- blaming leads to hiding information, nr1 management failures
+- mistake of the month - socialize that it's okey to fail, if we learn from it
+
+Architectural review:
+- preparing for the review forces deep thinking - whys? risks?
+- unrealistic to review everything
+
+
 
 
 
