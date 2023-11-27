@@ -4,40 +4,24 @@
 
 ![alt text](manager_path.jpg "Cover")
 
+### What is the book about
+The book gives advice about managemt on different levels, with increasing scope, based on the experiences of the author's career:
+- Self Managment
+- Managing People
+- Managing Teams
+- Managing Organizations
+
 
 ### The main takeaways:
-
-
-### Other interesing ideas
-
-
----
-
-### Tech lead
-
-- good communcation & listening - reporting
-- good prio skills - planning, break-down
-- pick up the pieces - make it happen, keep the project moving
-- understand the architecture
-- don't do only interesting/boring things
-
-Influence without authority
-API first design
-Critical vs Optimal identification
-The value of planning is to force forethought and deep thinking (not to come up with the perfect plan)
-
-### Project Management
-- break down the complex end goal into smaller pieces (milestones)
-- prioritize, set order tasks should be done in
-- risk & uncertainty - leads to slow downs and fail
-- push throught the details unknowns
-- adjust the plan on the fly
-- launch/rollback plan
+- to manage others well, you have to manage yourself well first
+- 1st rule of managment: no surprises (especially negative ones) communicate often & early
+- the true failure of management - is teams hiding information
+- if little meaningful feedback for improvement => ready for promotion / or to be given more challenging work
 
 ### Self Management
 
-- to manage others well, you have to manage yourself well
-- the more time you understand yourself, the better off you will be
+- to manage others well, you have to manage yourself well first
+- the more you understand yourself, the better off you will be
   - the way you react (self awareness)
   - things that insipre you
   - things that drive you crazy
@@ -48,16 +32,16 @@ The value of planning is to force forethought and deep thinking (not to come up 
 
 ### Managing People
 
-It's an Emotional Labor - soft skills to address the emotional need of people/teams
+It's an Emotional Labor - soft skills to address the emotional need of others
 - Patience
 - Emphaty
 - Human Connections
 - Mentoring - useful both ways (the mentor pratices communicaiton skills and listening)
 
 **Rule of management: No surprises!** 
-- especially negative one
+- especially negative ones
 - communicate often, early & keep records
-- rule of 3, communicate multiple time, multiple ways, prepare FAQ
+- rule of 3, communicate multiple times, multiple ways, prepare FAQ
 
 1-on-1:
 - get to know people
@@ -80,8 +64,8 @@ Micro-Management vs Autonomy
 - trying to control outcome to meet your standards
 - stripping talented/creative people of autonomy - decreases motivation
 
-Hiding information - real FAILURE of manager/team
-Getting stuck or Making mistakes - just an opportunities for learning
+**The true failure of a manager is when the team is - HIDING INFORMATION**
+- getting stuck or making mistakes - is just an opportunities for learning
 
 Holding managers accountable:
 - unstable product roadmap
@@ -90,7 +74,21 @@ Holding managers accountable:
 
 Good Manager == Good Debugger (chasing the why?s)
 
-### Continous Feedback and Performance Evaluations
+Tech lead qualities:
+- good communcation & listening - reporting
+- good prio skills - planning, break-down
+- pick up the pieces - make it happen, keep the project moving
+- understand the architecture
+- don't do only interesting/boring things
+
+Tech lead principles:
+- Influence without authority
+- API first design
+- Critical vs Optimal identification
+- The value of planning is to force forethought and deep thinking (not to come up with the perfect plan)
+
+
+#### Continous Feedback and Performance Evaluations
 
 - pay attention in every sprint, and highlight
   - 1. talents & achievements
@@ -106,9 +104,8 @@ Good Manager == Good Debugger (chasing the why?s)
 
 As a manager you need to know how to play the "promotion game", how to showcase your people for promotions.
 
-
 ###  Managing teams
- 
+
 - identify & clear bottlenecks and roadblocks - (speed & frequency of code release)
 - keep team focused on top prio deliveries - clear goals, aligned
 - clear communication: timeline & scope
@@ -118,7 +115,7 @@ As a manager you need to know how to play the "promotion game", how to showcase 
 
 ##### Debugging Teams
 
-Basic disfunctions:
+4 basic disfunctions of teams:
  - not shipping (meeting small goals)
  - people drama and negative effects on team dynamics (brilliant asshole)
  - unhappiness due to overwork
@@ -146,10 +143,17 @@ As an IC (Individual Contributor) you get quick wins, short feedback loops:
 - test pass
 - new feature shipped
 - bug fixed
+
 As a Manager you get no quick wins, long feedback loops:
 - set goals
 - clarify requirements
 - follow-up on task completion
+
+### Management tasks - 4 general categories
+- Info gathering/sharing
+- Nudging - reminders, keep on track, asking questions (instead of ordering)
+- Decision Making - managing conflicting perspectives and even with incomplete information
+- Role Modeling - values
 
 ### Project Management
 
@@ -159,41 +163,30 @@ Rules of thumb:
 - doubling rule - when doing estimations
 - 20% of capacity on sustainability (tech debt, refactor, sustainable engineering)
 
- Managing time:
- - importance vs urgency
- - efficient meeting - agenda / up-front work-reading / summary-conclusion documented
+Managing time:
+- importance vs urgency
+- efficient meeting - agenda / up-front work-reading / summary-conclusion documented
 
 Effective strategy for saying NO:
 - yes, and for that we only have to delay the other project
 - help me say yes - asking details about ideas
 - yes, but not right now - appeal to budget/time
 
-### Management tasks - 4 general categories
-- Info gathering/sharing
-- Nudging - reminders, keep on track, asking questions (instead of ordering)
-- Decision Making - managing conflicting perspectives and even with incomplete information
-- Role Modeling - values
+Main goals:
+- team is aligned, shared vision
+- team works effectively
 
-
-### CTO
-
-- not a techincal role, tehc peopl would not enjoy it
-- instead a strategist to expand the company - guessing about the future
-
-Delivering bad news:
-- in person (if possible)
-- individually (instead ot all at once)
-- clear & honest
-- show that you care about team/project
-- why is this the path forward?
-- what are new opportunities?
-
-Asking for advice
-- shows respect and it's a covert way to surface problems
+Strategies
+- break down the complex end goal into smaller pieces (milestones)
+- prioritize, set order tasks should be done in
+- risk & uncertainty - leads to slow downs and fail
+- push throught the details unknowns
+- adjust the plan on the fly
+- launch/rollback plan
 
 ### Culture
 
-A complex system that works, always evolves from a simple system that works - never created from scratch.
+A complex system that works, always evolves from a simple system that works - never created from scratch
 - shared rules of a community, core principles, guidelines to follow
 - creates automatic rules of interaction/decision making
 - makes collaboration easier, aligned
@@ -224,6 +217,21 @@ Post Mortems:
 Architectural review:
 - preparing for the review forces deep thinking - whys? risks?
 - unrealistic to review everything
+
+### CTO
+- not a techincal role, tech people would not enjoy it
+- instead it's a strategist role, to expand the company - guessing about the future
+
+Delivering bad news:
+- in person (if possible)
+- individually (instead ot all at once)
+- clear & honest
+- show that you care about team/project
+- why is this the path forward?
+- what are new opportunities?
+
+Asking for advice
+- shows respect and it's a covert way to surface problems
 
 
 
