@@ -5,7 +5,7 @@
 ![alt text](manager_path.jpg "Cover")
 
 ### What is the book about
-The book gives advice about managemt on different levels, with increasing scope, based on the experiences of the author's career:
+The book gives advice about management on different levels, with increasing scope, based on the experiences of the author's career:
 - Self Managment
 - Managing People
 - Managing Teams
@@ -15,9 +15,10 @@ The book gives advice about managemt on different levels, with increasing scope,
 ### The main takeaways:
 - to manage others well, you have to manage yourself well first
 - 1st rule of managment: no surprises (especially negative ones) communicate often & early
-- the true failure of management - is teams hiding information
-- if little meaningful feedback for improvement => ready for promotion / or to be given more challenging work
-
+- the true failure of a manager is - when the teams hiding information
+- if little meaningful feedback for improvement -> ready for promotion / or to be given more challenging work
+- the 4 basic disfunctions of teams
+- 
 ### Self Management
 
 - to manage others well, you have to manage yourself well first
@@ -91,8 +92,8 @@ Tech lead principles:
 #### Continous Feedback and Performance Evaluations
 
 - pay attention in every sprint, and highlight
-  - 1. talents & achievements
-  - 2. improvement areas - and only focus on main thing
+  - talents & achievements
+  - improvement areas - and only focus on main thing
 - be specific (examples) - fight against bias  
 - common themes for improvement areas
   - struggle saying no (distracted, not focusing on prio)
@@ -100,7 +101,7 @@ Tech lead principles:
   - does not work well across teams, with other teams
   - struggle to break up work (balancing planning/design - with getting things done)
   - cutting corners and not following best practices 
-- **if no/little meaningful feedback for improvement == ready for promotion / or to be given more challenging work**
+- **if no/little meaningful feedback for improvement -> ready for promotion / or to be given more challenging work**
 
 As a manager you need to know how to play the "promotion game", how to showcase your people for promotions.
 
@@ -113,9 +114,7 @@ As a manager you need to know how to play the "promotion game", how to showcase 
 - supporting people is more important than tech skills
 - but you have to remain technical - coding, stay connected - as it makes your job easier
 
-##### Debugging Teams
-
-4 basic disfunctions of teams:
+**Debugging Teams - 4 basic disfunctions of teams:**
  - not shipping (meeting small goals)
  - people drama and negative effects on team dynamics (brilliant asshole)
  - unhappiness due to overwork
@@ -175,6 +174,7 @@ Effective strategy for saying NO:
 Main goals:
 - team is aligned, shared vision
 - team works effectively
+- all-in-all: less wasted time, not faster delivery then the estimated work
 
 Strategies
 - break down the complex end goal into smaller pieces (milestones)
