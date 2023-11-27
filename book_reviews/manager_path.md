@@ -15,10 +15,12 @@ The book gives advice about management on different levels, with increasing scop
 ### The main takeaways:
 - to manage others well, you have to manage yourself well first
 - 1st rule of managment: no surprises (especially negative ones) communicate often & early
-- the true failure of a manager is - when the teams hiding information
-- if little meaningful feedback for improvement -> ready for promotion / or to be given more challenging work
+- the true failure of a manager is - when the teams hiding information (because they are afraid of surfacing "bad news")
+- if little meaningful feedback for improvement can be given -> employee is ready for promotion / or to be given more challenging work
 - the 4 basic disfunctions of teams
-- 
+
+---
+
 ### Self Management
 
 - to manage others well, you have to manage yourself well first
