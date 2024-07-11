@@ -2,13 +2,13 @@
 
 # Could a language model graduate high school in Romania in 2024?
 
-TLDR: No, or at least no in one-shot.
+**TLDR**: No. Or at least not in one-shot.
 
 * [Intro](#intro)
 * [The models](#the-models)
 * [The test](#the-test)
 * [The prompt](#the-prompt)
-* [The results](#the-resutls)
+* [The results](#the-results)
 * [Philosophical digression](#philosophical-digression)
 * [Full chat logs](#full-chat-logs)
 
@@ -51,18 +51,23 @@ Links:
 
 ## The prompt
 
-I've uploaded the pdf file containing the exam questions and user just one, simple zero-shot prompt to ask the language model to solve the exam:
+I've uploaded the pdf file containing the exam questions and used just one, simple zero-shot prompt to ask the language model to solve the exam:
 
 ```
-Hello, I want to test your knowledge on a standardized mathematics test. I'm going to share with you the exam questions and expect you to solve them to the best of your knowledge. The questions are in Romanian, and I will expect the answers also to be in Romanian. This is an extra complication, but the reason for it is that I want to test your foreign language understanding as well. And finally, it's okay to skip a question or not to answer a questions if you don't know how. Best of luck!
+Hello, I want to test your knowledge on a standardized mathematics test.
+I'm going to share with you the exam questions and expect you to solve them to the best of your knowledge.
+The questions are in Romanian, and I will expect the answers also to be in Romanian.
+This is an extra complication, but the reason for it is that I want to test your foreign language understanding as well.
+And finally, it's okay to skip a question or not to answer a questions if you don't know how.
+Best of luck!
 ```
 
 ## The results
 
-Drumroll!
+**Drumroll!**
 
-- ChatGPT-4o - 25%
-- Claude 3.5 Sonnet - 43%
+- ChatGPT-4o: 25%
+- Claude 3.5 Sonnet: 43%
 
 Okay, I have to admit that I expected more, I expected these language models to pass the exam (by scoring more than 50%). But probably this is me having unrealistic expectations, because of all the hype around language models.
 
