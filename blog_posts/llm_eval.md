@@ -74,17 +74,16 @@ Best of luck!
 
 **Drumroll!**
 
-| Model               | M2 Math Exam Score (from 10 to 100 points) |
-| ------------------- | ------------------------------------------ |
-| ChatGPT-4o          | 25                                         |
-| Claude 3.5 Sonnet   | 43                                         |
+The exam scores go from 10 to 100 points.
+- **ChatGPT-4o** scored **25 points**
+- **Claude 3.5 Sonnet** scored **43 points**
 
 
-Okay, I have to admit that I expected more, I expected these language models to pass the exam (by scoring more than 50 point - Claude got close, but not close enough). But probably this is me having unrealistic expectations, because of all the hype around language models.
+Okay, I have to admit that I expected more, I expected these language models to pass the exam (by scoring more than 50 points, although Claude got close to this). But probably this is me having unrealistic expectations, because of all the hype around language models.
 
-Thinking about this rationally, this is an exceptionally hard task. Multilingual, high school math exam, on the first try, using the one prompt and the raw exam file - with all the intricate math notation (square roots, integrals, matrices). Given all this, this is a great try on the first attempt. And I'm being honest, I would have scored lower on a first attempt.
+Thinking about this rationally, this is an exceptionally hard task. Multilingual, high school math exam, on the first try, using just one prompt and the raw exam file - with all the intricate math notation (square roots, integrals, matrices). Given all this, this is a great try on the first attempt. The questions were understood by the models (despite being in Romanian and using lots of math notation), and the answers were coherent and some of the answers followed the correct math calculation and reasoning. 
 
-Iterating on the prompts, asking follow-up questions and guiding the models, probably would result in an excellent score. However, I don't have time for that experiment this time.
+These low exam scores could probably be drastically improved, by iterating on the prompts, asking follow-up questions and guiding the models. However, I don't have time for that experiment this time.
 
 [Here](https://github.com/semmi88/semmi88.github.io/blob/master/blog_posts/llm_eval_scores.pdf) are the breakdowns for the points scored on each exercise by the models. The main takeaway is that many mistakes can be attributed to the inability of both models to correctly read math syntax from the pdf file, resulting in incorrect formulas and calculations. Probably this is something that will greatly improve in the future.
 
@@ -103,7 +102,7 @@ Some interesting differences:
 So a language model cannot graduate high school in Romania. Or at least not yet. Phew, that's reassuring. But let's imagine for a moment that it could. Let's assume that next year or the year after, the same evaluation will result in test scores of 99%.
 
 What would that mean? Would language models be smarter than high school students?
-Not necessarily. Is a calculator smarter than me, because it can calculate the nth root of a number, which I could not? Standardized tests offer a common way to evaluate and rank students, but just as any kind of evaluation, they are not perfect. They are a tool to measure some skills, because the education system needs to somehow rank students, but they do not measure all skills.
+Not necessarily. Is a calculator smarter than me, because it can calculate the nth root of a number, which I could not? Standardized tests offer a common way to evaluate and rank students, but just as any kind of evaluation, they are not perfect. They are a tool to measure some skills, because the education system needs to somehow rank and grade students, but they do not measure all skills.
 
 But is there any value in making students write an exam, which could be aced by a language model? There might be some value to it still. Is there any value in learning and playing chess, even though the very best players (by far) are computer algorithms? Chess is still a popular game with a huge fanbase, and playing chess improves skills which can be used in other areas of life (focus ability, pattern matching, memorisation). The same way, exams where language models are superior, could still be beneficial to sharpen skills for us, little humans.
 
