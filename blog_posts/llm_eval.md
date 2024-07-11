@@ -46,8 +46,9 @@ Why the Math M2 BAC 2024 exam in Romanian?
 - a multilingual math tests is more challenging, however math equations are language independent, so this should not be a huge obstacle for these models
 
 Links:
-- exam questions - Math M2 BAC 2024
-- evaluation and grading guide - Math M2 BAC 2024
+- [official goverment website for the Bacalaureat exam](http://subiecte2024.edu.ro/2024/bacalaureat/Subiecte_si_bareme/)
+- exam questions reuploaded to github - [Math M2 BAC 2024](https://github.com/semmi88/semmi88.github.io/blob/master/blog_posts/mat_st-nat_2024_LRO.pdf)
+- evaluation and grading guide reuploaded to github - [Math M2 BAC 2024 eval](https://github.com/semmi88/semmi88.github.io/blob/master/blog_posts/mat_st-nat_2024_bar_LRO.pdf)
 
 ## The prompt
 
