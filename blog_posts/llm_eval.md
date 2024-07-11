@@ -10,10 +10,10 @@
 * [The prompt](#the-prompt)
 * [The results](#the-results)
 * [Philosophical digression](#philosophical-digression)
-* [Screenshot of ChatGPT taking the exam - partial](#screenshot-of-chatgpt-taking-the-exam---partial)
 * [Full chat logs for ChatGPT](#full-chat-logs-for-chatgpt)
-* [Screenshot of Claude taking the exam - partial](#screenshot-of-claude-taking-the-exam---partial)
 * [Full chat logs for Claude](#full-chat-logs-for-claude)
+* [Screenshot of ChatGPT taking the exam - partial](#screenshot-of-chatgpt-taking-the-exam---partial)
+* [Screenshot of Claude taking the exam - partial](#screenshot-of-claude-taking-the-exam---partial)
 
 ## Intro
 We are living in exciting times, as ever more capable language models are being released. However, the biggest pain point for me with language models is that it's really hard to objectively evaluate these models. Many of the standard benchmarks used are of questionable usefulness and some are also suspect of being leaked in the training data. So we are left wondering how good these models really are?
@@ -106,21 +106,21 @@ Not necessarily. Is a calculator smarter than me, because it can calculate the n
 
 But is there any value in making students write an exam, which could be aced by a language model? There might be some value to it still. Is there any value in learning and playing chess, even though the very best players (by far) are computer algorithms? Chess is still a popular game with a huge fanbase, and playing chess improves skills which can be used in other areas of life (focus ability, pattern matching, memorisation). The same way, exams where language models are superior, could still be beneficial to sharpen skills for us, little humans.
 
-## Screenshot of ChatGPT taking the exam - partial
-
-![alt text](chatgpt_math_exam.png "ChatGPT math exam prompt and answer")
-
 ## Full chat logs for ChatGPT
 
 - [OpenAI shareble link - ChatGPT multilingual math exam chat](https://chatgpt.com/share/ad0aa15a-866b-4089-8a6e-17dd321ef752)
 - [Markdown verison](https://github.com/semmi88/semmi88.github.io/blob/master/blog_posts/chatgpt_full_math_exam_chat_log.md)
-
-## Screenshot of Claude taking the exam - partial
-
-![alt text](claude_math_exam.png "Claude math exam prompt and answer")
 
 ## Full chat logs for Claude
 
 - No shareable link from Anthropic :(
 - [AIArchives link to Claude multilingual math exam chat](https://aiarchives.org/id/yEYka1cLaJqBqobx5BOV)
 - [Markdown version](https://github.com/semmi88/semmi88.github.io/blob/master/blog_posts/claude_full_math_exam_chat_log.md)
+
+## Screenshot of ChatGPT taking the exam - partial
+
+![alt text](chatgpt_math_exam.png "ChatGPT math exam prompt and answer")
+
+## Screenshot of Claude taking the exam - partial
+
+![alt text](claude_math_exam.png "Claude math exam prompt and answer")
