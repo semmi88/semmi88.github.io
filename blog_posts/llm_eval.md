@@ -70,16 +70,13 @@ Best of luck!
 
 **Drumroll!**
 
-- ChatGPT-4o: 25%
-- Claude 3.5 Sonnet: 43%
-
-| Model               | M2 Math Exam Score (from 10 to 100) |
-| ------------------- | ----------------------------------- |
-| ChatGPT-4o          | 25                                  |
-| Claude 3.5 Sonnet   | 43                                  |
+| Model               | M2 Math Exam Score (from 10 to 100 points) |
+| ------------------- | ------------------------------------------ |
+| ChatGPT-4o          | 25                                         |
+| Claude 3.5 Sonnet   | 43                                         |
 
 
-Okay, I have to admit that I expected more, I expected these language models to pass the exam (by scoring more than 50%). But probably this is me having unrealistic expectations, because of all the hype around language models.
+Okay, I have to admit that I expected more, I expected these language models to pass the exam (by scoring more than 50 point - Claude got close, but not close enough). But probably this is me having unrealistic expectations, because of all the hype around language models.
 
 Thinking about this rationally, this is an exceptionally hard task. Multilingual, high school math exam, on the first try, using the one prompt and the raw exam file - with all the intricate math notation (square roots, integrals, matrices). Given all this, this is a great try on the first attempt. And I'm being honest, I would have scored lower on a first attempt.
 
