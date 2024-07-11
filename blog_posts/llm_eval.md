@@ -122,4 +122,5 @@ But is there any value in making students write an exam, which could be aced by 
 ## Full chat logs for Claude
 
 - No shareable link from Anthropic :(
+- [AIArchives link to Claude multilingual math exam chat](https://aiarchives.org/id/yEYka1cLaJqBqobx5BOV)
 - [Markdown version](https://github.com/semmi88/semmi88.github.io/blob/master/blog_posts/claude_full_math_exam_chat_log.md)
