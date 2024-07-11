@@ -10,7 +10,9 @@
 * [The prompt](#the-prompt)
 * [The results](#the-results)
 * [Philosophical digression](#philosophical-digression)
+* [Screenshot of ChatGPT taking the exam - partial](#screenshot-of-chatgpt-taking-the-exam---partial)
 * [Full chat logs for ChatGPT](#full-chat-logs-for-chatgpt)
+* [Screenshot of Claude taking the exam - partial](#screenshot-of-claude-taking-the-exam---partial)
 * [Full chat logs for Claude](#full-chat-logs-for-claude)
 
 ## Intro
@@ -98,9 +100,14 @@ Not necessarily. Is a calculator smarter than me, because it can calculate the n
 
 But is there any value in making students write an exam, which could be aced by a language model? There might be some value to it still. Is there any value in learning and playing chess, even though the very best players (by far) are computer algorithms? Chess is still a popular game with a huge fanbase, and playing chess improves skills which can be used in other areas of life (focus ability, pattern matching, memorisation). The same way, exams where language models are superior, could still be beneficial to sharpen skills for us, little humans.
 
+## Screenshot of ChatGPT taking the exam - partial
+
+![alt text](chatgpt_math_exam.png "ChatGPT math exam prompt and answer")
+
 ## Full chat logs for ChatGPT
 
 [ChatGPT multilingual math exam chat](https://chatgpt.com/share/ad0aa15a-866b-4089-8a6e-17dd321ef752)
+
 ```
 (ME:Hello, I want to test your knowledge on a standardised mathematics test. I'm going to share with you the exam questions and expect you to solve them to the best of your knowledge. The questions are in Romanian, and I will expect the answers also to be in Romanian. This is an extra complication, but the reason for it is that I want to test your foreign language understanding as well. And finally, it's okey to skip a question or not to answer a questions if you don't know how. Best of luck!)
 
@@ -271,9 +278,14 @@ But is there any value in making students write an exam, which could be aced by 
    \]
 ```
 
+## Screenshot of Claude taking the exam - partial
+
+![alt text](claude_math_exam.png "Claude math exam prompt and answer")
+
 ## Full chat logs for Claude
 
 No shareable link :(
+
 ```
 (ME:Hello, I want to test your knowledge on a standardised mathematics test. I'm going to share with you the exam questions and expect you to solve them to the best of your knowledge. The questions are in Romanian, and I will expect the answers also to be in Romanian. This is an extra complication, but the reason for it is that I want to test your foreign language understanding as well. And finally, it's okey to skip a question or not to answer a questions if you don't know how. Best of luck!)
 
