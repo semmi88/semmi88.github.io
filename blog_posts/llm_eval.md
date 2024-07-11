@@ -72,7 +72,7 @@ Best of luck!
 
 ## The results
 
-**Drumroll!**
+**Drum roll!**
 
 The exam scores go from 10 to 100 points.
 - **ChatGPT-4o** scored **25 points**
