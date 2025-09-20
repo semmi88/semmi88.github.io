@@ -1,12 +1,16 @@
 &leftarrow; [back to Homepage](../index.md)
 
+**[Breaking Through (Áttörések) - by Katalin Kariko, 2023](kariko.md)**
+
+[![alt text](kairko.jpg "Cover")](kariko.html)
+
 **[The Manager's Path - by Camille Fournier, 2017](manager_path.md)**
 
-[![alt text](manager_path.jpg "Cover")](manager_path.md)
+[![alt text](manager_path.jpg "Cover")](manager_path.html)
 
 **[The Inner Game of Tennis - by W. Timothy Gallwey, 1974](inner_game.md)**
 
-[![alt text](inner_game_.png "Cover")](inner_game.md)
+[![alt text](inner_game_.png "Cover")](inner_game.html)
 
 **[Erőss Zsolt a Himalájánál magasabbra - by Földes András, 2013](eross_zsolt.md)**
 
