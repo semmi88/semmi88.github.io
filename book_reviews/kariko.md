@@ -3,7 +3,7 @@
 
 **Breaking Through (Áttörések) - by Katalin Karikó, 2023**
 
-[![alt text](kairko.jpg "Cover")](kariko.html)
+[![alt text](kariko.jpg "Cover")](kariko.html)
 
 ### Three main themes
 
