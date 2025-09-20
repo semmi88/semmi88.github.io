@@ -1,8 +1,8 @@
 &leftarrow; [back to Homepage](../index.md)
 
-**[Breaking Through (Áttörések) - by Katalin Kariko, 2023](kariko.md)**
+**[Breaking Through (Áttörések) - by Katalin Karikó, 2023](kariko.md)**
 
-[![alt text](kairko.jpg "Cover")](kariko.html)
+[![alt text](manager_path.jpg "Cover")](kariko.html)
 
 **[The Manager's Path - by Camille Fournier, 2017](manager_path.md)**
 
