@@ -1,7 +1,7 @@
 
 &leftarrow; [back to Book reviews](index.md)
 
-**Breaking Through (Áttörések) - by Katalin Kariko, 2023**
+**Breaking Through (Áttörések) - by Katalin Karikó, 2023**
 
 [![alt text](kairko.jpg "Cover")](kariko.html)
 
