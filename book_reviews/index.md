@@ -1,5 +1,9 @@
 &leftarrow; [back to Homepage](../index.md)
 
+**[Amusing Ourselves to Death - by Neil Postman, 1985](amusing_ourselves.md)**
+
+[![alt text](amusing_ourselves.jpg "Cover")](amusing_ourselves.html)
+
 **[Breaking Through (Áttörések) - by Katalin Karikó, 2023](kariko.md)**
 
 [![alt text](kariko.jpg "Cover")](kariko.html)
