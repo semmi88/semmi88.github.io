@@ -21,11 +21,27 @@ Introduction of a technology, technique transforms the thinking and the content 
 - Until 1840 information could only move as fast as human beings could carry it - as fast as trains, about 50km/hour. Space was a constraint on the movement of information. There was no continent wide conversation possible, each region was conversing in its own way.
 - Then came the telegraph, putting electricity in the service of communication, eliminating space problem, collapsing regions and creating the possibility of unified discourse. But telegraph creates its own discource, it not only permits, but insists upon communication between two connected cities (even if there is nothing of importance to communicate). It gives a form of legitimacy to the idea of context-free information, the idea that the value of information is not tied to any function it might serve in social, policical decisions making and action - but is tied to its novelty, interest, curiosity. 
 - Almost at the same time photography was invented ("writing with light"). The naming is ironic, as imagery is totally different form writing - photography only only speaks in particularities - cannot deal with unseen, remote, internal, abstract. Picture are recognized, words are understood. "The graphic revolution" - imagery did not just suplement language, but did replace it as our dominant means for constructing, understanding, testing reality. Seeing, not reading, became the basis for believing.
+- television gave the biases of telegraph and photography their most prominent expression, raising the interplay of instancy and imagery to perfeciton and brought it into the homes. All subjects find their way to television, and public understanding of these subjects is shaped by the biases of television.
+
 
 ### The bias of the medium
 
 Meida affects our epistemology, specifically our definitions of truth. The bias of the medium sits heavy over culture. 
 
+
+The forms of human communication influence which ideas can be expressed conviniently, and which in turn become important content of a culture
+- Smoke signals can only transmit, basic, crucial information - does not allow for doing philosophy
+- Oral cultures, tribes, settle disputes using cultural proverbs, which fit the situation
+- In our society laws are written material, however testimony is expected to be given orally - spoken word is a "truer" reflection of the state of mind
+- When writing a thesis references can only be given to other written text and not to the spoken word - compared to the spoken word, which is considered casually uttered, the published, written word has greater prestige, we assume to have been reflected upon, revised by its author and reviewd by editors or other parties.
+- In our current day (1985) for example there is a bias in expressing truths with numbers. For example an economist cannot recite a poem, tell a personal anecdote to express truths about economic relationships as it would be considered irrelevant or childish. Of course this does not mean that all ways of truth telling are equal.
+
+The concept of truth is intimately linked to the biases of forms of expression - the truth must appear in its proper clothing to be acknowledged, "truth" is kind of a cultural prejudice. 
+- trial of Socrates, he did not use rhetoric in his defense, apologized for not having a well prepared speech. Greeks were used to communicating truth through rigorous rhetoric, and thus may have dismissed Socrates' defense on the basis of the different form of expression.
+- Hernan Diaz - the issue of truth, assumptions and pregiven notions that have to do with genre, place, voice
+  - label on a medicie box, persciption bottle - fully trusted, life might depend on it
+  - diary - unfiltered, truest thoughts, trusted
+  - newspaper - you don't trust it that much
 
 ### The illlusion of the news of the day
 
@@ -35,50 +51,31 @@ The author has no problem with television's junk, no one and nothing is threathe
 Ask the question: how often it occures that information on the radio/TV/newspapaer alters your plans for the day, or make you take some action you did not plan, or provide insight into some problem you were trying to solve? Maybe the weather? Maybe the stock market if you are actively investing? But most of it just gives us topics to talk about, without leading to meaningful action. The legacy of the telegraph is a decreased information to action ratio.
 
 
-#### She lived through some pandemics as a small child and saw the benefits of vaccines first hand
-
-#### Life in socialist Hungary
-
-Orwell vs Huxley
+### Orwell vs Huxley
 
 1984, president Ronald Reagan is a former hollywood actor. Ohter candidate is an astronaut, and a third a televion show host. Entertainers. A bold, fat man cannot be the president. Cosmetics, took the place of ideology in politcs. The shape of a mans body is irrelevant to the shape of his ideas when addressing the public in writing, or on radio, however it is quite relevant in television. Television discourse is conducted through imagery.
 
-Age of Typograpgy vs Age of Television - shift in te content and meaning of public discourse
-the media is the message, the forms of human communication influence which ideas can be expressed conviniently, whihc in turn become important content of a culture
+### Age of Typograpgy vs Age of Television 
+
+As culture moves from orality to writing to printing to television - its ideas of truth move with it. There is a shift in the content and meaning of public discourse.
+
+Differences in thinkning in a word-centric culture vs image-centric culture.
+- Typography amplifies - the ability to think conceptually, deductively, sequeantially, values reason and order, abhorres contradiciton, tolerates a delayed response.
+
+
+
+- The first fifteen presidents of the US would no have been recognized had they passed by the average citizen. Public figures (lawyers, scientists, preachers) were known largely by their written words - not their looks or oratory. Thinink about these men is to thing about what they wrote, judge their arguments.
+- Current (1985) presidents Nixon or scientists Einstein, come to our mind as images - and almost no words.
 
 
 
 
 
-Oral cultures, tribes, settle disputes using cultural proverbs, which fit the situation.
-In our society laws are written material, however testimony is expected to be given orally - spoken word is a truer reflection of the state of mind.
-When writing a thesis references can only be given to other written text and not to the spoken word - compared to the spoken word, which is considered casually uttered, we published, written word has greater prestige, we assume to have been reflected upon, revised by its author and reviewd by editors or other parties.
-
-The concept of truth is intimately linked to the biases of forms of expression - the truth must appear in its proper clothing to be acknowledged, "truth" is kind of a cultural prejudice. 
-Trial of Socrates did n
-ot use rhetoric in his defense, apologized for not having a well prepared speech. Greeks were used to communicating truth through rigorous rhetoric, and thus may have dismissed Socrates' defense on the basis of the different form of expression.
-
-Hernan Diaz - the issue of truth, assumption with which we enter any text
-the truth that we find in a text, is highly conventional and it depends on certain pregiven notions, that have to do with genre, place, voice
-label on a medicie box, persciption bottle - fully trusted, life might depend on it
-diary - unfiltered, truest thoughts, trusted;
-a poem
-newspaper - you don't trust it that much
-genre - comes with expectation of confidence
 
 
-
-In our current day for example there is a bias in expressing truths with numbers. For example an economist cannot recite a poem, tell a personal anecdote to express truths about economic rleationships as it would be considered irrelevant or childish. Of course this does not mean that all ways of truth telling are equal.
-
-As culture moves from orality to writing to printing to television - its ideas of truth move with it.
-
-Form will determine the nature of content
-Karl Marx - is the Iliad possible when printing press and machines exits? Is it not inevitable that with the emergence of the press the sinigng and the teliing and the muse cease, the conditions necessary for epic poetry diappear? Marx understood that the press was not just a machine, but a structure of discourse, which both rulesour and inisists upon certain kind of content and certain kind of audience.
 
 In the late 1890s, advertisiment changes with the introduction of images, tunes and slogens - nonpropositional use of language. Advertising became one part depth psychology and one part aesthetic theory - reson had to move itself to other arenas.
 
-Difference in thinkning in a word-centric culture vs image-centric culture. The first fifteen presidents of the US would no have been recognized had they passed by the average citizen. Public figures (lawyers, scientists, preachers) were known largely by their written words - not their looks or oratory. Thinink about these men is to thing about what they wrote, judge their arguments. Current presidents Nixon or scientists Einstein, come to our mind as images - and almost no words.
-typography amplifies - ability to think conceptually, deductively, sequeantially, values reason and order, abhorres contradiciton, tolerates a delayed response.
 
 Interesting example, second commendment of israelites, God instructs people on how they were to symbolize or not symbolize their experience. "Youshall not make any graven image". A strange instruction to inclide in an ethical system, unless its author assumes connection between forms of human communication and the quality of the culture.
 
@@ -107,9 +104,6 @@ It was the perfect match, telegraph news from nowhere - about unknown places, pe
 technology turned the age old problem of information on its head - people once sought information to manage the real context of their life, now they had to invent context in which otherwise useless information can be put to use. crosswords, cocktail parties, radio quiz shows, television game shows.
 pseudo-context, a structure invented to give fragmented and irrelevant information some use
 
-television gave the biases of telegraph and photography their most prominent expression, raising the interplay of instancy and imagery to perfeciton and brought it into the homes. All subjects find their way to television, and public understanding of these subjects is shaped by the biases of television.
-
-television as a meta-medium, that people learn about newer technologyies (like computer) from and through the television.
 
 television transforms culture into show business
 what is television? what kind of conversations does it permit, what intellectual tendencies it encouragesm what culture it produces?
